@@ -1,0 +1,21 @@
+skillId,name,domain,bloomLevel,grade,description
+A1_Thong_tin_va_xu_li,Thông tin và xử lí,Information Processing,Nhận biết,6,Chủ đề A - Bài 1: Thông tin và xử lí thông tin
+A2_Luu_tru_va_trao_doi,Lưu trữ và trao đổi,Information Processing,Thông hiểu,6,Chủ đề A - Bài 2: Lưu trữ và trao đổi thông tin
+A3_May_tinh_trong_HDTT,Máy tính trong hoạt động thông tin,Hardware,Nhận biết,6,Chủ đề A - Bài 3: Máy tính trong hoạt động thông tin
+A4_May_tinh_va_phan_mem,Máy tính và phần mềm,Software,Nhận biết,6,Chủ đề A - Bài 4: Máy tính và phần mềm
+A5_He_dieu_hanh,Hệ điều hành,Software,Thông hiểu,6,Chủ đề A - Bài 5: Hệ điều hành
+k6_b1_khai_niem_loi_ich,Khái niệm và lợi ích mạng máy tính,Networking,Nhận biết,6,Chủ đề B - Bài 1: Khái niệm và lợi ích mạng máy tính
+k6_b2_cac_thanh_phan,Các thành phần mạng máy tính,Networking,Nhận biết,6,Chủ đề B - Bài 2: Các thành phần mạng máy tính
+k6_b3_ket_noi_mang,Kết nối mạng,Networking,Thông hiểu,6,Chủ đề B - Bài 3: Kết nối mạng
+k6_b4_an_toan_mang,An toàn mạng,Networking,Vận dụng,6,Chủ đề B - Bài 4: An toàn mạng
+k6_c1_so_do_tu_duy,Sơ đồ tư duy,Visualization,Nhận biết,6,Chủ đề C - Bài 1: Sơ đồ tư duy
+k6_c2_tao_so_do_tu_duy,Tạo sơ đồ tư duy,Visualization,Thông hiểu,6,Chủ đề C - Bài 2: Tạo sơ đồ tư duy
+k6_c3_chinh_sua_so_do,Chỉnh sửa sơ đồ tư duy,Visualization,Vận dụng,6,Chủ đề C - Bài 3: Chỉnh sửa sơ đồ tư duy
+k6_c4_trinh_bay_so_do,Trình bày sơ đồ tư duy,Visualization,Vận dụng,6,Chủ đề C - Bài 4: Trình bày sơ đồ tư duy
+k6_d1_van_ban_so,Văn bản số,Word Processing,Nhận biết,6,Chủ đề D - Bài 1: Văn bản số
+k6_d2_soan_thao_van_ban,Soạn thảo văn bản,Word Processing,Thông hiểu,6,Chủ đề D - Bài 2: Soạn thảo văn bản
+k6_d3_dinh_dang_van_ban,Định dạng văn bản,Word Processing,Vận dụng,6,Chủ đề D - Bài 3: Định dạng văn bản
+k6_e1_bang_tinh,Bảng tính,Spreadsheet,Nhận biết,6,Chủ đề E - Bài 1: Bảng tính
+k6_e2_nhap_du_lieu,Nhập dữ liệu vào bảng tính,Spreadsheet,Thông hiểu,6,Chủ đề E - Bài 2: Nhập dữ liệu vào bảng tính
+k6_e3_tinh_toan,Tính toán trong bảng tính,Spreadsheet,Vận dụng,6,Chủ đề E - Bài 3: Tính toán trong bảng tính
+k6_f1_trinh_chieu,Trình chiếu,Presentation,Nhận biết,6,Chủ đề F - Bài 1: Trình chiếu

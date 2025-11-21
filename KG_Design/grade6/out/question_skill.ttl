@@ -1,0 +1,82 @@
+@prefix ex:  <https://example.org/kg/> .
+@prefix edu: <https://example.org/edu#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/kg/question/K6A1_01> a edu:Question ; edu:qId "K6A1_01" .
+<https://example.org/kg/question/K6A1_01> edu:measures <https://example.org/kg/skill/A1_Thong_tin_va_xu_li> .
+<https://example.org/kg/question/K6A1_02> a edu:Question ; edu:qId "K6A1_02" .
+<https://example.org/kg/question/K6A1_02> edu:measures <https://example.org/kg/skill/A1_Thong_tin_va_xu_li> .
+<https://example.org/kg/question/K6A1_03> a edu:Question ; edu:qId "K6A1_03" .
+<https://example.org/kg/question/K6A1_03> edu:measures <https://example.org/kg/skill/A1_Thong_tin_va_xu_li> .
+<https://example.org/kg/question/K6A1_04> a edu:Question ; edu:qId "K6A1_04" .
+<https://example.org/kg/question/K6A1_04> edu:measures <https://example.org/kg/skill/A1_Thong_tin_va_xu_li> .
+<https://example.org/kg/question/K6A1_05> a edu:Question ; edu:qId "K6A1_05" .
+<https://example.org/kg/question/K6A1_05> edu:measures <https://example.org/kg/skill/A1_Thong_tin_va_xu_li> .
+<https://example.org/kg/question/K6A1_06> a edu:Question ; edu:qId "K6A1_06" .
+<https://example.org/kg/question/K6A1_06> edu:measures <https://example.org/kg/skill/A1_Thong_tin_va_xu_li> .
+<https://example.org/kg/question/K6A1_07> a edu:Question ; edu:qId "K6A1_07" .
+<https://example.org/kg/question/K6A1_07> edu:measures <https://example.org/kg/skill/A1_Thong_tin_va_xu_li> .
+<https://example.org/kg/question/K6A1_08> a edu:Question ; edu:qId "K6A1_08" .
+<https://example.org/kg/question/K6A1_08> edu:measures <https://example.org/kg/skill/A1_Thong_tin_va_xu_li> .
+<https://example.org/kg/question/K6A1_09> a edu:Question ; edu:qId "K6A1_09" .
+<https://example.org/kg/question/K6A1_09> edu:measures <https://example.org/kg/skill/A1_Thong_tin_va_xu_li> .
+<https://example.org/kg/question/K6A1_10> a edu:Question ; edu:qId "K6A1_10" .
+<https://example.org/kg/question/K6A1_10> edu:measures <https://example.org/kg/skill/A1_Thong_tin_va_xu_li> .
+<https://example.org/kg/question/K6A1_11> a edu:Question ; edu:qId "K6A1_11" .
+<https://example.org/kg/question/K6A1_11> edu:measures <https://example.org/kg/skill/A1_Thong_tin_va_xu_li> .
+<https://example.org/kg/question/K6A1_12> a edu:Question ; edu:qId "K6A1_12" .
+<https://example.org/kg/question/K6A1_12> edu:measures <https://example.org/kg/skill/A1_Thong_tin_va_xu_li> .
+<https://example.org/kg/question/K6A2_01> a edu:Question ; edu:qId "K6A2_01" .
+<https://example.org/kg/question/K6A2_01> edu:measures <https://example.org/kg/skill/A2_Luu_tru_va_trao_doi> .
+<https://example.org/kg/question/K6A2_02> a edu:Question ; edu:qId "K6A2_02" .
+<https://example.org/kg/question/K6A2_02> edu:measures <https://example.org/kg/skill/A2_Luu_tru_va_trao_doi> .
+<https://example.org/kg/question/K6A2_03> a edu:Question ; edu:qId "K6A2_03" .
+<https://example.org/kg/question/K6A2_03> edu:measures <https://example.org/kg/skill/A2_Luu_tru_va_trao_doi> .
+<https://example.org/kg/question/K6A2_04> a edu:Question ; edu:qId "K6A2_04" .
+<https://example.org/kg/question/K6A2_04> edu:measures <https://example.org/kg/skill/A2_Luu_tru_va_trao_doi> .
+<https://example.org/kg/question/K6A2_05> a edu:Question ; edu:qId "K6A2_05" .
+<https://example.org/kg/question/K6A2_05> edu:measures <https://example.org/kg/skill/A2_Luu_tru_va_trao_doi> .
+<https://example.org/kg/question/K6A2_06> a edu:Question ; edu:qId "K6A2_06" .
+<https://example.org/kg/question/K6A2_06> edu:measures <https://example.org/kg/skill/A2_Luu_tru_va_trao_doi> .
+<https://example.org/kg/question/K6A2_07> a edu:Question ; edu:qId "K6A2_07" .
+<https://example.org/kg/question/K6A2_07> edu:measures <https://example.org/kg/skill/A2_Luu_tru_va_trao_doi> .
+<https://example.org/kg/question/K6A2_08> a edu:Question ; edu:qId "K6A2_08" .
+<https://example.org/kg/question/K6A2_08> edu:measures <https://example.org/kg/skill/A2_Luu_tru_va_trao_doi> .
+<https://example.org/kg/question/K6A2_09> a edu:Question ; edu:qId "K6A2_09" .
+<https://example.org/kg/question/K6A2_09> edu:measures <https://example.org/kg/skill/A2_Luu_tru_va_trao_doi> .
+<https://example.org/kg/question/K6A2_10> a edu:Question ; edu:qId "K6A2_10" .
+<https://example.org/kg/question/K6A2_10> edu:measures <https://example.org/kg/skill/A2_Luu_tru_va_trao_doi> .
+<https://example.org/kg/question/K6A2_11> a edu:Question ; edu:qId "K6A2_11" .
+<https://example.org/kg/question/K6A2_11> edu:measures <https://example.org/kg/skill/A2_Luu_tru_va_trao_doi> .
+<https://example.org/kg/question/K6A2_12> a edu:Question ; edu:qId "K6A2_12" .
+<https://example.org/kg/question/K6A2_12> edu:measures <https://example.org/kg/skill/A2_Luu_tru_va_trao_doi> .
+<https://example.org/kg/question/K6A3_01> a edu:Question ; edu:qId "K6A3_01" .
+<https://example.org/kg/question/K6A3_01> edu:measures <https://example.org/kg/skill/A3_May_tinh_trong_HDTT> .
+<https://example.org/kg/question/K6A3_02> a edu:Question ; edu:qId "K6A3_02" .
+<https://example.org/kg/question/K6A3_02> edu:measures <https://example.org/kg/skill/A3_May_tinh_trong_HDTT> .
+<https://example.org/kg/question/K6A3_03> a edu:Question ; edu:qId "K6A3_03" .
+<https://example.org/kg/question/K6A3_03> edu:measures <https://example.org/kg/skill/A3_May_tinh_trong_HDTT> .
+<https://example.org/kg/question/K6A3_04> a edu:Question ; edu:qId "K6A3_04" .
+<https://example.org/kg/question/K6A3_04> edu:measures <https://example.org/kg/skill/A3_May_tinh_trong_HDTT> .
+<https://example.org/kg/question/K6A3_05> a edu:Question ; edu:qId "K6A3_05" .
+<https://example.org/kg/question/K6A3_05> edu:measures <https://example.org/kg/skill/A3_May_tinh_trong_HDTT> .
+<https://example.org/kg/question/K6B1_01> a edu:Question ; edu:qId "K6B1_01" .
+<https://example.org/kg/question/K6B1_01> edu:measures <https://example.org/kg/skill/k6_b1_khai_niem_loi_ich> .
+<https://example.org/kg/question/K6B1_02> a edu:Question ; edu:qId "K6B1_02" .
+<https://example.org/kg/question/K6B1_02> edu:measures <https://example.org/kg/skill/k6_b1_khai_niem_loi_ich> .
+<https://example.org/kg/question/K6B1_03> a edu:Question ; edu:qId "K6B1_03" .
+<https://example.org/kg/question/K6B1_03> edu:measures <https://example.org/kg/skill/k6_b1_khai_niem_loi_ich> .
+<https://example.org/kg/question/K6B1_04> a edu:Question ; edu:qId "K6B1_04" .
+<https://example.org/kg/question/K6B1_04> edu:measures <https://example.org/kg/skill/k6_b1_khai_niem_loi_ich> .
+<https://example.org/kg/question/K6B1_05> a edu:Question ; edu:qId "K6B1_05" .
+<https://example.org/kg/question/K6B1_05> edu:measures <https://example.org/kg/skill/k6_b1_khai_niem_loi_ich> .
+<https://example.org/kg/question/K6B1_06> a edu:Question ; edu:qId "K6B1_06" .
+<https://example.org/kg/question/K6B1_06> edu:measures <https://example.org/kg/skill/k6_b1_khai_niem_loi_ich> .
+<https://example.org/kg/question/K6B1_07> a edu:Question ; edu:qId "K6B1_07" .
+<https://example.org/kg/question/K6B1_07> edu:measures <https://example.org/kg/skill/k6_b1_khai_niem_loi_ich> .
+<https://example.org/kg/question/K6B1_08> a edu:Question ; edu:qId "K6B1_08" .
+<https://example.org/kg/question/K6B1_08> edu:measures <https://example.org/kg/skill/k6_b1_khai_niem_loi_ich> .
+<https://example.org/kg/question/K6B1_09> a edu:Question ; edu:qId "K6B1_09" .
+<https://example.org/kg/question/K6B1_09> edu:measures <https://example.org/kg/skill/k6_b1_khai_niem_loi_ich> .
+<https://example.org/kg/question/K6B1_10> a edu:Question ; edu:qId "K6B1_10" .
+<https://example.org/kg/question/K6B1_10> edu:measures <https://example.org/kg/skill/k6_b1_khai_niem_loi_ich> .

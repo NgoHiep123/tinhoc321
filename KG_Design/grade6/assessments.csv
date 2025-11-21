@@ -1,0 +1,24 @@
+assessId,name,date,grade,type,maxScore
+ASSESS_K6_A1_2024,Kiểm tra Chủ đề A - Bài 1,2024-09-15,6,quiz,10.0
+ASSESS_K6_A2_2024,Kiểm tra Chủ đề A - Bài 2,2024-09-22,6,quiz,10.0
+ASSESS_K6_A3_2024,Kiểm tra Chủ đề A - Bài 3,2024-09-29,6,quiz,10.0
+ASSESS_K6_A4_2024,Kiểm tra Chủ đề A - Bài 4,2024-10-06,6,quiz,10.0
+ASSESS_K6_A5_2024,Kiểm tra Chủ đề A - Bài 5,2024-10-13,6,quiz,10.0
+ASSESS_K6_B1_2024,Kiểm tra Chủ đề B - Bài 1,2024-10-20,6,quiz,10.0
+ASSESS_K6_B2_2024,Kiểm tra Chủ đề B - Bài 2,2024-10-27,6,quiz,10.0
+ASSESS_K6_B3_2024,Kiểm tra Chủ đề B - Bài 3,2024-11-03,6,quiz,10.0
+ASSESS_K6_B4_2024,Kiểm tra Chủ đề B - Bài 4,2024-11-10,6,quiz,10.0
+ASSESS_K6_C1_2024,Kiểm tra Chủ đề C - Bài 1,2024-11-17,6,quiz,10.0
+ASSESS_K6_C2_2024,Kiểm tra Chủ đề C - Bài 2,2024-11-24,6,quiz,10.0
+ASSESS_K6_C3_2024,Kiểm tra Chủ đề C - Bài 3,2024-12-01,6,quiz,10.0
+ASSESS_K6_C4_2024,Kiểm tra Chủ đề C - Bài 4,2024-12-08,6,quiz,10.0
+ASSESS_K6_D1_2024,Kiểm tra Chủ đề D - Bài 1,2024-12-15,6,quiz,10.0
+ASSESS_K6_D2_2024,Kiểm tra Chủ đề D - Bài 2,2024-12-22,6,quiz,10.0
+ASSESS_K6_D3_2024,Kiểm tra Chủ đề D - Bài 3,2025-01-05,6,quiz,10.0
+ASSESS_K6_E1_2024,Kiểm tra Chủ đề E - Bài 1,2025-01-12,6,quiz,10.0
+ASSESS_K6_E2_2024,Kiểm tra Chủ đề E - Bài 2,2025-01-19,6,quiz,10.0
+ASSESS_K6_E3_2024,Kiểm tra Chủ đề E - Bài 3,2025-01-26,6,quiz,10.0
+ASSESS_K6_F1_2024,Kiểm tra Chủ đề F - Bài 1,2025-02-02,6,quiz,10.0
+ASSESS_K6_HK1_2024,Thi học kỳ 1,2024-12-20,6,midterm,10.0
+ASSESS_K6_HK2_2024,Thi học kỳ 2,2025-05-15,6,midterm,10.0
+ASSESS_K6_CN_2024,Điểm cả năm,2025-05-30,6,final,10.0

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔐 Đăng nhập | Tin học THCS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body{
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-attachment: fixed;
+      position: relative;
+    }
+    body::before {
+      content: '💻 🤖 ⚡ 🚀 💾 🎮';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 32px;
+      opacity: 0.05;
+      pointer-events: none;
+      animation: float 40s infinite linear;
+      word-spacing: 150px;
+      line-height: 100px;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-100vh) rotate(360deg); }
+    }
+    .note{font-size:12px;color:#94a3b8}
+    .login-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      animation: slideUp 0.6s ease-out;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .input-field {
+      transition: all 0.3s ease;
+    }
+    .input-field:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+    }
+    .login-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transition: all 0.3s ease;
+    }
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+    }
+  </style>
+</head>
+<body class="text-slate-100 min-h-screen flex items-center justify-center p-4">
+  <div class="login-card w-full max-w-md rounded-3xl p-8 shadow-2xl relative z-10">
+    <!-- Icon header -->
+    <div class="text-center mb-6">
+      <div class="inline-block p-4 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl shadow-xl mb-3">
+        <span class="text-5xl">🔐</span>
+      </div>
+      <h1 class="text-3xl font-black text-gray-900 mb-2">Đăng nhập</h1>
+      <p class="text-gray-600">Chào mừng bạn đến với hệ thống Tin học THCS!</p>
+    </div>
+
+    <div class="space-y-4">
+      <div>
+        <label class="block mb-2 text-sm font-bold text-gray-700">🎓 Chọn khối</label>
+        <select id="grade" class="input-field w-full rounded-xl bg-white border-2 border-gray-200 focus:border-purple-500 px-4 py-3 text-gray-900 font-semibold outline-none"></select>
+      </div>
+      <div>
+        <label class="block mb-2 text-sm font-bold text-gray-700">🏫 Chọn lớp</label>
+        <select id="class" class="input-field w-full rounded-xl bg-white border-2 border-gray-200 focus:border-purple-500 px-4 py-3 text-gray-900 font-semibold outline-none" disabled></select>
+      </div>
+      <div>
+        <label class="block mb-2 text-sm font-bold text-gray-700">👤 Họ và tên</label>
+        <select id="student" class="input-field w-full rounded-xl bg-white border-2 border-gray-200 focus:border-purple-500 px-4 py-3 text-gray-900 font-semibold outline-none" disabled></select>
+      </div>
+      <div>
+        <label class="block mb-2 text-sm font-bold text-gray-700">🔑 Mật khẩu</label>
+        <input id="password" type="password" class="input-field w-full rounded-xl bg-white border-2 border-gray-200 focus:border-purple-500 px-4 py-3 text-gray-900 font-semibold outline-none" placeholder="Nhập mật khẩu của bạn">
+        <p class="note mt-2 text-gray-500">💡 Nếu quên mật khẩu, liên hệ giáo viên để được cấp lại.</p>
+      </div>
+      <div class="flex items-center justify-between mt-6 pt-4 border-t border-gray-200">
+        <a href="index.html" class="text-sm text-purple-600 hover:text-purple-800 font-semibold transition-colors">⬅ Về trang chủ</a>
+        <button id="loginBtn" class="login-btn px-6 py-3 rounded-xl text-white font-black shadow-lg">
+          ▶️ Vào làm bài
+        </button>
+      </div>
+      <p id="status" class="text-sm text-red-500 text-center font-semibold min-h-[24px] mt-3"></p>
+    </div>
+  </div>
+
+<script>
+const statusEl = document.getElementById('status');
+let DATA = null;
+
+async function loadData(){
+  try{
+    const res = await fetch('students.json?v=' + Date.now());
+    DATA = await res.json();
+    const gradeSelect = document.getElementById('grade');
+    const grades = Object.keys(DATA).sort((a,b)=>parseInt(a)-parseInt(b));
+    gradeSelect.innerHTML = '<option value="">-- Chọn khối --</option>' + grades.map(g=>`<option value="${g}">Khối ${g}</option>`).join('');
+  }catch(e){
+    statusEl.textContent = 'Không tải được danh sách học sinh (students.json).';
+  }
+}
+loadData();
+
+document.getElementById('grade').addEventListener('change', e=>{
+  const g = e.target.value;
+  const classSel = document.getElementById('class');
+  const studSel = document.getElementById('student');
+  studSel.innerHTML = '';
+  studSel.disabled = true;
+  if(!g){ classSel.innerHTML=''; classSel.disabled=true; return; }
+  const classes = Object.keys(DATA[g]||{}).sort();
+  classSel.innerHTML = '<option value="">-- Chọn lớp --</option>' + classes.map(c=>`<option>${c}</option>`).join('');
+  classSel.disabled = false;
+});
+
+document.getElementById('class').addEventListener('change', e=>{
+  const g = document.getElementById('grade').value;
+  const c = e.target.value;
+  const studSel = document.getElementById('student');
+  if(!c){ studSel.innerHTML=''; studSel.disabled=true; return; }
+  const names = (DATA[g]?.[c]||[]).map(s=>s.name);
+  studSel.innerHTML = '<option value="">-- Chọn tên --</option>' + names.map(n=>`<option>${n}</option>`).join('');
+  studSel.disabled = false;
+});
+
+async function sha256Hex(str){
+  const enc = new TextEncoder().encode(str);
+  const buf = await crypto.subtle.digest('SHA-256', enc);
+  const arr = Array.from(new Uint8Array(buf));
+  return arr.map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+document.getElementById('loginBtn').addEventListener('click', async ()=>{
+  statusEl.textContent = '';
+  const g = document.getElementById('grade').value;
+  const c = document.getElementById('class').value;
+  const n = document.getElementById('student').value;
+  const pw = document.getElementById('password').value.trim();
+  if(!g || !c || !n || !pw){ statusEl.textContent='Vui lòng chọn đủ khối, lớp, tên và nhập mật khẩu.'; return; }
+
+  const list = DATA[g]?.[c] || [];
+  const rec = list.find(x=>x.name===n);
+  if(!rec){ statusEl.textContent='Không tìm thấy học sinh.'; return; }
+
+  const hash = await sha256Hex(pw);
+  if(hash !== rec.pass_hash){ statusEl.textContent='Mật khẩu không đúng.'; return; }
+
+  const student = { grade: g, className: c, name: n, loginAt: new Date().toISOString() };
+  localStorage.setItem('student', JSON.stringify(student));
+
+  const qp = new URLSearchParams(location.search);
+  const next = qp.get('next') || 'index.html';
+  location.href = next;
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+@prefix ex:  <https://example.org/kg/> .
+@prefix edu: <https://example.org/edu#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/kg/student/2324_0001> a edu:Student ; edu:studentId "2324_0001" .
+<https://example.org/kg/student/2324_0002> a edu:Student ; edu:studentId "2324_0002" .
+<https://example.org/kg/student/2324_0003> a edu:Student ; edu:studentId "2324_0003" .
+<https://example.org/kg/student/2324_0004> a edu:Student ; edu:studentId "2324_0004" .
+<https://example.org/kg/student/2324_0005> a edu:Student ; edu:studentId "2324_0005" .
+<https://example.org/kg/student/2324_0006> a edu:Student ; edu:studentId "2324_0006" .
+<https://example.org/kg/student/2324_0007> a edu:Student ; edu:studentId "2324_0007" .
+<https://example.org/kg/student/2324_0008> a edu:Student ; edu:studentId "2324_0008" .
+<https://example.org/kg/student/2324_0009> a edu:Student ; edu:studentId "2324_0009" .
+<https://example.org/kg/student/2324_0010> a edu:Student ; edu:studentId "2324_0010" .
+<https://example.org/kg/student/2324_0011> a edu:Student ; edu:studentId "2324_0011" .
+<https://example.org/kg/student/2324_0012> a edu:Student ; edu:studentId "2324_0012" .
+<https://example.org/kg/student/2324_0013> a edu:Student ; edu:studentId "2324_0013" .
+<https://example.org/kg/student/2324_0014> a edu:Student ; edu:studentId "2324_0014" .
+<https://example.org/kg/student/2324_0015> a edu:Student ; edu:studentId "2324_0015" .
+<https://example.org/kg/student/2324_0016> a edu:Student ; edu:studentId "2324_0016" .
+<https://example.org/kg/student/2324_0017> a edu:Student ; edu:studentId "2324_0017" .
+<https://example.org/kg/student/2324_0018> a edu:Student ; edu:studentId "2324_0018" .
+<https://example.org/kg/student/2324_0019> a edu:Student ; edu:studentId "2324_0019" .
+<https://example.org/kg/student/2324_0020> a edu:Student ; edu:studentId "2324_0020" .

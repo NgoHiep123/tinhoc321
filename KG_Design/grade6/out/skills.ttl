@@ -1,0 +1,24 @@
+@prefix ex:  <https://example.org/kg/> .
+@prefix edu: <https://example.org/edu#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/kg/skill/A1_Thong_tin_va_xu_li> a edu:Skill ;  edu:skillId "A1_Thong_tin_va_xu_li" ;  edu:name "Thông tin và xử lí" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/A2_Luu_tru_va_trao_doi> a edu:Skill ;  edu:skillId "A2_Luu_tru_va_trao_doi" ;  edu:name "Lưu trữ và trao đổi" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/A3_May_tinh_trong_HDTT> a edu:Skill ;  edu:skillId "A3_May_tinh_trong_HDTT" ;  edu:name "Máy tính trong hoạt động thông tin" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/A4_May_tinh_va_phan_mem> a edu:Skill ;  edu:skillId "A4_May_tinh_va_phan_mem" ;  edu:name "Máy tính và phần mềm" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/A5_He_dieu_hanh> a edu:Skill ;  edu:skillId "A5_He_dieu_hanh" ;  edu:name "Hệ điều hành" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/k6_b1_khai_niem_loi_ich> a edu:Skill ;  edu:skillId "k6_b1_khai_niem_loi_ich" ;  edu:name "Khái niệm và lợi ích mạng máy tính" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/k6_b2_cac_thanh_phan> a edu:Skill ;  edu:skillId "k6_b2_cac_thanh_phan" ;  edu:name "Các thành phần mạng máy tính" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/k6_b3_ket_noi_mang> a edu:Skill ;  edu:skillId "k6_b3_ket_noi_mang" ;  edu:name "Kết nối mạng" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/k6_b4_an_toan_mang> a edu:Skill ;  edu:skillId "k6_b4_an_toan_mang" ;  edu:name "An toàn mạng" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/k6_c1_so_do_tu_duy> a edu:Skill ;  edu:skillId "k6_c1_so_do_tu_duy" ;  edu:name "Sơ đồ tư duy" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/k6_c2_tao_so_do_tu_duy> a edu:Skill ;  edu:skillId "k6_c2_tao_so_do_tu_duy" ;  edu:name "Tạo sơ đồ tư duy" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/k6_c3_chinh_sua_so_do> a edu:Skill ;  edu:skillId "k6_c3_chinh_sua_so_do" ;  edu:name "Chỉnh sửa sơ đồ tư duy" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/k6_c4_trinh_bay_so_do> a edu:Skill ;  edu:skillId "k6_c4_trinh_bay_so_do" ;  edu:name "Trình bày sơ đồ tư duy" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/k6_d1_van_ban_so> a edu:Skill ;  edu:skillId "k6_d1_van_ban_so" ;  edu:name "Văn bản số" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/k6_d2_soan_thao_van_ban> a edu:Skill ;  edu:skillId "k6_d2_soan_thao_van_ban" ;  edu:name "Soạn thảo văn bản" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/k6_d3_dinh_dang_van_ban> a edu:Skill ;  edu:skillId "k6_d3_dinh_dang_van_ban" ;  edu:name "Định dạng văn bản" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/k6_e1_bang_tinh> a edu:Skill ;  edu:skillId "k6_e1_bang_tinh" ;  edu:name "Bảng tính" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/k6_e2_nhap_du_lieu> a edu:Skill ;  edu:skillId "k6_e2_nhap_du_lieu" ;  edu:name "Nhập dữ liệu vào bảng tính" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/k6_e3_tinh_toan> a edu:Skill ;  edu:skillId "k6_e3_tinh_toan" ;  edu:name "Tính toán trong bảng tính" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/skill/k6_f1_trinh_chieu> a edu:Skill ;  edu:skillId "k6_f1_trinh_chieu" ;  edu:name "Trình chiếu" ;  edu:grade "6"^^xsd:int .

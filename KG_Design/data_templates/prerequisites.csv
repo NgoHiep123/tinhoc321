@@ -1,0 +1,3 @@
+fromSkillId,toSkillId,relationType,note
+K7_A1_Hardware,K7_A2_OperatingSystem,PREREQUISITE_OF,"Example; edit per syllabus"
+

@@ -1,0 +1,35 @@
+@prefix ex:  <https://example.org/kg/> .
+@prefix edu: <https://example.org/edu#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/kg/resource/R_K6_A1_HTML> a edu:Resource ;  edu:resId "R_K6_A1_HTML" ;  edu:title "Khối 6 - A1 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_A1.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_A2_HTML> a edu:Resource ;  edu:resId "R_K6_A2_HTML" ;  edu:title "Khối 6 - A2 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_A2.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_A3_HTML> a edu:Resource ;  edu:resId "R_K6_A3_HTML" ;  edu:title "Khối 6 - A3 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_A3.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_A4_HTML> a edu:Resource ;  edu:resId "R_K6_A4_HTML" ;  edu:title "Khối 6 - A4 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_A4.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_A5_HTML> a edu:Resource ;  edu:resId "R_K6_A5_HTML" ;  edu:title "Khối 6 - A5 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_A5.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_B1_HTML> a edu:Resource ;  edu:resId "R_K6_B1_HTML" ;  edu:title "Khối 6 - B1 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_B1.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_B2_HTML> a edu:Resource ;  edu:resId "R_K6_B2_HTML" ;  edu:title "Khối 6 - B2 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_B2.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_B3_HTML> a edu:Resource ;  edu:resId "R_K6_B3_HTML" ;  edu:title "Khối 6 - B3 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_B3.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_B4_HTML> a edu:Resource ;  edu:resId "R_K6_B4_HTML" ;  edu:title "Khối 6 - B4 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_B4.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_C1_HTML> a edu:Resource ;  edu:resId "R_K6_C1_HTML" ;  edu:title "Khối 6 - C1 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_C1.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_C2_HTML> a edu:Resource ;  edu:resId "R_K6_C2_HTML" ;  edu:title "Khối 6 - C2 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_C2.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_C3_HTML> a edu:Resource ;  edu:resId "R_K6_C3_HTML" ;  edu:title "Khối 6 - C3 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_C3.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_C4_HTML> a edu:Resource ;  edu:resId "R_K6_C4_HTML" ;  edu:title "Khối 6 - C4 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_C4.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_C5_HTML> a edu:Resource ;  edu:resId "R_K6_C5_HTML" ;  edu:title "Khối 6 - C5 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_C5.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_C6_HTML> a edu:Resource ;  edu:resId "R_K6_C6_HTML" ;  edu:title "Khối 6 - C6 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_C6.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_D1_HTML> a edu:Resource ;  edu:resId "R_K6_D1_HTML" ;  edu:title "Khối 6 - D1 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_D1.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_D2_HTML> a edu:Resource ;  edu:resId "R_K6_D2_HTML" ;  edu:title "Khối 6 - D2 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_D2.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_D3_HTML> a edu:Resource ;  edu:resId "R_K6_D3_HTML" ;  edu:title "Khối 6 - D3 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_D3.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_E1_HTML> a edu:Resource ;  edu:resId "R_K6_E1_HTML" ;  edu:title "Khối 6 - E1 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_E1.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_E2_HTML> a edu:Resource ;  edu:resId "R_K6_E2_HTML" ;  edu:title "Khối 6 - E2 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_E2.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_E3_HTML> a edu:Resource ;  edu:resId "R_K6_E3_HTML" ;  edu:title "Khối 6 - E3 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_E3.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_E4_HTML> a edu:Resource ;  edu:resId "R_K6_E4_HTML" ;  edu:title "Khối 6 - E4 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_E4.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_E5_HTML> a edu:Resource ;  edu:resId "R_K6_E5_HTML" ;  edu:title "Khối 6 - E5 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_E5.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_E6_HTML> a edu:Resource ;  edu:resId "R_K6_E6_HTML" ;  edu:title "Khối 6 - E6 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_E6.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_E7_HTML> a edu:Resource ;  edu:resId "R_K6_E7_HTML" ;  edu:title "Khối 6 - E7 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_E7.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_E8_HTML> a edu:Resource ;  edu:resId "R_K6_E8_HTML" ;  edu:title "Khối 6 - E8 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_E8.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_F1_HTML> a edu:Resource ;  edu:resId "R_K6_F1_HTML" ;  edu:title "Khối 6 - F1 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_F1.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_F2_HTML> a edu:Resource ;  edu:resId "R_K6_F2_HTML" ;  edu:title "Khối 6 - F2 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_F2.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_F3_HTML> a edu:Resource ;  edu:resId "R_K6_F3_HTML" ;  edu:title "Khối 6 - F3 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_F3.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_F4_HTML> a edu:Resource ;  edu:resId "R_K6_F4_HTML" ;  edu:title "Khối 6 - F4 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_F4.html" ;  edu:grade "6"^^xsd:int .
+<https://example.org/kg/resource/R_K6_F5_HTML> a edu:Resource ;  edu:resId "R_K6_F5_HTML" ;  edu:title "Khối 6 - F5 (HTML)" ;  edu:mediaType "html" ;  edu:url "Web/K6_F5.html" ;  edu:grade "6"^^xsd:int .

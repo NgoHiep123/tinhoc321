@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>💻 Tin học THCS · Học lập trình vui!</title>
+  <meta name="description" content="Trang chủ Tin học THCS. Chọn khối lớp hoặc bài học để làm trắc nghiệm. Học Tin học dễ dàng và thú vị!" />
+  <style>
+    /* ========= Thiết kế Tin học - Tech inspired ========= */
+    :root{
+      --bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --bg-pattern: #f0f4ff;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --brand: #6366f1;   /* indigo tech */
+      --brand-2: #8b5cf6; /* purple tech */
+      --brand-3: #06b6d4; /* cyan tech */
+      --chip: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --chip-text: #ffffff;
+      --shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+      --card-grad: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root{
+        --bg-pattern: #0f172a;
+        --surface: #1e293b;
+        --text: #f1f5f9;
+        --muted: #94a3b8;
+        --border: rgba(255,255,255,.1);
+        --shadow: 0 20px 25px -5px rgba(0,0,0,0.5);
+        --card-grad: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+      }
+    }
+
+    /* ========= Reset & nền tảng ========= */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background: var(--bg-pattern);
+      background-image: 
+        linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px),
+        linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px);
+      background-size: 20px 20px;
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      position: relative;
+      overflow-x: hidden;
+    }
+    /* Tech particles floating */
+    body::before {
+      content: '💻 🤖 ⚡ 🚀 💾 🎮 🖥️ ⌨️';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 24px;
+      opacity: 0.05;
+      pointer-events: none;
+      animation: float 60s infinite linear;
+      z-index: 0;
+      word-spacing: 100px;
+      line-height: 80px;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-100vh) rotate(360deg); }
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1100px;margin:0 auto;padding:24px;position:relative;z-index:1}
+
+    /* ========= Header ========= */
+    header{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter:saturate(140%) blur(6px);
+      background: color-mix(in srgb, var(--bg) 70%, transparent);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:14px 24px;
+      max-width:1100px; margin:0 auto;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:800;
+      letter-spacing:.2px; font-size:clamp(18px,2.6vw,22px);
+    }
+    .brand-badge{
+      width:40px;height:40px;border-radius:12px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      box-shadow: 0 8px 16px rgba(99, 102, 241, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .actions{display:flex; gap:10px; align-items:center}
+
+    /* ========= Nút ========= */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px; padding:10px 14px; border-radius:12px; font-weight:600;
+      border:1px solid var(--border); background:var(--surface);
+      box-shadow: var(--shadow);
+      transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
+      cursor:pointer;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn:active{ transform: translateY(0); }
+    .btn.primary{
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color:#fff; border:0;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn.primary::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+    .btn.primary:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+    .btn.ghost{ background:transparent; box-shadow:none }
+    .btn.small{ padding:8px 12px; border-radius:10px; font-size:14px }
+
+    /* ========= Hero ========= */
+    .hero{
+      padding:40px 0 10px;
+      display:grid; grid-template-columns:1.1fr .9fr; gap:24px;
+    }
+    .hero h1{
+      margin:0 0 8px; font-size:clamp(26px, 5vw, 40px);
+      line-height:1.15;
+    }
+    .muted{ color:var(--muted) }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 14px; border-radius:999px; font-weight:600; font-size:13px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #ffffff;
+      border:0;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+      animation: slideDown 0.6s ease-out;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-card{
+      background: var(--card-grad), var(--surface);
+      border:1px solid var(--border); border-radius:18px; padding:16px; box-shadow:var(--shadow);
+    }
+    .hero-cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+
+    /* ========= Lưới khối lớp ========= */
+    .grid{
+      display:grid; gap:16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin-top:22px;
+    }
+    .card{
+      background: var(--card-grad), var(--surface);
+      border:1px solid var(--border); border-radius:20px; padding:20px;
+      box-shadow: var(--shadow);
+      display:flex; flex-direction:column; gap:10px;
+      min-height: 180px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #06b6d4 100%);
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+    .card:hover::before {
+      transform: translateX(0);
+    }
+    .card:hover{
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.25);
+      border-color: rgba(99, 102, 241, 0.3);
+    }
+    .card h3{margin:0 0 6px; font-size:19px; font-weight:700}
+    .card .desc{ color:var(--muted); font-size:14px }
+    .btns{ display:flex; flex-wrap:wrap; gap:10px; margin-top:4px }
+    .pill{
+      padding:6px 10px; border-radius:999px; font-weight:600; border:1px solid var(--border);
+      background:var(--surface); box-shadow: var(--shadow); font-size:13px;
+    }
+
+    /* ========= Footer ========= */
+    footer{margin:28px 0 16px; text-align:center; color:var(--muted); font-size:13px}
+
+    /* ========= Trợ năng ========= */
+    :focus-visible{ outline:3px solid color-mix(in srgb, var(--brand), white 30%); outline-offset:2px }
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important}
+    }
+  </style>
+
+  <script>
+    // ====== Tiện ích đăng nhập/đăng xuất ======
+    function getStudent(){
+      try { return JSON.parse(localStorage.getItem('student')||'null'); }
+      catch(e){ return null; }
+    }
+    function ensureAuth(nextPage){
+      const s = getStudent();
+      if(!s){
+        location.href = 'login.html?next=' + encodeURIComponent(nextPage || location.pathname.split('/').pop());
+        return false;
+      }
+      return true;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const s = getStudent();
+      const userBox  = document.querySelector('#userBox');
+      const loginBtn = document.querySelector('#loginBtn');
+      const logoutBtn= document.querySelector('#logoutBtn');
+      const startBtn = document.querySelector('#startBtn');
+
+      if(s){
+        if(userBox){
+          userBox.innerHTML = `<span class="pill">Xin chào, <strong>${s.name}</strong> · Lớp ${s.className}</span>`;
+        }
+        if(loginBtn)  loginBtn.style.display  = 'none';
+        if(logoutBtn){
+          logoutBtn.style.display = 'inline-flex';
+          logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('student');
+            location.href = 'index.html';
+          });
+        }
+      } else {
+        if(logoutBtn) logoutBtn.style.display = 'none';
+      }
+
+      if(startBtn){
+        startBtn.addEventListener('click', () => ensureAuth('A1.html') && (location.href='A1.html'));
+      }
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="Thanh điều hướng">
+      <div class="brand">
+        <span class="brand-badge" aria-hidden="true">🤖</span>
+        <span>💻 Tin học THCS</span>
+      </div>
+      <div class="actions">
+        <div id="userBox" class="hide-on-mobile"></div>
+        <a id="loginBtn" class="btn small" href="login.html">Đăng nhập</a>
+        <button id="logoutBtn" class="btn small ghost" style="display:none">Đăng xuất</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div>
+        <span class="chip">🎯 Học – 💪 Luyện tập – 📊 Theo dõi tiến độ</span>
+        <h1 id="heroTitle">🚀 Ngân hàng câu hỏi & bài luyện trắc nghiệm Tin học</h1>
+        <p class="muted">Khám phá thế giới Tin học qua các bài trắc nghiệm thú vị! Chọn khối lớp hoặc bài học để bắt đầu hành trình chinh phục kiến thức công nghệ. ⚡</p>
+        <div class="hero-cta">
+          <button id="startBtn" class="btn primary">Bắt đầu ngay</button>
+          <a class="btn" href="#grades">Chọn theo khối</a>
+        </div>
+      </div>
+      <div class="hero-card" role="note" aria-label="Gợi ý nhanh">
+        <strong>💡 Gợi ý nhanh</strong>
+        <ul class="muted" style="margin:8px 0 0 20px;">
+          <li>⏱️ Mỗi bài 10–12 câu, khoảng 10 phút</li>
+          <li>💾 Hệ thống tự động lưu kết quả và phân tích</li>
+          <li>🌐 Làm bài mọi lúc, mọi nơi trên mọi thiết bị</li>
+          <li>🏆 Theo dõi tiến độ và điểm số của bạn</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Lưới khối -->
+    <section id="grades" aria-labelledby="gradesTitle">
+      <h2 id="gradesTitle" style="margin:14px 0 6px; font-size:22px; font-weight:700;">📚 Chọn khối lớp</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>🎓 Tin học 6</h3>
+          <p class="desc">📚 Đầy đủ 31 bài - Tất cả câu hỏi đã được cập nhật!</p>
+          <details class="mt-2">
+            <summary class="cursor-pointer font-bold text-purple-700 hover:text-purple-900">📂 Xem tất cả bài học (31 bài)</summary>
+            <div class="mt-3 space-y-3">
+              <div>
+                <p class="text-xs font-bold text-gray-600 mb-2">CHỦ ĐỀ A: Thông tin & Xử lí (5 bài)</p>
+                <div class="btns flex flex-wrap gap-2">
+                  <a class="btn small primary" href="K6_A1.html" onclick="return ensureAuth('K6_A1.html')">💻A1</a>
+                  <a class="btn small primary" href="K6_A2.html" onclick="return ensureAuth('K6_A2.html')">💾A2</a>
+                  <a class="btn small" href="K6_A3.html" onclick="return ensureAuth('K6_A3.html')">🖥️A3</a>
+                  <a class="btn small" href="K6_A4.html" onclick="return ensureAuth('K6_A4.html')">📊A4</a>
+                  <a class="btn small" href="K6_A5.html" onclick="return ensureAuth('K6_A5.html')">💿A5</a>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-gray-600 mb-2">CHỦ ĐỀ B: Mạng máy tính (4 bài)</p>
+                <div class="btns flex flex-wrap gap-2">
+                  <a class="btn small primary" href="K6_B1.html" onclick="return ensureAuth('K6_B1.html')">🌐B1</a>
+                  <a class="btn small primary" href="K6_B2.html" onclick="return ensureAuth('K6_B2.html')">💬B2</a>
+                  <a class="btn small" href="K6_B3.html" onclick="return ensureAuth('K6_B3.html')">📧B3</a>
+                  <a class="btn small" href="K6_B4.html" onclick="return ensureAuth('K6_B4.html')">🔍B4</a>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-gray-600 mb-2">CHỦ ĐỀ C: Web & An toàn (6 bài)</p>
+                <div class="btns flex flex-wrap gap-2">
+                  <a class="btn small primary" href="K6_C1.html" onclick="return ensureAuth('K6_C1.html')">🌍C1</a>
+                  <a class="btn small primary" href="K6_C2.html" onclick="return ensureAuth('K6_C2.html')">🔐C2</a>
+                  <a class="btn small" href="K6_C3.html" onclick="return ensureAuth('K6_C3.html')">🛡️C3</a>
+                  <a class="btn small" href="K6_C4.html" onclick="return ensureAuth('K6_C4.html')">📖C4</a>
+                  <a class="btn small" href="K6_C5.html" onclick="return ensureAuth('K6_C5.html')">🔒C5</a>
+                  <a class="btn small" href="K6_C6.html" onclick="return ensureAuth('K6_C6.html')">✅C6</a>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-gray-600 mb-2">CHỦ ĐỀ D: Sử dụng an toàn (3 bài)</p>
+                <div class="btns flex flex-wrap gap-2">
+                  <a class="btn small primary" href="K6_D1.html" onclick="return ensureAuth('K6_D1.html')">⚠️D1</a>
+                  <a class="btn small primary" href="K6_D2.html" onclick="return ensureAuth('K6_D2.html')">🎮D2</a>
+                  <a class="btn small" href="K6_D3.html" onclick="return ensureAuth('K6_D3.html')">👨‍👩‍👧D3</a>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-gray-600 mb-2">CHỦ ĐỀ E: Soạn thảo Word (8 bài)</p>
+                <div class="btns flex flex-wrap gap-2">
+                  <a class="btn small primary" href="K6_E1.html" onclick="return ensureAuth('K6_E1.html')">🔎E1</a>
+                  <a class="btn small primary" href="K6_E2.html" onclick="return ensureAuth('K6_E2.html')">📝E2</a>
+                  <a class="btn small" href="K6_E3.html" onclick="return ensureAuth('K6_E3.html')">📊E3</a>
+                  <a class="btn small" href="K6_E4.html" onclick="return ensureAuth('K6_E4.html')">📐E4</a>
+                  <a class="btn small" href="K6_E5.html" onclick="return ensureAuth('K6_E5.html')">🖼️E5</a>
+                  <a class="btn small" href="K6_E6.html" onclick="return ensureAuth('K6_E6.html')">📄E6</a>
+                  <a class="btn small" href="K6_E7.html" onclick="return ensureAuth('K6_E7.html')">✏️E7</a>
+                  <a class="btn small" href="K6_E8.html" onclick="return ensureAuth('K6_E8.html')">📋E8</a>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-gray-600 mb-2">CHỦ ĐỀ F: Thuật toán & Lập trình (5 bài)</p>
+                <div class="btns flex flex-wrap gap-2">
+                  <a class="btn small primary" href="K6_F1.html" onclick="return ensureAuth('K6_F1.html')">🧮F1</a>
+                  <a class="btn small primary" href="K6_F2.html" onclick="return ensureAuth('K6_F2.html')">🎯F2</a>
+                  <a class="btn small" href="K6_F3.html" onclick="return ensureAuth('K6_F3.html')">🔧F3</a>
+                  <a class="btn small" href="K6_F4.html" onclick="return ensureAuth('K6_F4.html')">🎨F4</a>
+                  <a class="btn small" href="K6_F5.html" onclick="return ensureAuth('K6_F5.html')">🚀F5</a>
+                </div>
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="card">
+          <h3>💻 Tin học 7</h3>
+          <p class="desc">Học về thiết bị máy tính, hệ điều hành và các ứng dụng cơ bản</p>
+          <div class="btns" role="group" aria-label="Bài học khối 7">
+            <a class="btn primary" href="A1.html" onclick="return ensureAuth('A1.html')">⚡ Bài A.1</a>
+            <a class="btn primary" href="A2.html" onclick="return ensureAuth('A2.html')">💾 Bài A.2</a>
+            <a class="btn" href="A4.html" onclick="return ensureAuth('A4.html')">🖥️ Bài A.4</a>
+            <a class="btn" href="A5.html" onclick="return ensureAuth('A5.html')">📁 Bài A.5</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>🚀 Tin học 8</h3>
+          <p class="desc">Tiến sâu vào lập trình và xử lý thông tin nâng cao</p>
+          <div class="btns">
+            <span class="pill" style="background:#06b6d4;color:#ffffff">🔜 Đang phát triển</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>⭐ Tin học 9</h3>
+          <p class="desc">Hoàn thiện kiến thức và chuẩn bị cho kỳ thi</p>
+          <div class="btns">
+            <span class="pill" style="background:#8b5cf6;color:#ffffff">🔜 Sắp ra mắt</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    © <span id="year"></span> Trang trắc nghiệm cá nhân • <span class="muted">Thiết kế mới</span>
+  </footer>
+</body>
+</html>

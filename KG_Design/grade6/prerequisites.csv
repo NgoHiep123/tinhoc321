@@ -1,0 +1,21 @@
+fromSkillId,toSkillId,relationType,note
+A1_Thong_tin_va_xu_li,A2_Luu_tru_va_trao_doi,PREREQUISITE_OF,Cần hiểu thông tin trước khi học lưu trữ
+A2_Luu_tru_va_trao_doi,A3_May_tinh_trong_HDTT,PREREQUISITE_OF,Cần hiểu lưu trữ trước khi học máy tính
+A3_May_tinh_trong_HDTT,A4_May_tinh_va_phan_mem,PREREQUISITE_OF,Cần hiểu máy tính trước khi học phần mềm
+A4_May_tinh_va_phan_mem,A5_He_dieu_hanh,PREREQUISITE_OF,Cần hiểu phần mềm trước khi học hệ điều hành
+k6_b1_khai_niem_loi_ich,k6_b2_cac_thanh_phan,PREREQUISITE_OF,Cần hiểu khái niệm trước khi học thành phần
+k6_b2_cac_thanh_phan,k6_b3_ket_noi_mang,PREREQUISITE_OF,Cần hiểu thành phần trước khi học kết nối
+k6_b3_ket_noi_mang,k6_b4_an_toan_mang,PREREQUISITE_OF,Cần hiểu kết nối trước khi học an toàn
+k6_c1_so_do_tu_duy,k6_c2_tao_so_do_tu_duy,PREREQUISITE_OF,Cần hiểu sơ đồ tư duy trước khi tạo
+k6_c2_tao_so_do_tu_duy,k6_c3_chinh_sua_so_do,PREREQUISITE_OF,Cần biết tạo trước khi chỉnh sửa
+k6_c3_chinh_sua_so_do,k6_c4_trinh_bay_so_do,PREREQUISITE_OF,Cần biết chỉnh sửa trước khi trình bày
+k6_d1_van_ban_so,k6_d2_soan_thao_van_ban,PREREQUISITE_OF,Cần hiểu văn bản số trước khi soạn thảo
+k6_d2_soan_thao_van_ban,k6_d3_dinh_dang_van_ban,PREREQUISITE_OF,Cần biết soạn thảo trước khi định dạng
+k6_e1_bang_tinh,k6_e2_nhap_du_lieu,PREREQUISITE_OF,Cần hiểu bảng tính trước khi nhập dữ liệu
+k6_e2_nhap_du_lieu,k6_e3_tinh_toan,PREREQUISITE_OF,Cần biết nhập dữ liệu trước khi tính toán
+A1_Thong_tin_va_xu_li,k6_c1_so_do_tu_duy,PREREQUISITE_OF,Hiểu thông tin giúp học sơ đồ tư duy
+A1_Thong_tin_va_xu_li,k6_d1_van_ban_so,PREREQUISITE_OF,Hiểu thông tin giúp học văn bản số
+A1_Thong_tin_va_xu_li,k6_e1_bang_tinh,PREREQUISITE_OF,Hiểu thông tin giúp học bảng tính
+A1_Thong_tin_va_xu_li,k6_f1_trinh_chieu,PREREQUISITE_OF,Hiểu thông tin giúp học trình chiếu
+A5_He_dieu_hanh,k6_d2_soan_thao_van_ban,PREREQUISITE_OF,Cần biết hệ điều hành để dùng phần mềm soạn thảo
+A5_He_dieu_hanh,k6_e2_nhap_du_lieu,PREREQUISITE_OF,Cần biết hệ điều hành để dùng bảng tính

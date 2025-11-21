@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Giáo Viên | Hệ Thống Hỗ Trợ Giảng Dạy Tin Học</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .card { @apply bg-white rounded-2xl shadow-lg p-6 border border-gray-100; }
+    .stat-card { @apply bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-5 border border-blue-100; }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <h1 class="text-xl font-bold text-gray-900">Hệ Thống Hỗ Trợ Giảng Dạy</h1>
+            <p class="text-sm text-gray-500">Dựa trên Knowledge Graph & Machine Learning</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="text-right">
+            <p class="text-sm font-semibold text-gray-900">Cô Nguyễn Thị A</p>
+            <p class="text-xs text-gray-500">Giáo viên Tin học</p>
+          </div>
+          <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200">
+            Đăng xuất
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    
+    <!-- Stats Overview -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <!-- Card 1 -->
+      <div class="stat-card">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-medium text-blue-700">Tổng số lớp</p>
+            <p class="text-3xl font-bold text-blue-900 mt-1">5</p>
+            <p class="text-xs text-blue-600 mt-1">Khối 7, 8, 9</p>
+          </div>
+          <div class="w-12 h-12 bg-blue-200 rounded-lg flex items-center justify-center">
+            <svg class="w-7 h-7 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="stat-card" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-medium text-amber-700">Tổng học sinh</p>
+            <p class="text-3xl font-bold text-amber-900 mt-1">143</p>
+            <p class="text-xs text-amber-600 mt-1">Đã làm bài trắc nghiệm</p>
+          </div>
+          <div class="w-12 h-12 bg-amber-200 rounded-lg flex items-center justify-center">
+            <svg class="w-7 h-7 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="stat-card" style="background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%);">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-medium text-red-700">Học sinh cần can thiệp</p>
+            <p class="text-3xl font-bold text-red-900 mt-1">28</p>
+            <p class="text-xs text-red-600 mt-1">Phát hiện bởi KNN</p>
+          </div>
+          <div class="w-12 h-12 bg-red-200 rounded-lg flex items-center justify-center">
+            <svg class="w-7 h-7 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="stat-card" style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-medium text-green-700">Gợi ý được tạo</p>
+            <p class="text-3xl font-bold text-green-900 mt-1">84</p>
+            <p class="text-xs text-green-600 mt-1">Bằng thuật toán PPR</p>
+          </div>
+          <div class="w-12 h-12 bg-green-200 rounded-lg flex items-center justify-center">
+            <svg class="w-7 h-7 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      
+      <!-- Left Column (2/3) -->
+      <div class="lg:col-span-2 space-y-6">
+        
+        <!-- Học sinh cần can thiệp -->
+        <div class="card">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-bold text-gray-900">⚠️ Học sinh cần can thiệp ưu tiên</h2>
+            <button class="text-sm text-blue-600 hover:underline">Xem tất cả</button>
+          </div>
+          
+          <div class="space-y-3">
+            <!-- Student 1 -->
+            <div class="flex items-center justify-between p-4 bg-red-50 border border-red-200 rounded-lg hover:bg-red-100 transition-colors cursor-pointer">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-red-200 rounded-full flex items-center justify-center">
+                  <span class="text-red-700 font-semibold">TT</span>
+                </div>
+                <div>
+                  <p class="font-semibold text-gray-900">Trần Thái</p>
+                  <p class="text-sm text-gray-600">Lớp 7/19 • Yếu ở Chủ đề A</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-bold text-red-600">Điểm TB: 4.2</p>
+                <p class="text-xs text-gray-500">3 bài kiểm tra</p>
+              </div>
+            </div>
+
+            <!-- Student 2 -->
+            <div class="flex items-center justify-between p-4 bg-orange-50 border border-orange-200 rounded-lg hover:bg-orange-100 transition-colors cursor-pointer">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-orange-200 rounded-full flex items-center justify-center">
+                  <span class="text-orange-700 font-semibold">LG</span>
+                </div>
+                <div>
+                  <p class="font-semibold text-gray-900">Lê Gia</p>
+                  <p class="text-sm text-gray-600">Lớp 7/19 • Yếu ở Chủ đề B</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-bold text-orange-600">Điểm TB: 4.5</p>
+                <p class="text-xs text-gray-500">4 bài kiểm tra</p>
+              </div>
+            </div>
+
+            <!-- Student 3 -->
+            <div class="flex items-center justify-between p-4 bg-yellow-50 border border-yellow-200 rounded-lg hover:bg-yellow-100 transition-colors cursor-pointer">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-yellow-200 rounded-full flex items-center justify-center">
+                  <span class="text-yellow-700 font-semibold">NT</span>
+                </div>
+                <div>
+                  <p class="font-semibold text-gray-900">Nguyễn Thiên</p>
+                  <p class="text-sm text-gray-600">Lớp 7/20 • Yếu ở Chủ đề A</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <p class="text-sm font-bold text-yellow-600">Điểm TB: 4.8</p>
+                <p class="text-xs text-gray-500">2 bài kiểm tra</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gợi ý bài học -->
+        <div class="card">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-bold text-gray-900">💡 Gợi ý bài học (Từ PPR)</h2>
+            <button class="text-sm text-blue-600 hover:underline">Xuất báo cáo</button>
+          </div>
+          
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead class="bg-gray-50 border-b border-gray-200">
+                <tr>
+                  <th class="px-4 py-3 text-left font-semibold text-gray-700">Học sinh</th>
+                  <th class="px-4 py-3 text-left font-semibold text-gray-700">Lớp</th>
+                  <th class="px-4 py-3 text-left font-semibold text-gray-700">Bài được gợi ý</th>
+                  <th class="px-4 py-3 text-center font-semibold text-gray-700">PPR Score</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-3 font-medium text-gray-900">Trần Thái</td>
+                  <td class="px-4 py-3 text-gray-600">7/19</td>
+                  <td class="px-4 py-3"><span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">Bài A1</span></td>
+                  <td class="px-4 py-3 text-center text-gray-600">0.0234</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-3 font-medium text-gray-900">Lê Gia</td>
+                  <td class="px-4 py-3 text-gray-600">7/19</td>
+                  <td class="px-4 py-3"><span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">Bài B2</span></td>
+                  <td class="px-4 py-3 text-center text-gray-600">0.0189</td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-3 font-medium text-gray-900">Nguyễn Thiên</td>
+                  <td class="px-4 py-3 text-gray-600">7/20</td>
+                  <td class="px-4 py-3"><span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">Bài A2</span></td>
+                  <td class="px-4 py-3 text-center text-gray-600">0.0156</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Biểu đồ -->
+        <div class="card">
+          <h2 class="text-lg font-bold text-gray-900 mb-4">📊 Phân bố điểm số theo chủ đề</h2>
+          <canvas id="topicScoreChart" height="80"></canvas>
+        </div>
+
+      </div>
+
+      <!-- Right Column (1/3) -->
+      <div class="space-y-6">
+        
+        <!-- Knowledge Graph Info -->
+        <div class="card bg-gradient-to-br from-purple-50 to-indigo-50 border-purple-200">
+          <div class="flex items-center gap-2 mb-3">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+            <h3 class="font-bold text-purple-900">Knowledge Graph</h3>
+          </div>
+          <div class="space-y-2 text-sm">
+            <div class="flex justify-between">
+              <span class="text-purple-700">Nodes (Thực thể):</span>
+              <span class="font-bold text-purple-900">1,247</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-purple-700">Edges (Quan hệ):</span>
+              <span class="font-bold text-purple-900">3,891</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-purple-700">Topics:</span>
+              <span class="font-bold text-purple-900">6</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-purple-700">Lessons:</span>
+              <span class="font-bold text-purple-900">4</span>
+            </div>
+          </div>
+          <button class="w-full mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 text-sm font-medium">
+            Xem trực quan KG
+          </button>
+        </div>
+
+        <!-- Actions -->
+        <div class="card">
+          <h3 class="font-bold text-gray-900 mb-3">🛠️ Thao tác nhanh</h3>
+          <div class="space-y-2">
+            <button class="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 text-sm font-medium text-left flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+              Chạy lại KNN
+            </button>
+            <button class="w-full px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 text-sm font-medium text-left flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+              Tạo gợi ý mới (PPR)
+            </button>
+            <button class="w-full px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 text-sm font-medium text-left flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              Xuất báo cáo PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="card">
+          <h3 class="font-bold text-gray-900 mb-3">📝 Hoạt động gần đây</h3>
+          <div class="space-y-3 text-sm">
+            <div class="flex items-start gap-2">
+              <div class="w-2 h-2 bg-green-500 rounded-full mt-1.5"></div>
+              <div>
+                <p class="text-gray-900">KNN đã phát hiện 28 học sinh yếu</p>
+                <p class="text-xs text-gray-500">2 giờ trước</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2">
+              <div class="w-2 h-2 bg-blue-500 rounded-full mt-1.5"></div>
+              <div>
+                <p class="text-gray-900">PPR đã tạo 84 gợi ý mới</p>
+                <p class="text-xs text-gray-500">3 giờ trước</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2">
+              <div class="w-2 h-2 bg-purple-500 rounded-full mt-1.5"></div>
+              <div>
+                <p class="text-gray-900">KG được cập nhật với 145 kết quả mới</p>
+                <p class="text-xs text-gray-500">5 giờ trước</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // Biểu đồ phân bố điểm
+    const ctx = document.getElementById('topicScoreChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Chủ đề A', 'Chủ đề B', 'Chủ đề C', 'Chủ đề D', 'Chủ đề E'],
+        datasets: [{
+          label: 'Điểm trung bình',
+          data: [5.2, 6.8, 7.1, 6.3, 5.9],
+          backgroundColor: [
+            'rgba(239, 68, 68, 0.7)',
+            'rgba(251, 146, 60, 0.7)',
+            'rgba(34, 197, 94, 0.7)',
+            'rgba(59, 130, 246, 0.7)',
+            'rgba(168, 85, 247, 0.7)'
+          ],
+          borderColor: [
+            'rgb(239, 68, 68)',
+            'rgb(251, 146, 60)',
+            'rgb(34, 197, 94)',
+            'rgb(59, 130, 246)',
+            'rgb(168, 85, 247)'
+          ],
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 10,
+            ticks: { stepSize: 2 }
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
+

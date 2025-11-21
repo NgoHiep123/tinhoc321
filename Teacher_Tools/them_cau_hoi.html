@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎓 Công cụ thêm câu hỏi - Giáo viên</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-attachment: fixed;
+    }
+    .tool-card {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+    }
+    .preview-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .image-preview {
+      max-width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body class="min-h-screen p-4">
+
+  <div class="max-w-5xl mx-auto">
+    
+    <!-- Header -->
+    <div class="tool-card rounded-3xl shadow-2xl p-8 mb-6">
+      <div class="text-center mb-6">
+        <div class="inline-block p-4 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl shadow-xl mb-3">
+          <span class="text-5xl">📝</span>
+        </div>
+        <h1 class="text-4xl font-black text-gray-900 mb-2">Công cụ thêm câu hỏi</h1>
+        <p class="text-gray-600 text-lg">Tạo câu hỏi trắc nghiệm nhanh chóng và dễ dàng</p>
+      </div>
+
+      <!-- Instructions -->
+      <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded-lg">
+        <h3 class="font-bold text-blue-900 mb-2">📌 Hướng dẫn sử dụng:</h3>
+        <ol class="list-decimal list-inside space-y-1 text-blue-800 text-sm">
+          <li>Điền thông tin câu hỏi vào form bên dưới</li>
+          <li>Nếu có hình ảnh: Chọn ảnh từ máy hoặc dán URL ảnh online</li>
+          <li>Xem trước câu hỏi ở phần Preview</li>
+          <li>Click "Tạo Code" để lấy code JavaScript</li>
+          <li>Copy code và dán vào file HTML của bài học</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Main Form -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      
+      <!-- Left: Form nhập liệu -->
+      <div class="tool-card rounded-3xl shadow-2xl p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">📋 Thông tin câu hỏi</h2>
+        
+        <form id="questionForm" class="space-y-5">
+          
+          <!-- Câu hỏi -->
+          <div>
+            <label class="block text-sm font-bold text-gray-700 mb-2">❓ Câu hỏi:</label>
+            <textarea id="questionText" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-500 outline-none" rows="3" placeholder="Nhập nội dung câu hỏi..." required></textarea>
+          </div>
+
+          <!-- Hình ảnh -->
+          <div class="border-2 border-dashed border-gray-300 rounded-xl p-4">
+            <label class="block text-sm font-bold text-gray-700 mb-2">🖼️ Hình ảnh (tùy chọn):</label>
+            
+            <!-- Tab chọn -->
+            <div class="flex gap-2 mb-3">
+              <button type="button" onclick="switchImageMode('upload')" id="btnUpload" class="flex-1 px-3 py-2 bg-purple-500 text-white rounded-lg text-sm font-semibold">📁 Upload</button>
+              <button type="button" onclick="switchImageMode('url')" id="btnUrl" class="flex-1 px-3 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-semibold">🔗 URL</button>
+            </div>
+
+            <!-- Upload file -->
+            <div id="uploadMode">
+              <input type="file" id="imageFile" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100">
+              <p class="text-xs text-gray-500 mt-2">Hỗ trợ: JPG, PNG, GIF (tối đa 2MB)</p>
+            </div>
+
+            <!-- URL -->
+            <div id="urlMode" class="hidden">
+              <input type="url" id="imageUrl" class="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-purple-500 outline-none text-sm" placeholder="https://example.com/image.jpg">
+              <p class="text-xs text-gray-500 mt-2">Dán link ảnh từ Internet hoặc Google Drive public</p>
+            </div>
+
+            <!-- Preview ảnh -->
+            <div id="imagePreviewContainer" class="hidden mt-4 text-center">
+              <img id="imagePreview" class="image-preview mx-auto" alt="Preview">
+              <button type="button" onclick="clearImage()" class="mt-2 text-red-500 text-sm font-semibold hover:underline">❌ Xóa ảnh</button>
+            </div>
+          </div>
+
+          <!-- 4 đáp án -->
+          <div class="space-y-3">
+            <label class="block text-sm font-bold text-gray-700">📝 Các đáp án:</label>
+            
+            <div class="flex items-center gap-2">
+              <input type="radio" name="correctAnswer" value="0" id="correctA" required class="w-5 h-5 text-purple-600">
+              <label for="correctA" class="w-8 h-8 bg-purple-100 text-purple-700 rounded-full flex items-center justify-center font-bold text-sm">A</label>
+              <input type="text" id="optionA" class="flex-1 px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-purple-500 outline-none" placeholder="Đáp án A" required>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <input type="radio" name="correctAnswer" value="1" id="correctB" class="w-5 h-5 text-purple-600">
+              <label for="correctB" class="w-8 h-8 bg-purple-100 text-purple-700 rounded-full flex items-center justify-center font-bold text-sm">B</label>
+              <input type="text" id="optionB" class="flex-1 px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-purple-500 outline-none" placeholder="Đáp án B" required>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <input type="radio" name="correctAnswer" value="2" id="correctC" class="w-5 h-5 text-purple-600">
+              <label for="correctC" class="w-8 h-8 bg-purple-100 text-purple-700 rounded-full flex items-center justify-center font-bold text-sm">C</label>
+              <input type="text" id="optionC" class="flex-1 px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-purple-500 outline-none" placeholder="Đáp án C" required>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <input type="radio" name="correctAnswer" value="3" id="correctD" class="w-5 h-5 text-purple-600">
+              <label for="correctD" class="w-8 h-8 bg-purple-100 text-purple-700 rounded-full flex items-center justify-center font-bold text-sm">D</label>
+              <input type="text" id="optionD" class="flex-1 px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-purple-500 outline-none" placeholder="Đáp án D" required>
+            </div>
+          </div>
+
+          <!-- Giải thích (optional) -->
+          <div>
+            <label class="block text-sm font-bold text-gray-700 mb-2">💡 Giải thích (tùy chọn):</label>
+            <textarea id="explanation" class="w-full px-4 py-2 border-2 border-gray-200 rounded-xl focus:border-purple-500 outline-none" rows="2" placeholder="Giải thích tại sao đáp án này đúng..."></textarea>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex gap-3 pt-4">
+            <button type="button" onclick="previewQuestion()" class="flex-1 bg-blue-500 text-white font-bold py-3 rounded-xl hover:bg-blue-600 transition-all">
+              👁️ Xem trước
+            </button>
+            <button type="button" onclick="generateCode()" class="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold py-3 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition-all">
+              🚀 Tạo Code
+            </button>
+          </div>
+
+          <button type="button" onclick="resetForm()" class="w-full bg-gray-200 text-gray-700 font-semibold py-2 rounded-xl hover:bg-gray-300 transition-all">
+            🔄 Reset Form
+          </button>
+
+        </form>
+      </div>
+
+      <!-- Right: Preview & Code -->
+      <div class="space-y-6">
+        
+        <!-- Preview -->
+        <div class="tool-card rounded-3xl shadow-2xl p-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">👁️ Xem trước</h2>
+          <div id="previewContainer">
+            <p class="text-gray-400 text-center py-8">Nhập câu hỏi và click "Xem trước"</p>
+          </div>
+        </div>
+
+        <!-- Generated Code -->
+        <div class="tool-card rounded-3xl shadow-2xl p-8">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-2xl font-bold text-gray-900">💻 Code JavaScript</h2>
+            <button onclick="copyCode()" id="copyBtn" class="hidden px-4 py-2 bg-green-500 text-white rounded-lg text-sm font-semibold hover:bg-green-600 transition-all">
+              📋 Copy
+            </button>
+          </div>
+          <div id="codeContainer">
+            <p class="text-gray-400 text-center py-8">Click "Tạo Code" để generate</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Help Section -->
+    <div class="tool-card rounded-3xl shadow-2xl p-8 mt-6">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">❓ Câu hỏi thường gặp</h2>
+      
+      <div class="space-y-4">
+        <details class="border-b pb-4">
+          <summary class="font-bold text-purple-700 cursor-pointer">Làm sao để thêm ảnh vào câu hỏi?</summary>
+          <p class="text-gray-600 mt-2 text-sm">
+            <strong>Cách 1 (Upload):</strong> Click "📁 Upload" → Chọn ảnh từ máy tính<br>
+            <strong>Cách 2 (URL):</strong> Click "🔗 URL" → Dán link ảnh (Google Drive/Imgur/...)<br>
+            <strong>Lưu ý:</strong> Với Google Drive, phải đổi link về dạng <code>https://drive.google.com/uc?id=FILE_ID</code>
+          </p>
+        </details>
+
+        <details class="border-b pb-4">
+          <summary class="font-bold text-purple-700 cursor-pointer">Code được tạo ra dùng như thế nào?</summary>
+          <p class="text-gray-600 mt-2 text-sm">
+            1. Copy code JavaScript<br>
+            2. Mở file HTML bài học (VD: A1.html)<br>
+            3. Tìm phần <code>const quizData = [...];</code><br>
+            4. Paste code vào cuối array (trước dấu <code>]</code>)<br>
+            5. Lưu file và test
+          </p>
+        </details>
+
+        <details class="border-b pb-4">
+          <summary class="font-bold text-purple-700 cursor-pointer">Ảnh upload lưu ở đâu?</summary>
+          <p class="text-gray-600 mt-2 text-sm">
+            Ảnh upload sẽ được convert sang <strong>Base64</strong> (text) và nhúng trực tiếp vào code.<br>
+            <strong>Ưu điểm:</strong> Không cần upload lên server, ảnh đi kèm code.<br>
+            <strong>Nhược điểm:</strong> File HTML sẽ nặng hơn nếu nhiều ảnh. Nên dùng URL cho ảnh lớn.
+          </p>
+        </details>
+
+        <details>
+          <summary class="font-bold text-purple-700 cursor-pointer">Tôi muốn thêm nhiều câu hỏi cùng lúc?</summary>
+          <p class="text-gray-600 mt-2 text-sm">
+            Với nhiều câu hỏi:<br>
+            1. Tạo từng câu → Copy code → Paste vào file text tạm<br>
+            2. Hoặc sử dụng file CSV → Import vào script Python (xem hướng dẫn riêng)
+          </p>
+        </details>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // ===== Image Mode Switching =====
+    function switchImageMode(mode) {
+      const uploadMode = document.getElementById('uploadMode');
+      const urlMode = document.getElementById('urlMode');
+      const btnUpload = document.getElementById('btnUpload');
+      const btnUrl = document.getElementById('btnUrl');
+      
+      if (mode === 'upload') {
+        uploadMode.classList.remove('hidden');
+        urlMode.classList.add('hidden');
+        btnUpload.classList.remove('bg-gray-200', 'text-gray-700');
+        btnUpload.classList.add('bg-purple-500', 'text-white');
+        btnUrl.classList.remove('bg-purple-500', 'text-white');
+        btnUrl.classList.add('bg-gray-200', 'text-gray-700');
+      } else {
+        uploadMode.classList.add('hidden');
+        urlMode.classList.remove('hidden');
+        btnUrl.classList.remove('bg-gray-200', 'text-gray-700');
+        btnUrl.classList.add('bg-purple-500', 'text-white');
+        btnUpload.classList.remove('bg-purple-500', 'text-white');
+        btnUpload.classList.add('bg-gray-200', 'text-gray-700');
+      }
+      clearImage();
+    }
+
+    // ===== Image Preview =====
+    let imageData = null;
+
+    document.getElementById('imageFile').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        if (file.size > 2 * 1024 * 1024) {
+          alert('⚠️ File quá lớn! Vui lòng chọn ảnh dưới 2MB.');
+          return;
+        }
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          imageData = event.target.result;
+          showImagePreview(imageData);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    document.getElementById('imageUrl').addEventListener('input', function(e) {
+      const url = e.target.value.trim();
+      if (url) {
+        imageData = url;
+        showImagePreview(url);
+      }
+    });
+
+    function showImagePreview(src) {
+      document.getElementById('imagePreview').src = src;
+      document.getElementById('imagePreviewContainer').classList.remove('hidden');
+    }
+
+    function clearImage() {
+      imageData = null;
+      document.getElementById('imageFile').value = '';
+      document.getElementById('imageUrl').value = '';
+      document.getElementById('imagePreviewContainer').classList.add('hidden');
+    }
+
+    // ===== Preview Question =====
+    function previewQuestion() {
+      const question = document.getElementById('questionText').value;
+      const optionA = document.getElementById('optionA').value;
+      const optionB = document.getElementById('optionB').value;
+      const optionC = document.getElementById('optionC').value;
+      const optionD = document.getElementById('optionD').value;
+      const correct = document.querySelector('input[name="correctAnswer"]:checked');
+      
+      if (!question || !optionA || !optionB || !optionC || !optionD || !correct) {
+        alert('⚠️ Vui lòng điền đầy đủ thông tin!');
+        return;
+      }
+
+      const correctIdx = parseInt(correct.value);
+      const letters = ['A', 'B', 'C', 'D'];
+      
+      let html = `
+        <div class="preview-card text-white p-6 rounded-2xl mb-4">
+          <p class="text-xl font-bold leading-relaxed">${question}</p>
+        </div>
+      `;
+
+      if (imageData) {
+        html += `
+          <div class="text-center mb-4">
+            <img src="${imageData}" class="image-preview mx-auto" alt="Question image">
+          </div>
+        `;
+      }
+
+      html += `<div class="space-y-3">`;
+      [optionA, optionB, optionC, optionD].forEach((opt, i) => {
+        const isCorrect = i === correctIdx;
+        const bgColor = isCorrect ? 'bg-green-100 border-green-500' : 'bg-gray-50 border-gray-200';
+        const icon = isCorrect ? '✅' : '';
+        html += `
+          <div class="px-4 py-3 border-2 ${bgColor} rounded-xl">
+            <span class="inline-block w-8 h-8 bg-purple-100 text-purple-700 rounded-full text-center leading-8 font-bold mr-2">${letters[i]}</span>
+            ${opt} ${icon}
+          </div>
+        `;
+      });
+      html += `</div>`;
+
+      const explanation = document.getElementById('explanation').value;
+      if (explanation) {
+        html += `
+          <div class="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded-lg">
+            <p class="text-sm text-yellow-900"><strong>💡 Giải thích:</strong> ${explanation}</p>
+          </div>
+        `;
+      }
+
+      document.getElementById('previewContainer').innerHTML = html;
+    }
+
+    // ===== Generate Code =====
+    function generateCode() {
+      const question = document.getElementById('questionText').value;
+      const optionA = document.getElementById('optionA').value;
+      const optionB = document.getElementById('optionB').value;
+      const optionC = document.getElementById('optionC').value;
+      const optionD = document.getElementById('optionD').value;
+      const correct = document.querySelector('input[name="correctAnswer"]:checked');
+      const explanation = document.getElementById('explanation').value;
+      
+      if (!question || !optionA || !optionB || !optionC || !optionD || !correct) {
+        alert('⚠️ Vui lòng điền đầy đủ thông tin!');
+        return;
+      }
+
+      const correctIdx = parseInt(correct.value);
+      
+      let code = `{\n`;
+      code += `  question: "${escapeQuotes(question)}",\n`;
+      code += `  options: [\n`;
+      code += `    "${escapeQuotes(optionA)}",\n`;
+      code += `    "${escapeQuotes(optionB)}",\n`;
+      code += `    "${escapeQuotes(optionC)}",\n`;
+      code += `    "${escapeQuotes(optionD)}"\n`;
+      code += `  ],\n`;
+      code += `  answer: ${correctIdx}`;
+      
+      if (imageData) {
+        code += `,\n  image: "${imageData}"`;
+      }
+      
+      if (explanation) {
+        code += `,\n  explanation: "${escapeQuotes(explanation)}"`;
+      }
+      
+      code += `\n}`;
+
+      document.getElementById('codeContainer').innerHTML = `
+        <pre class="bg-gray-900 text-green-400 p-4 rounded-xl overflow-x-auto text-sm font-mono">${code}</pre>
+        <p class="text-xs text-gray-500 mt-2">📌 Copy code này và paste vào mảng quizData trong file HTML</p>
+      `;
+      document.getElementById('copyBtn').classList.remove('hidden');
+    }
+
+    function escapeQuotes(str) {
+      return str.replace(/"/g, '\\"').replace(/\n/g, '\\n');
+    }
+
+    // ===== Copy Code =====
+    function copyCode() {
+      const code = document.querySelector('#codeContainer pre').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = '✅ Đã copy!';
+        btn.classList.remove('bg-green-500', 'hover:bg-green-600');
+        btn.classList.add('bg-green-600');
+        setTimeout(() => {
+          btn.textContent = '📋 Copy';
+          btn.classList.remove('bg-green-600');
+          btn.classList.add('bg-green-500', 'hover:bg-green-600');
+        }, 2000);
+      });
+    }
+
+    // ===== Reset Form =====
+    function resetForm() {
+      document.getElementById('questionForm').reset();
+      clearImage();
+      document.getElementById('previewContainer').innerHTML = '<p class="text-gray-400 text-center py-8">Nhập câu hỏi và click "Xem trước"</p>';
+      document.getElementById('codeContainer').innerHTML = '<p class="text-gray-400 text-center py-8">Click "Tạo Code" để generate</p>';
+      document.getElementById('copyBtn').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
+
