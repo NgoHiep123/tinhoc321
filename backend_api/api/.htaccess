@@ -1,0 +1,41 @@
+# ============================================================
+# FILE: api/.htaccess
+# Mô tả: Bảo mật và cấu hình cho thư mục API
+# ============================================================
+
+# Cho phép PHP xử lý
+<IfModule mod_php7.c>
+    php_flag display_errors Off
+    php_flag log_errors On
+</IfModule>
+
+# Bảo mật: Chặn truy cập trực tiếp vào config.php
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Bảo mật: Chặn truy cập vào file .htaccess
+<Files ".htaccess">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Cho phép CORS
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+</IfModule>
+
+# Bảo vệ khỏi một số lỗ hổng
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Chặn các ký tự đặc biệt trong URL
+    RewriteCond %{QUERY_STRING} (<|%3C)([^s]*s)+cript.*(>|%3E) [NC,OR]
+    RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+    RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+    RewriteRule ^(.*)$ - [F,L]
+</IfModule>
+

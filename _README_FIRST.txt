@@ -56,7 +56,7 @@
           git init
           git add .
           git commit -m "Initial commit - Hệ thống hoàn chỉnh"
-          git remote add origin https://github.com/YOUR_USERNAME/he-thong-ho-tro-giao-vien-thcs.git
+          git remote add origin https://github.com/NgoHiep123/tinhoc321.git
           git branch -M main
           git push -u origin main
 
@@ -81,4 +81,11 @@
 ║                         CHÚC BẠN THÀNH CÔNG! 🚀                              ║
 ║                                                                              ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+Cách update
+B1: git status
+B2: git add .
+B3: git commit -m ""
+B4: git push origin master --force
 

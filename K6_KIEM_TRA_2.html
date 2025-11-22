@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <title>⚡ K6-C6: 💌 Thực hành Email</title>
+  <title>⚡ K6_KIEM_TRA_2: Kiểm tra 2 - Chủ đề A & B</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -32,18 +32,19 @@
     <div class="quiz-container w-full max-w-3xl rounded-3xl shadow-2xl p-6 md:p-10">
       <div class="text-center mb-6">
         <div class="inline-block mb-3 px-4 py-2 bg-gradient-to-r from-purple-100 to-indigo-100 rounded-full">
-          <span class="text-sm font-bold text-purple-700">🎓 KHỐI 6 - BÀI C6</span>
+          <span class="text-sm font-bold text-purple-700">🎓 KHỐI 6 - HỌC KÌ 1</span>
         </div>
-        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">💌 Thực hành Email</h1>
-        <p class="text-gray-600 text-lg">🎯 9 câu hỏi - Thời gian: ~9 phút</p>
+        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">📚 Kiểm tra 2 - Chủ đề A & B</h1>
+        <p class="text-gray-600 text-lg">🎯 20 câu hỏi - Thời gian: ~20 phút</p>
+        <p class="text-gray-500 text-sm mt-1">20 câu hỏi từ chủ đề A và chủ đề B</p>
       </div>
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 p-4 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl">
         <div class="flex items-center gap-3">
           <div class="text-3xl">📝</div>
-          <div><div id="progress" class="text-gray-900 font-bold text-lg">Câu 1/9</div><div class="text-sm text-gray-500">Chúc bạn làm bài tốt!</div></div>
+          <div><div id="progress" class="text-gray-900 font-bold text-lg">Câu 1/20</div><div class="text-sm text-gray-500">Chúc bạn làm bài tốt!</div></div>
         </div>
         <div class="flex items-center gap-3">
-          <div class="flex-1 w-48 h-3 rounded-full bg-gray-200 overflow-hidden"><div id="bar" class="h-full rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 transition-all" style="width:10%"></div></div>
+          <div class="flex-1 w-48 h-3 rounded-full bg-gray-200 overflow-hidden"><div id="bar" class="h-full rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 transition-all" style="width:2%"></div></div>
           <div id="score" class="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl font-black text-lg shadow-lg">🏆 0</div>
         </div>
       </div>
@@ -71,28 +72,38 @@
     </div>
   </main>
   <script>
-    const QUIZ_ID="K6_C6";
+    const QUIZ_ID="K6_KIEM_TRA_2";
     const ENDPOINT="https://script.google.com/macros/s/AKfycbwj9IiX8PXC-bNsh4DGIw0uysx0v3jWPNeu0lQpieUIQAx9sT9YNUKTZoQFBjg-w86TKg/exec";
     function getStudent(){try{return JSON.parse(localStorage.getItem('student')||'null')}catch(e){return null}}
     const student=getStudent();
     (function(){const pill=document.getElementById('userPill');if(student&&pill){pill.classList.remove('hidden');pill.innerHTML=`👤 ${student.name} · Lớp ${student.className}`}})();
     
     const allQuestions=[
-      {question: "Bước đầu khi **tạo tài khoản email** là:", options: ["Truy cập gmail.com và chọn Tạo tài khoản.", "Mở Paint.", "Nhập mật khẩu vào ô tìm kiếm.", "In tài liệu."], answer: 0},
-      {question: "Bước đăng nhập đúng là:", options: ["Nhập địa chỉ và mật khẩu → Đăng nhập.", "Nhập tên bài hát.", "Chọn ảnh nền.", "Chọn máy in."], answer: 0},
-      {question: "Để **soạn thư mới** ta chọn nút nào trong Gmail?", options: ["Soạn (Compose).", "Tạo thư mục.", "In.", "Xóa."], answer: 0},
-      {question: "Đọc thư mới nhận ở đâu?", options: ["Hộp thư đến (Inbox).", "Thùng rác.", "Spam.", "Ưu tiên."], answer: 0},
-      {question: "Chức năng **Chuyển tiếp (Forward)** dùng để:", options: ["Gửi lại thư đó cho địa chỉ khác.", "In thư.", "Xóa tài khoản.", "Đổi ngôn ngữ."], answer: 0},
-      {question: "Tại sao cần **đăng xuất** khi dùng máy công cộng?", options: ["Để tiết kiệm pin.", "Để tránh người khác truy cập trái phép tài khoản email.", "Để tăng tốc mạng.", "Để xóa thư."], answer: 1},
-      {question: "Thao tác nào giúp quản lí thư đến tốt hơn?", options: ["Tạo nhãn/ thư mục và lọc thư.", "Chỉ để tất cả ở Inbox.", "Xóa toàn bộ.", "Chuyển hết vào Spam."], answer: 0},
-      {question: "Bài tập yêu cầu gửi thư kèm **bưu thiếp 20/11** cho GV. Trình tự hợp lí:", options: ["Đăng nhập → Soạn → Nhập người nhận → Chủ đề → Nội dung → Đính kèm → Gửi.", "Soạn trước rồi đăng nhập.", "Đính kèm trước khi mở Gmail.", "Chỉ nhập người nhận."], answer: 0},
-      {question: "Bạn nhận nhiều thư rác quảng cáo. Cách xử lí phù hợp là:", options: ["Trả lời tất cả.", "Đánh dấu Spam/ chặn người gửi.", "Chia sẻ cho lớp.", "Xóa tài khoản."], answer: 1}
+      {question: "Mạng LAN là gì?", options: ["Mạng toàn cầu.", "Mạng trong phạm vi nhỏ như tòa nhà.", "cơ quan.", "trường học."], answer: 0},
+      {question: "Internet là…", options: ["Một mạng LAN.", "Một ứng dụng chơi game.", "Mạng của các mạng kết nối toàn cầu.", "Một hệ điều hành."], answer: 2},
+      {question: "Tải tệp từ Internet là ví dụ của:", options: ["Sao chép nội bộ.", "Trao đổi thông tin qua mạng.", "Đổi phần mở rộng tệp.", "Tắt máy."], answer: 1},
+      {question: "Ví dụ nào là vật mang tin?", options: ["Bộ não.", "Tờ báo/SGK.", "Hiểu biết của em.", "Ý kiến cá nhân."], answer: 1},
+      {question: "Chu trình xử lí thông tin của máy tính gồm bước nào KHÔNG đúng?", options: ["Xử lí đầu vào → xử lí dữ liệu → xử lí đầu ra.", "Chỉ xử lí dữ liệu.", "Chỉ nhập rồi in ra.", "Không cần đầu ra."], answer: 0},
+      {question: "Thiết bị nào là thiết bị số thông dụng?", options: ["USB/Thẻ nhớ.", "Thước kẻ gỗ.", "Bảng phấn.", "Phấn viết."], answer: 0},
+      {question: "Mối quan hệ đúng giữa dữ liệu và thông tin:", options: ["Dữ liệu = thông tin.", "Dữ liệu là dạng thể hiện của thông tin trong vật mang tin.", "Thông tin không cần dữ liệu.", "Dữ liệu chỉ là âm thanh."], answer: 1},
+      {question: "Giải pháp kết nối ổn định cho 20 máy trong phòng tin:", options: ["Một điện thoại phát Wi-Fi chia sẻ.", "Router + Switch đi dây đến từng máy.", "Bluetooth mesh.", "Chỉ hotspot từ một PC."], answer: 1},
+      {question: "Phần mềm mạng là:", options: ["Phần mềm giúp giao tiếp và truyền thông tin qua mạng.", "Chỉ game.", "Chỉ hệ điều hành.", "Chỉ trình soạn thảo."], answer: 0},
+      {question: "Ví dụ “dùng chung phần cứng” là gì?", options: ["Mỗi người một máy in riêng.", "Chia sẻ máy in qua mạng.", "Mỗi người một USB.", "Tăng độ sáng màn hình."], answer: 1},
+      {question: "Switch là gì?", options: ["Máy in.", "Màn hình.", "Bộ chia/kết nối cho nhiều cổng mạng.", "Ổ quang."], answer: 2},
+      {question: "Bạn có ảnh chụp văn bản cần chỉnh sửa", options: ["quy trình hợp lí:.", "Đổi tên .jpg thành .docx.", "Dùng OCR để số hóa thành văn bản rồi chỉnh.", "In ảnh rồi chụp lại."], answer: 0},
+      {question: "Kết quả của hoạt động xử lí thông tin là:", options: ["Thông tin đầu ra.", "Dữ liệu đầu vào.", "Vật mang tin.", "Bộ nhớ."], answer: 0},
+      {question: "Trong phòng thực hành", options: ["thao tác cơ bản với cáp UTP là:.", "Chỉ ngắm nhìn.", "Cắm/rút đúng chuẩn cổng RJ-45 khi được hướng dẫn.", "Đấu nối điện 220V."], answer: 0},
+      {question: "Chia sẻ máy in trong mạng giúp:", options: ["Mỗi máy bắt buộc mua máy in riêng.", "Tất cả máy trong mạng có thể in qua máy in mạng.", "Giảm chất lượng giấy.", "Tự động lưu mật khẩu."], answer: 1},
+      {question: "Ba thành phần CHÍNH của mạng máy tính gồm:", options: ["Thiết bị mạng; ổ cứng; bàn phím.", "Các máy/thiết bị; thiết bị mạng; phần mềm mạng.", "Chỉ có cáp mạng; switch; modem.", "Chỉ có máy chủ."], answer: 1},
+      {question: "Thiết bị phù hợp để vừa “nghe” vừa “nhìn” khi học trực tuyến:", options: ["Máy ghi âm.", "Máy ảnh phim.", "Laptop có camera/micro.", "Máy in."], answer: 2},
+      {question: "Quan sát thiết bị: đèn cổng mạng tắt cho biết gì?", options: ["Đang truyền dữ liệu.", "Cổng không hoạt động/kết nối chưa thông.", "Thiết bị hỏng hoàn toàn.", "Đang in."], answer: 2},
+      {question: "PC không gắn camera/micro sẽ:", options: ["Không thu được hình/âm thanh trực tiếp.", "Không xử lí được.", "Không lưu trữ được.", "Không trao đổi được."], answer: 0},
+      {question: "Khi đọc một trang báo", options: ["em đang:.", "Tự tạo thông tin.", "Thu nhận thông tin qua vật mang tin.", "Xử lí dữ liệu ra quyết định."], answer: 0}
     ];
     let currentQ=0,score=0,startTime=Date.now();
     function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
     function withShuffledOptions(q){const order=q.options.map((_,i)=>i);shuffle(order);return{...q,options:order.map(i=>q.options[i]),answer:order.indexOf(q.answer)}}
-    const selectedQuestions = shuffle([...allQuestions]).slice(0, Math.min(10, allQuestions.length));
-    const quiz=selectedQuestions.map(withShuffledOptions);
+    const quiz=allQuestions.map(withShuffledOptions);
     
     function showQuestion(){const q=quiz[currentQ];document.getElementById('question-text').textContent=q.question;document.getElementById('progress').innerHTML=`Câu ${currentQ+1}/${quiz.length}`;document.getElementById('bar').style.width=((currentQ+1)/quiz.length*100)+'%';const container=document.getElementById('options-container');container.innerHTML='';const letters=['A','B','C','D'];q.options.forEach((opt,i)=>{const btn=document.createElement('button');btn.className='option-btn w-full text-left px-6 py-4 rounded-xl border-2 border-gray-200 hover:border-purple-400 bg-white font-semibold text-gray-800 text-lg';btn.innerHTML=`<span class="inline-block w-8 h-8 rounded-full bg-purple-100 text-purple-700 font-bold mr-3 text-center leading-8">${letters[i]}</span>${opt}`;btn.onclick=()=>checkAnswer(i,btn);container.appendChild(btn)});document.getElementById('next-btn').classList.add('hidden');document.getElementById('feedback-text').textContent=''}
     
@@ -154,7 +165,7 @@
     
     async function sendResult(name,className,quizId,score,total,duration){
       try{
-        const url=`${ENDPOINT}?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${quizId}&score=${score}&total=${total}&duration=${duration}`;
+        const url=`${ENDPOINT}?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${encodeURIComponent(quizId)}&score=${score}&total=${total}&duration=${duration}`;
         await fetch(url,{mode:'no-cors'});
         document.getElementById('send-status').textContent='✅ Đã lưu!'
       }catch(e){

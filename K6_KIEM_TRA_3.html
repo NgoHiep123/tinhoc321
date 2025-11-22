@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <title>⚡ K6-C6: 💌 Thực hành Email</title>
+  <title>⚡ K6_KIEM_TRA_3: Kiểm tra 3 - Chủ đề C</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -32,18 +32,19 @@
     <div class="quiz-container w-full max-w-3xl rounded-3xl shadow-2xl p-6 md:p-10">
       <div class="text-center mb-6">
         <div class="inline-block mb-3 px-4 py-2 bg-gradient-to-r from-purple-100 to-indigo-100 rounded-full">
-          <span class="text-sm font-bold text-purple-700">🎓 KHỐI 6 - BÀI C6</span>
+          <span class="text-sm font-bold text-purple-700">🎓 KHỐI 6 - HỌC KÌ 1</span>
         </div>
-        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">💌 Thực hành Email</h1>
-        <p class="text-gray-600 text-lg">🎯 9 câu hỏi - Thời gian: ~9 phút</p>
+        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">🌐 Kiểm tra 3 - Chủ đề C</h1>
+        <p class="text-gray-600 text-lg">🎯 20 câu hỏi - Thời gian: ~20 phút</p>
+        <p class="text-gray-500 text-sm mt-1">20 câu hỏi từ C1, C2, C3</p>
       </div>
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 p-4 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl">
         <div class="flex items-center gap-3">
           <div class="text-3xl">📝</div>
-          <div><div id="progress" class="text-gray-900 font-bold text-lg">Câu 1/9</div><div class="text-sm text-gray-500">Chúc bạn làm bài tốt!</div></div>
+          <div><div id="progress" class="text-gray-900 font-bold text-lg">Câu 1/20</div><div class="text-sm text-gray-500">Chúc bạn làm bài tốt!</div></div>
         </div>
         <div class="flex items-center gap-3">
-          <div class="flex-1 w-48 h-3 rounded-full bg-gray-200 overflow-hidden"><div id="bar" class="h-full rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 transition-all" style="width:10%"></div></div>
+          <div class="flex-1 w-48 h-3 rounded-full bg-gray-200 overflow-hidden"><div id="bar" class="h-full rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 transition-all" style="width:2%"></div></div>
           <div id="score" class="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl font-black text-lg shadow-lg">🏆 0</div>
         </div>
       </div>
@@ -71,28 +72,38 @@
     </div>
   </main>
   <script>
-    const QUIZ_ID="K6_C6";
+    const QUIZ_ID="K6_KIEM_TRA_3";
     const ENDPOINT="https://script.google.com/macros/s/AKfycbwj9IiX8PXC-bNsh4DGIw0uysx0v3jWPNeu0lQpieUIQAx9sT9YNUKTZoQFBjg-w86TKg/exec";
     function getStudent(){try{return JSON.parse(localStorage.getItem('student')||'null')}catch(e){return null}}
     const student=getStudent();
     (function(){const pill=document.getElementById('userPill');if(student&&pill){pill.classList.remove('hidden');pill.innerHTML=`👤 ${student.name} · Lớp ${student.className}`}})();
     
     const allQuestions=[
-      {question: "Bước đầu khi **tạo tài khoản email** là:", options: ["Truy cập gmail.com và chọn Tạo tài khoản.", "Mở Paint.", "Nhập mật khẩu vào ô tìm kiếm.", "In tài liệu."], answer: 0},
-      {question: "Bước đăng nhập đúng là:", options: ["Nhập địa chỉ và mật khẩu → Đăng nhập.", "Nhập tên bài hát.", "Chọn ảnh nền.", "Chọn máy in."], answer: 0},
-      {question: "Để **soạn thư mới** ta chọn nút nào trong Gmail?", options: ["Soạn (Compose).", "Tạo thư mục.", "In.", "Xóa."], answer: 0},
-      {question: "Đọc thư mới nhận ở đâu?", options: ["Hộp thư đến (Inbox).", "Thùng rác.", "Spam.", "Ưu tiên."], answer: 0},
-      {question: "Chức năng **Chuyển tiếp (Forward)** dùng để:", options: ["Gửi lại thư đó cho địa chỉ khác.", "In thư.", "Xóa tài khoản.", "Đổi ngôn ngữ."], answer: 0},
-      {question: "Tại sao cần **đăng xuất** khi dùng máy công cộng?", options: ["Để tiết kiệm pin.", "Để tránh người khác truy cập trái phép tài khoản email.", "Để tăng tốc mạng.", "Để xóa thư."], answer: 1},
-      {question: "Thao tác nào giúp quản lí thư đến tốt hơn?", options: ["Tạo nhãn/ thư mục và lọc thư.", "Chỉ để tất cả ở Inbox.", "Xóa toàn bộ.", "Chuyển hết vào Spam."], answer: 0},
-      {question: "Bài tập yêu cầu gửi thư kèm **bưu thiếp 20/11** cho GV. Trình tự hợp lí:", options: ["Đăng nhập → Soạn → Nhập người nhận → Chủ đề → Nội dung → Đính kèm → Gửi.", "Soạn trước rồi đăng nhập.", "Đính kèm trước khi mở Gmail.", "Chỉ nhập người nhận."], answer: 0},
-      {question: "Bạn nhận nhiều thư rác quảng cáo. Cách xử lí phù hợp là:", options: ["Trả lời tất cả.", "Đánh dấu Spam/ chặn người gửi.", "Chia sẻ cho lớp.", "Xóa tài khoản."], answer: 1}
+      {question: "Nơi nhập từ khóa trên trang máy tìm kiếm là:", options: ["Thanh địa chỉ trình duyệt.", "Ô tìm kiếm của máy tìm kiếm.", "Trên màn hình nền.", "Trong ứng dụng vẽ."], answer: 1},
+      {question: "Từ khóa (keyword) là gì?", options: ["Tên người dùng.", "Chuỗi mô tả nội dung cần tìm.", "Tên tệp ảnh.", "Mật khẩu."], answer: 1},
+      {question: "Bạn cần mở mục “Học trò 360” trên một báo điện tử. Thao tác phù hợp là:", options: ["In trang.", "Cuộn tìm mục rồi nhấp vào siêu liên kết mục đó.", "Tắt trình duyệt.", "Đổi ngôn ngữ."], answer: 1},
+      {question: "Tìm tài liệu “biến đổi khí hậu Việt Nam” sát nhất:", options: ["biến đổi khí hậu.", "biến đổi khí hậu ở Việt Nam “báo cáo”.", "thời tiết.", "khí hậu."], answer: 0},
+      {question: "Để xem tin thời tiết từ nguồn tin cậy", options: ["thao tác hợp lí là:.", "Gõ từ khóa mơ hồ.", "Truy cập website chính thống/ dùng trình duyệt nhập URL chuẩn.", "Tải tệp lạ bất kỳ."], answer: 0},
+      {question: "Bước KHÔNG thuộc quy trình tìm kiếm cơ bản:", options: ["Mở trình duyệt.", "Nhập địa chỉ máy tìm kiếm.", "Nhập từ khóa.", "Định dạng ổ đĩa."], answer: 3},
+      {question: "Phát biểu đúng về mục đích xây dựng website:", options: ["Chỉ để giải trí.", "Tồn tại để cá nhân/ tổ chức đưa thông tin.", "phục vụ chủ đề/ lĩnh vực nhất định.", "Chỉ dành cho người lớn."], answer: 0},
+      {question: "Địa chỉ website thường có đặc điểm nào?", options: ["Chỉ là số điện thoại.", "Chứa phần cố định của website và phần đuôi thay đổi theo từng trang.", "Chỉ là đường dẫn ảnh.", "Chỉ có ký tự số."], answer: 1},
+      {question: "Cần tệp PDF từ trang chính thức Bộ GDĐT", options: ["truy vấn phù hợp là:.", "\"\"site:moet.gov.vn filetype:pdf hướng dẫn\"\".", "hướng dẫn jpg.", "filetype:mp3 hướng dẫn."], answer: 0},
+      {question: "Trang web có thể dài hơn một màn hình hiển thị. Muốn xem phần dưới ta làm gì?", options: ["Phóng to ảnh.", "Cuộn (scroll) trang.", "Đổi trình duyệt.", "Đổi máy."], answer: 1},
+      {question: "Bạn muốn tra nghĩa từ tiếng Anh trên web:", options: ["Mở trình duyệt → vào trang từ điển uy tín → nhập từ khóa → xem kết quả.", "Nhập vào ứng dụng Paint.", "Chụp màn hình.", "Chỉ hỏi bạn bè."], answer: 0},
+      {question: "Sự khác nhau giữa www và trình duyệt là:", options: ["Giống nhau.", "www là hệ thống website; trình duyệt là phần mềm để truy cập web.", "www là phần mềm; trình duyệt là website.", "www chỉ là địa chỉ nhà."], answer: 1},
+      {question: "Vì sao trang chủ và các trang con có địa chỉ khác nhau nhưng vẫn cùng một website?", options: ["Do phần cố định địa chỉ giữ nguyên.", "phần sau thay đổi theo trang.", "Do khác nhà cung cấp.", "Do khác phông chữ."], answer: 0},
+      {question: "Dịch vụ nào dưới đây thường khai thác trên web?", options: ["Tra từ điển.", "xem thời tiết.", "tin thời sự.", "Chơi cờ thật."], answer: 0},
+      {question: "Máy tìm kiếm (search engine) là gì?", options: ["Một trang web đặc biệt cho phép tìm thông tin trên WWW.", "Trình chỉnh ảnh.", "Máy in.", "Mạng LAN."], answer: 0},
+      {question: "Thông tin **riêng tư/ít người quan tâm** thường:", options: ["Rất dễ tìm.", "Khó/ không tìm thấy trên máy tìm kiếm.", "Luôn ở trang đầu.", "Luôn có video."], answer: 1},
+      {question: "Thanh nào để nhập địa chỉ trang web?", options: ["Thanh công cụ.", "Thanh cuộn.", "Ô địa chỉ (address bar).", "Thanh trạng thái."], answer: 2},
+      {question: "WWW (World Wide Web) là gì?", options: ["Một phần mềm.", "Chuỗi ký tự.", "Hệ thống các website liên kết với nhau trên Internet.", "Bộ nhớ máy."], answer: 2},
+      {question: "Ví dụ về máy tìm kiếm:", options: ["Google.", "Cốc Cốc.", "Yahoo.", "Bluetooth."], answer: 0},
+      {question: "Khi duyệt trang tin", options: ["học sinh nên chú ý điều nào sau đây?", "Chỉ nhìn tiêu đề.", "Quan sát bố cục.", "mục."], answer: 0}
     ];
     let currentQ=0,score=0,startTime=Date.now();
     function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
     function withShuffledOptions(q){const order=q.options.map((_,i)=>i);shuffle(order);return{...q,options:order.map(i=>q.options[i]),answer:order.indexOf(q.answer)}}
-    const selectedQuestions = shuffle([...allQuestions]).slice(0, Math.min(10, allQuestions.length));
-    const quiz=selectedQuestions.map(withShuffledOptions);
+    const quiz=allQuestions.map(withShuffledOptions);
     
     function showQuestion(){const q=quiz[currentQ];document.getElementById('question-text').textContent=q.question;document.getElementById('progress').innerHTML=`Câu ${currentQ+1}/${quiz.length}`;document.getElementById('bar').style.width=((currentQ+1)/quiz.length*100)+'%';const container=document.getElementById('options-container');container.innerHTML='';const letters=['A','B','C','D'];q.options.forEach((opt,i)=>{const btn=document.createElement('button');btn.className='option-btn w-full text-left px-6 py-4 rounded-xl border-2 border-gray-200 hover:border-purple-400 bg-white font-semibold text-gray-800 text-lg';btn.innerHTML=`<span class="inline-block w-8 h-8 rounded-full bg-purple-100 text-purple-700 font-bold mr-3 text-center leading-8">${letters[i]}</span>${opt}`;btn.onclick=()=>checkAnswer(i,btn);container.appendChild(btn)});document.getElementById('next-btn').classList.add('hidden');document.getElementById('feedback-text').textContent=''}
     
@@ -154,7 +165,7 @@
     
     async function sendResult(name,className,quizId,score,total,duration){
       try{
-        const url=`${ENDPOINT}?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${quizId}&score=${score}&total=${total}&duration=${duration}`;
+        const url=`${ENDPOINT}?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${encodeURIComponent(quizId)}&score=${score}&total=${total}&duration=${duration}`;
         await fetch(url,{mode:'no-cors'});
         document.getElementById('send-status').textContent='✅ Đã lưu!'
       }catch(e){
