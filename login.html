@@ -102,13 +102,42 @@ let DATA = null;
 
 async function loadData(){
   try{
-    const res = await fetch('students.json?v=' + Date.now());
+    // Lấy đường dẫn tương đối dựa trên location hiện tại
+    const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+    const jsonPath = basePath + 'students.json?v=' + Date.now();
+    
+    console.log('Loading students.json from:', jsonPath);
+    
+    const res = await fetch(jsonPath);
+    
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+    }
+    
     DATA = await res.json();
+    
+    if (!DATA || typeof DATA !== 'object') {
+      throw new Error('File students.json không đúng định dạng');
+    }
+    
     const gradeSelect = document.getElementById('grade');
     const grades = Object.keys(DATA).sort((a,b)=>parseInt(a)-parseInt(b));
+    
+    if (grades.length === 0) {
+      throw new Error('Không có dữ liệu học sinh trong file');
+    }
+    
     gradeSelect.innerHTML = '<option value="">-- Chọn khối --</option>' + grades.map(g=>`<option value="${g}">Khối ${g}</option>`).join('');
+    
+    console.log('Loaded', grades.length, 'grades successfully');
+    
   }catch(e){
-    statusEl.textContent = 'Không tải được danh sách học sinh (students.json).';
+    const errorMsg = `❌ Không tải được danh sách học sinh: ${e.message}`;
+    statusEl.textContent = errorMsg;
+    statusEl.style.color = '#ef4444';
+    console.error('Load data error:', e);
+    console.error('Current location:', window.location.href);
+    console.error('Pathname:', window.location.pathname);
   }
 }
 loadData();
