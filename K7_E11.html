@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <title>⚡ K7-E11: 📊 Địa chỉ tương đối tuyệt đối</title>
+  <title>⚡ K7_E11: 📍 Địa chỉ tương đối tuyệt đối</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -34,7 +34,7 @@
         <div class="inline-block mb-3 px-4 py-2 bg-gradient-to-r from-purple-100 to-indigo-100 rounded-full">
           <span class="text-sm font-bold text-purple-700">🎓 KHỐI 7 - BÀI E11</span>
         </div>
-        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">📊 Địa chỉ tương đối tuyệt đối</h1>
+        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">📍 Địa chỉ tương đối tuyệt đối</h1>
         <p class="text-gray-600 text-lg">🎯 12 câu hỏi - Thời gian: ~12 phút</p>
       </div>
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 p-4 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl">
@@ -72,12 +72,12 @@
   </main>
   <script>
     const QUIZ_ID="K7_E11";
-    const ENDPOINT="https://script.google.com/macros/s/AKfycbwj9IiX8PXC-bNsh4DGIw0uysx0v3jWPNeu0lQpieUIQAx9sT9YNUKTZoQFBjg-w86TKg/exec";
+    const ENDPOINT="https://tinhoc321.com/api/save_result.php";
     function getStudent(){try{return JSON.parse(localStorage.getItem('student')||'null')}catch(e){return null}}
     const student=getStudent();
     (function(){const pill=document.getElementById('userPill');if(student&&pill){pill.classList.remove('hidden');pill.innerHTML=`👤 ${student.name} · Lớp ${student.className}`}})();
     
-    const allQuestions=[{"question": "Địa chỉ tương đối là gì", "options": ["Địa chỉ thay đổi khi sao chép công thức", "Địa chỉ luôn cố định", "Địa chỉ của trang tính", "Địa chỉ của biểu đồ"], "answer": 0}, {"question": "Địa chỉ tuyệt đối là gì", "options": ["Địa chỉ cố định với kí hiệu đô la", "Địa chỉ di động", "Địa chỉ của sổ tính", "Địa chỉ của hàng tiêu đề"], "answer": 0}, {"question": "Kí hiệu thường dùng để cố định địa chỉ là gì", "options": ["Dấu đô la đặt trước cột và hàng", "Chữ hoa", "Khoảng trắng", "Dấu chấm phẩy"], "answer": 0}, {"question": "Ví dụ địa chỉ tuyệt đối đúng", "options": ["$A$1", "A1", "$A1", "A$1"], "answer": 0}, {"question": "Địa chỉ hỗn hợp là gì", "options": ["Cố định một phần cột hoặc hàng", "Không có cố định", "Chỉ cho văn bản", "Chỉ cho số"], "answer": 0}, {"question": "Vì sao cần tuyệt đối khi nhân với một hằng số", "options": ["Để mọi hàng đều tham chiếu cùng một ô hằng số", "Để đổi màu nền", "Để in nhanh", "Để gộp ô"], "answer": 0}, {"question": "Phím tắt chuyển nhanh giữa các kiểu địa chỉ khi sửa công thức", "options": ["F4", "Ctrl C", "F2", "Alt Tab"], "answer": 0}, {"question": "Địa chỉ tương đối phù hợp khi nào", "options": ["Khi muốn sao chép công thức theo hàng và cột", " Khi cố định một ô", " Khi đặt tiêu đề", " Khi in"], "answer": 0}, {"question": "Địa chỉ hỗn hợp có dạng", "options": ["$A1 hoặc A$1", "$A$1 hoặc A1", "A1 A2", "$B$1 A2"], "answer": 0}, {"question": "Tính tiền với thuế cố định tại ô B1 nên dùng", "options": ["Nhân với $B$1 trong công thức", "Nhân với B1 để tự thay đổi", "Chỉ cộng số 1", "Chỉ trừ 1"], "answer": 0}, {"question": "Chấm công nhân viên nhân với mức lương giờ cố định tại C2 nên dùng", "options": ["Địa chỉ tuyệt đối $C$2 trong công thức", "Địa chỉ tương đối C2", "Địa chỉ hỗn hợp C$2", "Chỉ điền tay"], "answer": 0}, {"question": "Dùng địa chỉ hỗn hợp khi", "options": ["Muốn giữ cột cố định nhưng hàng thay đổi", "Muốn cố định cả cột và hàng", "Muốn thay đổi cả hai", "Muốn đổi màu nền"], "answer": 0}];
+    const allQuestions=[{"question": "Địa chỉ tương đối là gì", "options": ["Địa chỉ thay đổi khi sao chép công thức", "Địa chỉ luôn cố định", "Địa chỉ của trang tính", "Địa chỉ của biểu đồ"], "answer": 0}, {"question": "Địa chỉ tuyệt đối là gì", "options": ["Địa chỉ cố định với kí hiệu đô la", "Địa chỉ di động", "Địa chỉ của sổ tính", "Địa chỉ của hàng tiêu đề"], "answer": 0}, {"question": "Kí hiệu thường dùng để cố định địa chỉ là gì", "options": ["Dấu đô la đặt trước cột và hàng", "Chữ hoa", "Khoảng trắng", "Dấu chấm phẩy"], "answer": 0}, {"question": "Ví dụ địa chỉ tuyệt đối đúng", "options": ["$A$1", "A1", "$A1", "A$1"], "answer": 0}, {"question": "Địa chỉ hỗn hợp là gì", "options": ["Cố định một phần cột hoặc hàng", "Không có cố định", "Chỉ cho văn bản", "Chỉ cho số"], "answer": 0}, {"question": "Vì sao cần tuyệt đối khi nhân với một hằng số", "options": ["Để mọi hàng đều tham chiếu cùng một ô hằng số", "Để đổi màu nền", "Để in nhanh", "Để gộp ô"], "answer": 0}, {"question": "Phím tắt chuyển nhanh giữa các kiểu địa chỉ khi sửa công thức", "options": ["F4", "Ctrl C", "F2", "Alt Tab"], "answer": 0}, {"question": "Địa chỉ tương đối phù hợp khi nào", "options": ["Khi muốn sao chép công thức theo hàng và cột", "Khi cố định một ô", "Khi đặt tiêu đề", "Khi in"], "answer": 0}, {"question": "Địa chỉ hỗn hợp có dạng", "options": ["$A1 hoặc A$1", "$A$1 hoặc A1", "A1 A2", "$B$1 A2"], "answer": 0}, {"question": "Tính tiền với thuế cố định tại ô B1 nên dùng", "options": ["Nhân với $B$1 trong công thức", "Nhân với B1 để tự thay đổi", "Chỉ cộng số 1", "Chỉ trừ 1"], "answer": 0}, {"question": "Chấm công nhân viên nhân với mức lương giờ cố định tại C2 nên dùng", "options": ["Địa chỉ tuyệt đối $C$2 trong công thức", "Địa chỉ tương đối C2", "Địa chỉ hỗn hợp C$2", "Chỉ điền tay"], "answer": 0}, {"question": "Dùng địa chỉ hỗn hợp khi", "options": ["Muốn giữ cột cố định nhưng hàng thay đổi", "Muốn cố định cả cột và hàng", "Muốn thay đổi cả hai", "Muốn đổi màu nền"], "answer": 0}];
     let currentQ=0,score=0,startTime=Date.now();
     function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
     function withShuffledOptions(q){const order=q.options.map((_,i)=>i);shuffle(order);return{...q,options:order.map(i=>q.options[i]),answer:order.indexOf(q.answer)}}
@@ -142,9 +142,61 @@
       }
     }
     
-    async function sendResult(name,className,quizId,score,total,duration){
-      try{
-        const url=`${ENDPOINT}?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${quizId}&score=${score}&total=${total}&duration=${duration}`;
+    async function sendResult(name, className, quizId, score, total, duration) {
+      try {
+        const response = await fetch("https://tinhoc321.com/api/save_result.php", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    }?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${encodeURIComponent(quizId)}&score=${score}&total=${total}&duration=${duration}`;
         await fetch(url,{mode:'no-cors'});
         document.getElementById('send-status').textContent='✅ Đã lưu!'
       }catch(e){

@@ -73,7 +73,7 @@
   </main>
   <script>
     const QUIZ_ID="K6_KIEM_TRA_4";
-    const ENDPOINT="https://script.google.com/macros/s/AKfycbwj9IiX8PXC-bNsh4DGIw0uysx0v3jWPNeu0lQpieUIQAx9sT9YNUKTZoQFBjg-w86TKg/exec";
+    const ENDPOINT="https://tinhoc321.com/api/save_result.php";
     function getStudent(){try{return JSON.parse(localStorage.getItem('student')||'null')}catch(e){return null}}
     const student=getStudent();
     (function(){const pill=document.getElementById('userPill');if(student&&pill){pill.classList.remove('hidden');pill.innerHTML=`👤 ${student.name} · Lớp ${student.className}`}})();
@@ -183,9 +183,61 @@
       }
     }
     
-    async function sendResult(name,className,quizId,score,total,duration){
-      try{
-        const url=`${ENDPOINT}?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${encodeURIComponent(quizId)}&score=${score}&total=${total}&duration=${duration}`;
+    async function sendResult(name, className, quizId, score, total, duration) {
+      try {
+        const response = await fetch("https://tinhoc321.com/api/save_result.php", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    }?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${encodeURIComponent(quizId)}&score=${score}&total=${total}&duration=${duration}`;
         await fetch(url,{mode:'no-cors'});
         document.getElementById('send-status').textContent='✅ Đã lưu!'
       }catch(e){

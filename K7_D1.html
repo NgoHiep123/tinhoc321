@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <title>⚡ K7-D1: 🤝 Ứng xử văn hóa mạng</title>
+  <title>⚡ K7_D1: 📝 Soạn thảo văn bản với Word</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -34,7 +34,7 @@
         <div class="inline-block mb-3 px-4 py-2 bg-gradient-to-r from-purple-100 to-indigo-100 rounded-full">
           <span class="text-sm font-bold text-purple-700">🎓 KHỐI 7 - BÀI D1</span>
         </div>
-        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">🤝 Ứng xử văn hóa mạng</h1>
+        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">📝 Soạn thảo văn bản với Word</h1>
         <p class="text-gray-600 text-lg">🎯 12 câu hỏi - Thời gian: ~12 phút</p>
       </div>
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 p-4 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl">
@@ -72,25 +72,12 @@
   </main>
   <script>
     const QUIZ_ID="K7_D1";
-    const ENDPOINT="https://script.google.com/macros/s/AKfycbwj9IiX8PXC-bNsh4DGIw0uysx0v3jWPNeu0lQpieUIQAx9sT9YNUKTZoQFBjg-w86TKg/exec";
+    const ENDPOINT="https://tinhoc321.com/api/save_result.php";
     function getStudent(){try{return JSON.parse(localStorage.getItem('student')||'null')}catch(e){return null}}
     const student=getStudent();
     (function(){const pill=document.getElementById('userPill');if(student&&pill){pill.classList.remove('hidden');pill.innerHTML=`👤 ${student.name} · Lớp ${student.className}`}})();
     
-    const allQuestions=[
-      {question: "Ứng xử có văn hóa khi giao tiếp qua mạng là gì", options: ["Trao đổi bằng ngôn ngữ lịch sự tôn trọng và đúng quy tắc", "Viết gì cũng được vì là trên mạng", "Luôn phản bác người khác cho vui", "Bỏ qua mọi chuẩn mực"], answer: 0},
-      {question: "Ở nơi công cộng cần chú ý điều nào", options: ["Không làm phiền giữ trật tự và tôn trọng người xung quanh", "Nói to để thể hiện bản thân", "Quay clip người khác rồi đăng công khai", "Nghe nhạc loa ngoài"], answer: 0},
-      {question: "Giữ gìn hình ảnh bản thân trên mạng nghĩa là", options: ["Đăng tải có chọn lọc và chịu trách nhiệm nội dung", "Đăng mọi thứ theo cảm hứng", "Chia sẻ thông tin riêng tư của bạn bè", "Chỉ bình luận bằng biểu tượng"], answer: 0},
-      {question: "Hành vi nào thể hiện sự tử tế trên không gian mạng", options: ["Không xúc phạm không bêu xấu người khác", "Chế ảnh để trêu chọc bạn", "Đăng bình luận thô lỗ", "Đăng tin đồn chưa kiểm chứng"], answer: 0},
-      {question: "Khi dùng email tin nhắn cần tôn trọng điều gì", options: ["Quyền riêng tư và lịch sự trả lời đúng mực", "Đòi người khác phản hồi ngay", "Chuyển tiếp mọi tin đã nhận", "Tự ý công bố hội thoại"], answer: 0},
-      {question: "Vì sao nói nội dung đưa lên mạng khó thu hồi", options: ["Nhanh lan rộng và được nhiều người sao chép lại", "Dễ xóa hoàn toàn bất cứ lúc nào", "Chỉ hiện với một người", "Dễ biến mất sau 1 giờ"], answer: 0},
-      {question: "So với nơi công cộng các quy tắc ứng xử trên mạng", options: ["Giống về tôn trọng lịch sự chỉ khác môi trường", "Hoàn toàn khác vì là trực tuyến", "Không cần thiết trên mạng", "Chỉ áp dụng cho người lớn"], answer: 0},
-      {question: "Thế nào là tôn trọng quyền riêng tư khi nhắn tin", options: ["Không tự ý chia sẻ nội dung trò chuyện của người khác", "Chụp màn hình gửi đi cho vui", "Đăng lên nhóm lớp để hỏi ý kiến", "Công khai toàn bộ lịch sử chat"], answer: 0},
-      {question: "Thái độ phù hợp khi nhận tin nhắn cần thời gian xử lí", options: ["Báo đã nhận và hẹn trả lời sau nếu bận", "Bỏ qua đến khi rảnh", "Rời nhóm chat ngay", "Chỉ thả biểu tượng cảm xúc"], answer: 0},
-      {question: "Tình huống bạn đăng ảnh nhóm có bạn chưa đồng ý Bạn nên", options: ["Xin phép bạn rồi mới đăng hoặc gỡ nếu bạn không muốn", "Đăng ngay vì ảnh đẹp", "Thêm bình luận trêu chọc", "Gắn thẻ công khai toàn lớp"], answer: 0},
-      {question: "Tình huống nhận bình luận thô lỗ dưới bài viết Cách xử lí", options: ["Giữ bình tĩnh báo cáo vi phạm và trao đổi với giáo viên khi cần", "Đáp trả bằng lời lẽ nặng nề", "Tag bạn bè vào công kích", "Hé lộ thông tin riêng tư của họ"], answer: 0},
-      {question: "Tình huống người quen nhờ chuyển tiếp cuộc trò chuyện riêng tư", options: ["Bảo vệ riêng tư không chuyển tiếp khi chưa được phép", "Chuyển ngay cho cả nhóm", "Gắn lên mạng xã hội", "Cắt ghép rồi đăng đùa"], answer: 0}
-    ];
+    const allQuestions=[{"question": "Ứng xử có văn hóa khi giao tiếp qua mạng là gì", "options": ["Trao đổi bằng ngôn ngữ lịch sự tôn trọng và đúng quy tắc", "Viết gì cũng được vì là trên mạng", "Luôn phản bác người khác cho vui", "Bỏ qua mọi chuẩn mực"], "answer": 0}, {"question": "Ở nơi công cộng cần chú ý điều nào", "options": ["Không làm phiền giữ trật tự và tôn trọng người xung quanh", "Nói to để thể hiện bản thân", "Quay clip người khác rồi đăng công khai", "Nghe nhạc loa ngoài"], "answer": 0}, {"question": "Giữ gìn hình ảnh bản thân trên mạng nghĩa là", "options": ["Đăng tải có chọn lọc và chịu trách nhiệm nội dung", "Đăng mọi thứ theo cảm hứng", "Chia sẻ thông tin riêng tư của bạn bè", "Chỉ bình luận bằng biểu tượng"], "answer": 0}, {"question": "Hành vi nào thể hiện sự tử tế trên không gian mạng", "options": ["Không xúc phạm không bêu xấu người khác", "Chế ảnh để trêu chọc bạn", "Đăng bình luận thô lỗ", "Đăng tin đồn chưa kiểm chứng"], "answer": 0}, {"question": "Khi dùng email tin nhắn cần tôn trọng điều gì", "options": ["Quyền riêng tư và lịch sự trả lời đúng mực", "Đòi người khác phản hồi ngay", "Chuyển tiếp mọi tin đã nhận", "Tự ý công bố hội thoại"], "answer": 0}, {"question": "Vì sao nói nội dung đưa lên mạng khó thu hồi", "options": ["Nhanh lan rộng và được nhiều người sao chép lại", "Dễ xóa hoàn toàn bất cứ lúc nào", "Chỉ hiện với một người", "Dễ biến mất sau 1 giờ"], "answer": 0}, {"question": "So với nơi công cộng các quy tắc ứng xử trên mạng", "options": ["Giống về tôn trọng lịch sự chỉ khác môi trường", "Hoàn toàn khác vì là trực tuyến", "Không cần thiết trên mạng", "Chỉ áp dụng cho người lớn"], "answer": 0}, {"question": "Thế nào là tôn trọng quyền riêng tư khi nhắn tin", "options": ["Không tự ý chia sẻ nội dung trò chuyện của người khác", "Chụp màn hình gửi đi cho vui", "Đăng lên nhóm lớp để hỏi ý kiến", "Công khai toàn bộ lịch sử chat"], "answer": 0}, {"question": "Thái độ phù hợp khi nhận tin nhắn cần thời gian xử lí", "options": ["Báo đã nhận và hẹn trả lời sau nếu bận", "Bỏ qua đến khi rảnh", "Rời nhóm chat ngay", "Chỉ thả biểu tượng cảm xúc"], "answer": 0}, {"question": "Tình huống bạn đăng ảnh nhóm có bạn chưa đồng ý Bạn nên", "options": ["Xin phép bạn rồi mới đăng hoặc gỡ nếu bạn không muốn", "Đăng ngay vì ảnh đẹp", "Thêm bình luận trêu chọc", "Gắn thẻ công khai toàn lớp"], "answer": 0}, {"question": "Tình huống nhận bình luận thô lỗ dưới bài viết Cách xử lí", "options": ["Giữ bình tĩnh báo cáo vi phạm và trao đổi với giáo viên khi cần", "Đáp trả bằng lời lẽ nặng nề", "Tag bạn bè vào công kích", "Hé lộ thông tin riêng tư của họ"], "answer": 0}, {"question": "Tình huống người quen nhờ chuyển tiếp cuộc trò chuyện riêng tư", "options": ["Bảo vệ riêng tư không chuyển tiếp khi chưa được phép", "Chuyển ngay cho cả nhóm", "Gắn lên mạng xã hội", "Cắt ghép rồi đăng đùa"], "answer": 0}];
     let currentQ=0,score=0,startTime=Date.now();
     function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
     function withShuffledOptions(q){const order=q.options.map((_,i)=>i);shuffle(order);return{...q,options:order.map(i=>q.options[i]),answer:order.indexOf(q.answer)}}
@@ -155,9 +142,61 @@
       }
     }
     
-    async function sendResult(name,className,quizId,score,total,duration){
-      try{
-        const url=`${ENDPOINT}?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${quizId}&score=${score}&total=${total}&duration=${duration}`;
+    async function sendResult(name, className, quizId, score, total, duration) {
+      try {
+        const response = await fetch("https://tinhoc321.com/api/save_result.php", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    }?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${encodeURIComponent(quizId)}&score=${score}&total=${total}&duration=${duration}`;
         await fetch(url,{mode:'no-cors'});
         document.getElementById('send-status').textContent='✅ Đã lưu!'
       }catch(e){
@@ -170,4 +209,3 @@
   </script>
 </body>
 </html>
-

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <title>⚡ K7-B2: 📱 Thực hành mạng xã hội</title>
+  <title>⚡ K7_B2: 🌍 Trình duyệt Web</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -34,7 +34,7 @@
         <div class="inline-block mb-3 px-4 py-2 bg-gradient-to-r from-purple-100 to-indigo-100 rounded-full">
           <span class="text-sm font-bold text-purple-700">🎓 KHỐI 7 - BÀI B2</span>
         </div>
-        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">📱 Thực hành mạng xã hội</h1>
+        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">🌍 Trình duyệt Web</h1>
         <p class="text-gray-600 text-lg">🎯 12 câu hỏi - Thời gian: ~12 phút</p>
       </div>
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 p-4 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl">
@@ -72,25 +72,12 @@
   </main>
   <script>
     const QUIZ_ID="K7_B2";
-    const ENDPOINT="https://script.google.com/macros/s/AKfycbwj9IiX8PXC-bNsh4DGIw0uysx0v3jWPNeu0lQpieUIQAx9sT9YNUKTZoQFBjg-w86TKg/exec";
+    const ENDPOINT="https://tinhoc321.com/api/save_result.php";
     function getStudent(){try{return JSON.parse(localStorage.getItem('student')||'null')}catch(e){return null}}
     const student=getStudent();
     (function(){const pill=document.getElementById('userPill');if(student&&pill){pill.classList.remove('hidden');pill.innerHTML=`👤 ${student.name} · Lớp ${student.className}`}})();
     
-    const allQuestions=[
-      {question: "Facebook được giới thiệu là mạng xã hội do ai khởi xướng", options: ["Mark Zuckerberg", "Nikola Tesla", "Alan Turing", "Bill Gates"], answer: 0},
-      {question: "Bước đầu để tạo tài khoản Facebook là", options: ["Truy cập trang facebook chấm com", "Tháo pin máy tính", "Đổi ổ cứng", "Đặt lại BIOS"], answer: 0},
-      {question: "Thông tin thường cần khi đăng ký tài khoản là", options: ["Họ tên email hoặc số điện thoại mật khẩu ngày sinh giới tính", "Mật khẩu của bạn bè", "Mã thẻ ngân hàng", "Mã máy in"], answer: 0},
-      {question: "Chức năng cập nhật ảnh đại diện thuộc mục", options: ["Update profile picture", "Format Disk", "Add Printer", "Task Manager"], answer: 0},
-      {question: "Chỉnh sửa thông tin trên trang cá nhân dùng", options: ["Edit Profile", "Device Manager", "Paint", "Notepad"], answer: 0},
-      {question: "Thiết lập riêng tư khi tạo nhóm có các lựa chọn chính nào", options: ["Công khai hoặc riêng tư", "Chỉ ngoại tuyến", "Chỉ nội bộ trường", "Chỉ ban giám hiệu"], answer: 0},
-      {question: "Vì sao cần đặt mật khẩu đủ mạnh cho tài khoản", options: ["Giảm nguy cơ bị chiếm đoạt tài khoản", "Tăng tốc độ mạng", "Tự động tăng điểm số", "Giảm dung lượng ổ đĩa"], answer: 0},
-      {question: "Thêm bạn vào nhóm thực hiện bằng", options: ["Sao chép tệp hệ thống", "Invite friends gõ tên tài khoản hoặc email", "Đổi theme thiết bị", "Chụp màn hình"], answer: 1},
-      {question: "Bước đúng khi đăng bài chia sẻ liên kết là", options: ["Mở Create post dán địa chỉ và chọn Post", "Đổi mật khẩu rồi tắt máy", "Gỡ trình duyệt và cài lại", "Nhấn Print ngay"], answer: 0},
-      {question: "Tình huống đăng ảnh cá nhân của bạn khác Cách an toàn là", options: ["Đăng công khai ngay", "Xin phép trước và tôn trọng cài đặt riêng tư", "Thêm số điện thoại của bạn vào ảnh", "Gắn vị trí nhà riêng"], answer: 1},
-      {question: "Bạn cần hoàn thiện hồ sơ cá nhân để thầy cô nhận diện Cách làm đúng là", options: ["Cập nhật ảnh đại diện ảnh bìa thông tin lớp và lưu", "Đặt tên tài khoản khó hiểu", "Gỡ bỏ ảnh đại diện", "Đổi ngày sinh tuỳ ý"], answer: 0},
-      {question: "Tạo nhóm học tập trực tuyến hiệu quả gồm bước nào", options: ["Đăng bài trống", "Tạo nhóm chọn mức riêng tư mời thành viên nêu quy tắc", "Kêu gọi mọi người nhắn tin riêng lẻ", "Chỉ để tên nhóm không mời ai"], answer: 1}
-    ];
+    const allQuestions=[{"question": "Facebook được giới thiệu là mạng xã hội do ai khởi xướng", "options": ["Mark Zuckerberg", "Nikola Tesla", "Alan Turing", "Bill Gates"], "answer": 0}, {"question": "Bước đầu để tạo tài khoản Facebook là", "options": ["Truy cập trang facebook chấm com", "Tháo pin máy tính", "Đổi ổ cứng", "Đặt lại BIOS"], "answer": 0}, {"question": "Thông tin thường cần khi đăng ký tài khoản là", "options": ["Họ tên email hoặc số điện thoại mật khẩu ngày sinh giới tính", "Mật khẩu của bạn bè", "Mã thẻ ngân hàng", "Mã máy in"], "answer": 0}, {"question": "Chức năng cập nhật ảnh đại diện thuộc mục", "options": ["Update profile picture", "Format Disk", "Add Printer", "Task Manager"], "answer": 0}, {"question": "Chỉnh sửa thông tin trên trang cá nhân dùng", "options": ["Edit Profile", "Device Manager", "Paint", "Notepad"], "answer": 0}, {"question": "Thiết lập riêng tư khi tạo nhóm có các lựa chọn chính nào", "options": ["Công khai hoặc riêng tư", "Chỉ ngoại tuyến", "Chỉ nội bộ trường", "Chỉ ban giám hiệu"], "answer": 0}, {"question": "Vì sao cần đặt mật khẩu đủ mạnh cho tài khoản", "options": ["Giảm nguy cơ bị chiếm đoạt tài khoản", "Tăng tốc độ mạng", "Tự động tăng điểm số", "Giảm dung lượng ổ đĩa"], "answer": 0}, {"question": "Thêm bạn vào nhóm thực hiện bằng", "options": ["Invite friends gõ tên tài khoản hoặc email", "Sao chép tệp hệ thống", "Đổi theme thiết bị", "Chụp màn hình"], "answer": 1}, {"question": "Bước đúng khi đăng bài chia sẻ liên kết là", "options": ["Mở Create post dán địa chỉ và chọn Post", "Đổi mật khẩu rồi tắt máy", "Gỡ trình duyệt và cài lại", "Nhấn Print ngay"], "answer": 0}, {"question": "Tình huống đăng ảnh cá nhân của bạn khác Cách an toàn là", "options": ["Xin phép trước và tôn trọng cài đặt riêng tư", "Đăng công khai ngay", "Thêm số điện thoại của bạn vào ảnh", "Gắn vị trí nhà riêng"], "answer": 1}, {"question": "Bạn cần hoàn thiện hồ sơ cá nhân để thầy cô nhận diện Cách làm đúng là", "options": ["Cập nhật ảnh đại diện ảnh bìa thông tin lớp và lưu", "Đặt tên tài khoản khó hiểu", "Gỡ bỏ ảnh đại diện", "Đổi ngày sinh tuỳ ý"], "answer": 0}, {"question": "Tạo nhóm học tập trực tuyến hiệu quả gồm bước nào", "options": ["Tạo nhóm chọn mức riêng tư mời thành viên nêu quy tắc", "Kêu gọi mọi người nhắn tin riêng lẻ", "Chỉ để tên nhóm không mời ai", "Đăng bài trống"], "answer": 1}];
     let currentQ=0,score=0,startTime=Date.now();
     function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
     function withShuffledOptions(q){const order=q.options.map((_,i)=>i);shuffle(order);return{...q,options:order.map(i=>q.options[i]),answer:order.indexOf(q.answer)}}
@@ -155,9 +142,61 @@
       }
     }
     
-    async function sendResult(name,className,quizId,score,total,duration){
-      try{
-        const url=`${ENDPOINT}?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${quizId}&score=${score}&total=${total}&duration=${duration}`;
+    async function sendResult(name, className, quizId, score, total, duration) {
+      try {
+        const response = await fetch("https://tinhoc321.com/api/save_result.php", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    }?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${encodeURIComponent(quizId)}&score=${score}&total=${total}&duration=${duration}`;
         await fetch(url,{mode:'no-cors'});
         document.getElementById('send-status').textContent='✅ Đã lưu!'
       }catch(e){
@@ -170,4 +209,3 @@
   </script>
 </body>
 </html>
-

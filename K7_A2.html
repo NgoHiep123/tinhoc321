@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <title>⚡ K7-A2: 🔄 Khái niệm Vào - Ra</title>
+  <title>⚡ K7_A2: 💻 Làm quen với hệ điều hành Windows</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -34,7 +34,7 @@
         <div class="inline-block mb-3 px-4 py-2 bg-gradient-to-r from-purple-100 to-indigo-100 rounded-full">
           <span class="text-sm font-bold text-purple-700">🎓 KHỐI 7 - BÀI A2</span>
         </div>
-        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">🔄 Khái niệm Vào - Ra</h1>
+        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">💻 Làm quen với hệ điều hành Windows</h1>
         <p class="text-gray-600 text-lg">🎯 12 câu hỏi - Thời gian: ~12 phút</p>
       </div>
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 p-4 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl">
@@ -72,25 +72,12 @@
   </main>
   <script>
     const QUIZ_ID="K7_A2";
-    const ENDPOINT="https://script.google.com/macros/s/AKfycbwj9IiX8PXC-bNsh4DGIw0uysx0v3jWPNeu0lQpieUIQAx9sT9YNUKTZoQFBjg-w86TKg/exec";
+    const ENDPOINT="https://tinhoc321.com/api/save_result.php";
     function getStudent(){try{return JSON.parse(localStorage.getItem('student')||'null')}catch(e){return null}}
     const student=getStudent();
     (function(){const pill=document.getElementById('userPill');if(student&&pill){pill.classList.remove('hidden');pill.innerHTML=`👤 ${student.name} · Lớp ${student.className}`}})();
     
-    const allQuestions=[
-      {question: "Thiết bị vào – ra là gì theo bài học?", options: ["Các thiết bị giúp máy tính nhận thông tin vào và xuất thông tin ra.", "Chỉ thiết bị lưu trữ.", "Chỉ thiết bị hiển thị.", "Chỉ phần mềm."], answer: 0},
-      {question: "Thiết bị nào là thiết bị vào?", options: ["Máy in.", "Máy quét.", "Màn hình.", "Loa."], answer: 1},
-      {question: "Thiết bị nào là thiết bị ra?", options: ["Bàn phím.", "Micro.", "Máy in.", "Máy ảnh số."], answer: 2},
-      {question: "Thiết bị nào có thể coi là vào khi kết nối trực tiếp với máy tính?", options: ["Máy ảnh số/máy quay.", "Máy in kim.", "Loa thụ động.", "Ổ điện."], answer: 0},
-      {question: "Công nghệ OCR dùng để làm gì?", options: ["Chuyển văn bản in thành dữ liệu ảnh.", "Chuyển văn bản in thành dữ liệu văn bản cho máy tính.", "Chuyển âm thanh thành ảnh.", "Chuyển video thành nhạc."], answer: 1},
-      {question: "Thiết bị đọc mã vạch thuộc nhóm nào?", options: ["Thiết bị ra.", "Thiết bị vào.", "Thiết bị lưu trữ ngoài.", "Thiết bị mạng."], answer: 1},
-      {question: "Vì sao nói ổ đĩa cứng/thẻ nhớ/USB liên quan đến đầu vào?", options: ["Vì chỉ phát nhạc.", "Vì cung cấp dữ liệu số để máy tính đọc vào.", "Vì là thiết bị ra.", "Vì là phần mềm."], answer: 1},
-      {question: "Phát biểu đúng về vai trò thiết bị vào – ra:", options: ["Chỉ cần thiết bị vào.", "Chỉ cần thiết bị ra.", "Thiếu vào – ra thì con người khó tương tác với máy tính.", "Không ảnh hưởng đến sử dụng."], answer: 2},
-      {question: "So sánh ngắn: máy quét và máy in khác nhau chủ yếu ở điểm nào?", options: ["Cả hai đều ra.", "Máy quét là vào, máy in là ra.", "Cả hai đều vào.", "Đều là lưu trữ."], answer: 1},
-      {question: "Tình huống: Cần số hóa ảnh giấy đưa vào báo cáo. Thiết bị phù hợp là gì?", options: ["Máy in.", "Máy quét.", "Loa.", "Màn hình."], answer: 1},
-      {question: "Tình huống: Cần đọc sách mã vạch trong thư viện vào hệ thống. Thiết bị nên dùng là gì?", options: ["Máy in.", "Đầu đọc mã vạch.", "Màn hình cảm ứng.", "Chuột."], answer: 1},
-      {question: "Tình huống: Muốn trình chiếu cho cả lớp nghe nhìn rõ. Cặp thiết bị ra phù hợp nhất là gì?", options: ["Chuột và bàn phím.", "Máy quét và OCR.", "Màn hình hoặc máy chiếu kèm loa.", "USB và máy ảnh."], answer: 2}
-    ];
+    const allQuestions=[{"question": "Thiết bị vào – ra là gì theo bài học?", "options": ["Các thiết bị giúp máy tính nhận thông tin vào và xuất thông tin ra.", "Chỉ thiết bị lưu trữ.", "Chỉ thiết bị hiển thị.", "Chỉ phần mềm."], "answer": 0}, {"question": "Thiết bị nào là thiết bị vào?", "options": ["Máy in.", "Máy quét.", "Màn hình.", "Loa."], "answer": 1}, {"question": "Thiết bị nào là thiết bị ra?", "options": ["Bàn phím.", "Micro.", "Máy in.", "Máy ảnh số."], "answer": 2}, {"question": "Thiết bị nào có thể coi là vào khi kết nối trực tiếp với máy tính?", "options": ["Máy ảnh số/máy quay.", "Máy in kim.", "Loa thụ động.", "Ổ điện."], "answer": 0}, {"question": "Công nghệ OCR dùng để làm gì?", "options": ["Chuyển văn bản in thành dữ liệu ảnh.", "Chuyển văn bản in thành dữ liệu văn bản cho máy tính.", "Chuyển âm thanh thành ảnh.", "Chuyển video thành nhạc."], "answer": 1}, {"question": "Thiết bị đọc mã vạch thuộc nhóm nào?", "options": ["Thiết bị ra.", "Thiết bị vào.", "Thiết bị lưu trữ ngoài.", "Thiết bị mạng."], "answer": 1}, {"question": "Vì sao nói ổ đĩa cứng/thẻ nhớ/USB liên quan đến đầu vào?", "options": ["Vì chỉ phát nhạc.", "Vì cung cấp dữ liệu số để máy tính đọc vào.", "Vì là thiết bị ra.", "Vì là phần mềm."], "answer": 1}, {"question": "Phát biểu đúng về vai trò thiết bị vào – ra:", "options": ["Chỉ cần thiết bị vào.", "Chỉ cần thiết bị ra.", "Thiếu vào – ra thì con người khó tương tác với máy tính.", "Không ảnh hưởng đến sử dụng."], "answer": 2}, {"question": "So sánh ngắn: máy quét và máy in khác nhau chủ yếu ở điểm nào?", "options": ["Cả hai đều ra.", "Máy quét là vào", "máy in là ra.", "Cả hai đều vào."], "answer": 0}, {"question": "Tình huống: Cần số hóa ảnh giấy đưa vào báo cáo. Thiết bị phù hợp là gì?", "options": ["Máy in.", "Máy quét.", "Loa.", "Màn hình."], "answer": 1}, {"question": "Tình huống: Cần đọc sách mã vạch trong thư viện vào hệ thống. Thiết bị nên dùng là gì?", "options": ["Máy in.", "Đầu đọc mã vạch.", "Màn hình cảm ứng.", "Chuột."], "answer": 1}, {"question": "Tình huống: Muốn trình chiếu cho cả lớp nghe nhìn rõ. Cặp thiết bị ra phù hợp nhất là gì?", "options": ["Chuột và bàn phím.", "Máy quét và OCR.", "Màn hình hoặc máy chiếu kèm loa.", "USB và máy ảnh."], "answer": 2}];
     let currentQ=0,score=0,startTime=Date.now();
     function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
     function withShuffledOptions(q){const order=q.options.map((_,i)=>i);shuffle(order);return{...q,options:order.map(i=>q.options[i]),answer:order.indexOf(q.answer)}}
@@ -155,9 +142,61 @@
       }
     }
     
-    async function sendResult(name,className,quizId,score,total,duration){
-      try{
-        const url=`${ENDPOINT}?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${quizId}&score=${score}&total=${total}&duration=${duration}`;
+    async function sendResult(name, className, quizId, score, total, duration) {
+      try {
+        const response = await fetch("https://tinhoc321.com/api/save_result.php", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    }?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${encodeURIComponent(quizId)}&score=${score}&total=${total}&duration=${duration}`;
         await fetch(url,{mode:'no-cors'});
         document.getElementById('send-status').textContent='✅ Đã lưu!'
       }catch(e){
@@ -170,4 +209,3 @@
   </script>
 </body>
 </html>
-

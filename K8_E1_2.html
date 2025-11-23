@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <title>⚡ K8_E1_2: 🔀 Sắp xếp dữ liệu</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);background-attachment:fixed}
+    .quiz-container{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px)}
+    .option-btn{transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+    .option-btn:hover{transform:translateX(4px);box-shadow:0 10px 25px rgba(99,102,241,0.3)}
+    .correct{background:linear-gradient(135deg,#10b981 0%,#059669 100%)!important;color:#fff!important;animation:correctPulse 0.6s ease;box-shadow:0 0 30px rgba(16,185,129,0.6)!important}
+    .incorrect{background:linear-gradient(135deg,#ef4444 0%,#dc2626 100%)!important;color:#fff!important;animation:shake 0.5s ease}
+    @keyframes correctPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+    @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+  </style>
+</head>
+<body class="min-h-screen">
+  <header class="sticky top-0 z-20 backdrop-blur-lg bg-white/80 border-b border-white/20 shadow-lg">
+    <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="inline-flex items-center gap-2 text-purple-700 hover:text-purple-900">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        <span class="font-bold">🏠 Trang chủ</span>
+      </a>
+      <span id="userPill" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg"></span>
+    </div>
+  </header>
+  <main class="px-4 py-6 flex justify-center">
+    <div class="quiz-container w-full max-w-3xl rounded-3xl shadow-2xl p-6 md:p-10">
+      <div class="text-center mb-6">
+        <div class="inline-block mb-3 px-4 py-2 bg-gradient-to-r from-purple-100 to-indigo-100 rounded-full">
+          <span class="text-sm font-bold text-purple-700">🎓 KHỐI 8 - BÀI E1-2</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">🔀 Sắp xếp dữ liệu</h1>
+        <p class="text-gray-600 text-lg">🎯 12 câu hỏi - Thời gian: ~12 phút</p>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 p-4 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl">
+        <div class="flex items-center gap-3">
+          <div class="text-3xl">📝</div>
+          <div><div id="progress" class="text-gray-900 font-bold text-lg">Câu 1/12</div><div class="text-sm text-gray-500">Chúc bạn làm bài tốt!</div></div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="flex-1 w-48 h-3 rounded-full bg-gray-200 overflow-hidden"><div id="bar" class="h-full rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 transition-all" style="width:8%"></div></div>
+          <div id="score" class="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl font-black text-lg shadow-lg">🏆 0</div>
+        </div>
+      </div>
+      <div id="question-card" class="bg-gradient-to-br from-purple-500 to-indigo-600 p-6 rounded-2xl mb-6 min-h-[120px] flex items-center justify-center shadow-xl">
+        <p id="question-text" class="text-center text-xl md:text-2xl font-bold text-white leading-relaxed"></p>
+      </div>
+      <div id="options-container" class="grid grid-cols-1 gap-4 mb-6"></div>
+      <div id="feedback-container" class="text-center min-h-[60px] flex items-center justify-center"><p id="feedback-text" class="text-2xl font-bold"></p></div>
+      <div class="mt-4 flex justify-end">
+        <button id="next-btn" class="hidden w-full md:w-auto bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-black text-lg py-4 px-8 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition-all shadow-lg">➡️ Câu tiếp theo</button>
+      </div>
+      <div id="results-container" class="hidden text-center">
+        <div class="mb-4 text-6xl" id="result-emoji">🎉</div>
+        <h2 class="text-4xl font-black text-gray-900 mb-3">Hoàn thành!</h2>
+        <div class="my-8">
+          <p class="text-7xl font-black bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent" id="final-score"></p>
+          <p class="text-2xl text-gray-700 mt-4 font-bold" id="score-comment"></p>
+          <p class="text-sm text-gray-500 mt-3" id="send-status">Đang gửi kết quả…</p>
+        </div>
+        <div class="flex gap-4 justify-center flex-wrap">
+          <a href="index.html" class="px-6 py-3 rounded-xl bg-gray-200 text-gray-800 font-bold hover:bg-gray-300">🏠 Trang chủ</a>
+          <button id="restart-btn" class="px-8 py-3 rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 text-white font-black hover:from-green-600 hover:to-emerald-600 shadow-lg">🔄 Làm lại</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script>
+    const QUIZ_ID="K8_E1_2";
+    const ENDPOINT="https://tinhoc321.com/api/save_result.php";
+    function getStudent(){try{return JSON.parse(localStorage.getItem('student')||'null')}catch(e){return null}}
+    const student=getStudent();
+    (function(){const pill=document.getElementById('userPill');if(student&&pill){pill.classList.remove('hidden');pill.innerHTML=`👤 ${student.name} · Lớp ${student.className}`}})();
+    
+    const allQuestions=[{"question": "Mục đích chính của việc sắp xếp dữ liệu trong bảng tính là gì?", "options": ["Để xóa bớt dữ liệu", "Để tính tổng nhanh hơn", "Để hoán đổi vị trí các hàng giúp dễ dàng tra cứu và so sánh dữ liệu theo tiêu chí nhất định", "Để tô màu cho bảng đẹp hơn"], "answer": 2}, {"question": "Trong dải lệnh Data nhóm lệnh nào dùng để thực hiện sắp xếp?", "options": ["Sort & Filter", "Font", "Alignment", "Charts"], "answer": 0}, {"question": "Biểu tượng sắp xếp theo thứ tự \\\"Tăng dần\\\" (từ A đến Z hoặc từ nhỏ đến lớn) có hình gì?", "options": ["Chữ Z trên chữ A (Z->A)", "Chữ A trên chữ Z (A->Z)", "Hình cái phễu", "Hình cây bút"], "answer": 1}, {"question": "Để mở hộp thoại sắp xếp tùy chỉnh (nhiều cấp độ) ta chọn biểu tượng nào?", "options": ["Nút Filter (Phễu)", "Nút Sort (hình chữ nhật lớn có A-Z)", "Nút AutoSum", "Nút Format Cells"], "answer": 1}, {"question": "Khi sắp xếp dữ liệu ngày tháng thứ tự \\\"Oldest to Newest\\\" nghĩa là gì?", "options": ["Từ ngày gần nhất đến ngày xa nhất", "Từ ngày cũ nhất (quá khứ) đến ngày mới nhất (tương lai)", "Sắp xếp ngẫu nhiên", "Không sắp xếp gì cả"], "answer": 1}, {"question": "Nếu em chọn một ô trong cột \\\"Điểm Toán\\\" rồi bấm nút A->Z Excel sẽ thực hiện điều gì?", "options": ["Chỉ sắp xếp cột Điểm Toán các cột khác giữ nguyên (dữ liệu bị sai lệch)", "Tự động mở rộng vùng chọn và sắp xếp toàn bộ bảng theo thứ tự tăng dần của cột Điểm Toán", "Xóa cột Điểm Toán", "Báo lỗi"], "answer": 1}, {"question": "Sắp xếp \\\"nhiều cấp độ\\\" (Multi-level Sort) có ý nghĩa gì?", "options": ["Chỉ sắp xếp được 1 cột duy nhất", "Giúp xử lý trường hợp các hàng có giá trị giống nhau ở cột tiêu chí 1 thì sẽ xét tiếp tiêu chí 2 để sắp xếp", "Làm máy tính chạy chậm hơn", "Không có ý nghĩa gì"], "answer": 1}, {"question": "Trong hộp thoại Sort mục \\\"My data has headers\\\" (Dữ liệu của tôi có tiêu đề) nếu được chọn sẽ có tác dụng gì?", "options": ["Hàng đầu tiên của vùng chọn sẽ được coi là tiêu đề và không bị tham gia vào quá trình sắp xếp", "Hàng đầu tiên sẽ bị xóa", "Hàng đầu tiên sẽ bị sắp xếp đảo lộn xuống dưới", "Excel sẽ tự tạo tiêu đề mới"], "answer": 0}, {"question": "Nếu sắp xếp cột \\\"Họ tên\\\" (Tiếng Việt) theo thứ tự A-Z bằng công cụ mặc định của Excel kết quả thường gặp vấn đề gì?", "options": ["Excel không sắp xếp được tiếng Việt", "Excel sắp xếp dựa trên mã ký tự (ABC...) nên thường xếp theo Tên (từ cuối) thay vì Họ (từ đầu) nếu không tách cột", "Excel sắp xếp tốt không có vấn đề gì", "Excel sẽ xóa hết dấu tiếng Việt"], "answer": 1}, {"question": "Em muốn lập danh sách \\\"Top 3 bạn có điểm Trung bình cao nhất\\\" để trao thưởng. Em sẽ thực hiện thao tác nào?", "options": ["Sắp xếp cột Điểm TB tăng dần rồi lấy 3 bạn cuối", "Sắp xếp cột Điểm TB giảm dần (Largest to Smallest) rồi lấy 3 bạn đầu tiên", "Lọc những bạn điểm 10", "Dùng hàm SUM"], "answer": 1}, {"question": "Danh sách lớp đang lộn xộn. Cô giáo muốn sắp xếp danh sách theo Tổ (1 -> 4) nếu cùng Tổ thì sắp xếp theo Tên (A -> Z). Em cần thiết lập trong hộp thoại Sort như thế nào?", "options": ["Level 1: Tên (A-Z); Level 2: Tổ (Smallest to Largest)", "Level 1: Tổ (Smallest to Largest); Add Level -> Level 2: Tên (A-Z)", "Chỉ cần sắp xếp cột Tổ", "Chỉ cần sắp xếp cột Tên"], "answer": 1}, {"question": "Khi bôi đen vùng dữ liệu để sắp xếp nếu em QUÊN bôi đen cột \\\"Số thứ tự\\\" (STT) thì điều gì sẽ xảy ra sau khi sắp xếp?", "options": ["Cột STT vẫn giữ nguyên thứ tự 1 2 3... (đúng ý muốn)", "Cột STT sẽ bị đảo lộn theo tên (sai ý muốn)", "Máy tính sẽ tự động thêm cột STT mới", "Không sắp xếp được"], "answer": 0}];
+    let currentQ=0,score=0,startTime=Date.now();
+    function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
+    function withShuffledOptions(q){const order=q.options.map((_,i)=>i);shuffle(order);return{...q,options:order.map(i=>q.options[i]),answer:order.indexOf(q.answer)}}
+    const selectedQuestions = shuffle([...allQuestions]).slice(0, Math.min(10, allQuestions.length));
+    const quiz=selectedQuestions.map(withShuffledOptions);
+    
+    function showQuestion(){const q=quiz[currentQ];document.getElementById('question-text').textContent=q.question;document.getElementById('progress').innerHTML=`Câu ${currentQ+1}/${quiz.length}`;document.getElementById('bar').style.width=((currentQ+1)/quiz.length*100)+'%';const container=document.getElementById('options-container');container.innerHTML='';const letters=['A','B','C','D'];q.options.forEach((opt,i)=>{const btn=document.createElement('button');btn.className='option-btn w-full text-left px-6 py-4 rounded-xl border-2 border-gray-200 hover:border-purple-400 bg-white font-semibold text-gray-800 text-lg';btn.innerHTML=`<span class="inline-block w-8 h-8 rounded-full bg-purple-100 text-purple-700 font-bold mr-3 text-center leading-8">${letters[i]}</span>${opt}`;btn.onclick=()=>checkAnswer(i,btn);container.appendChild(btn)});document.getElementById('next-btn').classList.add('hidden');document.getElementById('feedback-text').textContent=''}
+    
+    function checkAnswer(chosen,btn){
+      const q=quiz[currentQ];
+      const allBtns=document.querySelectorAll('.option-btn');
+      allBtns.forEach(b=>b.disabled=true);
+      if(chosen===q.answer){
+        btn.classList.add('correct');
+        score++;
+        document.getElementById('score').innerHTML=`🏆 ${score}`;
+        document.getElementById('feedback-text').innerHTML='✅ <span style="color:#10b981">Chính xác!</span>';
+        confetti({particleCount:50,spread:60,origin:{y:0.6}})
+      }else{
+        btn.classList.add('incorrect');
+        allBtns[q.answer].classList.add('correct');
+        document.getElementById('feedback-text').innerHTML='❌ <span style="color:#ef4444">Chưa đúng!</span>'
+      }
+      if(currentQ<quiz.length-1){
+        document.getElementById('next-btn').classList.remove('hidden')
+      }else{
+        setTimeout(showResults,2000)
+      }
+    }
+    
+    document.getElementById('next-btn').onclick=()=>{currentQ++;if(currentQ<quiz.length)showQuestion();else showResults()};
+    
+    function showResults(){
+      document.querySelector('.quiz-container>div:first-child').classList.add('hidden');
+      document.getElementById('question-card').classList.add('hidden');
+      document.getElementById('options-container').classList.add('hidden');
+      document.getElementById('next-btn').classList.add('hidden');
+      document.getElementById('feedback-container').classList.add('hidden');
+      document.getElementById('results-container').classList.remove('hidden');
+      const pct=(score/quiz.length*100).toFixed(0);
+      document.getElementById('final-score').textContent=`${score}/${quiz.length} (${pct}%)`;
+      let comment,emoji;
+      if(pct>=90){comment="🌟 Xuất sắc!";emoji="🎉"}
+      else if(pct>=70){comment="👍 Rất tốt!";emoji="😊"}
+      else if(pct>=50){comment="💪 Khá tốt!";emoji="😃"}
+      else{comment="📖 Cố gắng hơn nhé!";emoji="😅"}
+      document.getElementById('score-comment').textContent=comment;
+      document.getElementById('result-emoji').textContent=emoji;
+      if(pct>=70){
+        const duration=3000,end=Date.now()+duration;
+        (function frame(){
+          confetti({particleCount:3,angle:60,spread:55,origin:{x:0}});
+          confetti({particleCount:3,angle:120,spread:55,origin:{x:1}});
+          if(Date.now()<end)requestAnimationFrame(frame)
+        })()
+      }
+      const duration=Math.floor((Date.now()-startTime)/1000);
+      if(student){
+        sendResult(student.name,student.className,QUIZ_ID,score,quiz.length,duration)
+      }else{
+        document.getElementById('send-status').textContent='Chưa đăng nhập'
+      }
+    }
+    
+    async function sendResult(name, className, quizId, score, total, duration) {
+      try {
+        const response = await fetch("https://tinhoc321.com/api/save_result.php", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    }?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${encodeURIComponent(quizId)}&score=${score}&total=${total}&duration=${duration}`;
+        await fetch(url,{mode:'no-cors'});
+        document.getElementById('send-status').textContent='✅ Đã lưu!'
+      }catch(e){
+        document.getElementById('send-status').textContent='⚠️ Không lưu được'
+      }
+    }
+    
+    document.getElementById('restart-btn').onclick=()=>location.reload();
+    showQuestion()
+  </script>
+</body>
+</html>

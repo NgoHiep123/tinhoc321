@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <title>⚡ K7-A1: 💻 Thiết bị Vào - Ra cơ bản</title>
+  <title>⚡ K7_A1: 🖥️ Thiết bị vào ra cơ bản</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -34,7 +34,7 @@
         <div class="inline-block mb-3 px-4 py-2 bg-gradient-to-r from-purple-100 to-indigo-100 rounded-full">
           <span class="text-sm font-bold text-purple-700">🎓 KHỐI 7 - BÀI A1</span>
         </div>
-        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">💻 Thiết bị Vào - Ra cơ bản</h1>
+        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">🖥️ Thiết bị vào ra cơ bản</h1>
         <p class="text-gray-600 text-lg">🎯 12 câu hỏi - Thời gian: ~12 phút</p>
       </div>
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 p-4 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl">
@@ -72,25 +72,12 @@
   </main>
   <script>
     const QUIZ_ID="K7_A1";
-    const ENDPOINT="https://script.google.com/macros/s/AKfycbwj9IiX8PXC-bNsh4DGIw0uysx0v3jWPNeu0lQpieUIQAx9sT9YNUKTZoQFBjg-w86TKg/exec";
+    const ENDPOINT="https://tinhoc321.com/api/save_result.php";
     function getStudent(){try{return JSON.parse(localStorage.getItem('student')||'null')}catch(e){return null}}
     const student=getStudent();
     (function(){const pill=document.getElementById('userPill');if(student&&pill){pill.classList.remove('hidden');pill.innerHTML=`👤 ${student.name} · Lớp ${student.className}`}})();
     
-    const allQuestions=[
-      {question: "Một bộ máy tính để bàn tiêu chuẩn gồm những thành phần nào?", options: ["Hộp thân máy, màn hình, bàn phím, chuột.", "Chỉ màn hình và chuột.", "Chỉ hộp thân máy và bàn phím.", "Chỉ loa và webcam."], answer: 0},
-      {question: "Thiết bị nào được xem là thiết bị vào cơ bản của máy tính để bàn?", options: ["Màn hình.", "Bàn phím và chuột.", "Loa.", "Máy in."], answer: 1},
-      {question: "Thiết bị ra cơ bản hiển thị thông tin cho người dùng là gì?", options: ["Bàn phím.", "Chuột.", "Màn hình.", "USB."], answer: 2},
-      {question: "Bên trong hộp thân máy có thành phần nào quan trọng?", options: ["CPU, RAM, ổ đĩa cứng.", "Bàn phím, chuột.", "Màn hình, loa.", "Webcam, micro."], answer: 0},
-      {question: "Muốn máy tính để bàn nhận hình ảnh trực tiếp cần bổ sung gì?", options: ["Máy in.", "Webcam.", "Máy quét 3D.", "Ổ quang."], answer: 1},
-      {question: "Điểm khác của máy tính xách tay so với máy để bàn là gì?", options: ["Không có bàn phím.", "Tích hợp thân máy, màn hình, bàn phím, chuột cảm ứng trong một khối.", "Không có loa.", "Không dùng được chuột ngoài."], answer: 1},
-      {question: "Bộ phận nào thường thay thế chuột trên máy tính xách tay?", options: ["Bàn phím ảo.", "Bảng vẽ.", "Tấm chạm (touchpad).", "Bút cảm ứng."], answer: 2},
-      {question: "Thiết bị nào giúp máy tính xách tay thu và phát âm thanh?", options: ["Ổ đĩa.", "Máy in.", "Loa và micro tích hợp.", "Chuột không dây."], answer: 2},
-      {question: "Màn hình cảm ứng trên máy tính bảng/điện thoại có vai trò gì?", options: ["Chỉ là thiết bị ra.", "Chỉ là thiết bị vào.", "Vừa là thiết bị vào vừa là thiết bị ra.", "Không liên quan đến nhập liệu."], answer: 2},
-      {question: "Tình huống: Muốn gọi video trên máy để bàn, em cần bổ sung tối thiểu gì?", options: ["Máy quét và máy in.", "Webcam và micro/loa hoặc tai nghe.", "Ổ cứng mới.", "Bàn phím ảo."], answer: 1},
-      {question: "Tình huống: Màn hình không hiển thị nhưng máy vẫn chạy. Em nên kiểm tra gì trước?", options: ["Đổi bàn phím.", "Kiểm tra cáp màn hình và nguồn màn hình.", "Thay CPU.", "Cài lại hệ điều hành ngay."], answer: 1},
-      {question: "Tình huống: Cần nhập nhanh văn bản trên máy tính bảng. Cách phù hợp là gì?", options: ["Chỉ dùng chuột.", "Dùng bàn phím ảo trên màn hình cảm ứng.", "Cắm máy in.", "Tắt màn hình."], answer: 1}
-    ];
+    const allQuestions=[{"question": "Một bộ máy tính để bàn tiêu chuẩn gồm những thành phần nào?", "options": ["Hộp thân máy", "màn hình", "bàn phím", "chuột."], "answer": 0}, {"question": "Thiết bị nào được xem là thiết bị vào cơ bản của máy tính để bàn?", "options": ["Màn hình.", "Bàn phím và chuột.", "Loa.", "Máy in."], "answer": 1}, {"question": "Thiết bị ra cơ bản hiển thị thông tin cho người dùng là gì?", "options": ["Bàn phím.", "Chuột.", "Màn hình.", "USB."], "answer": 2}, {"question": "Bên trong hộp thân máy có thành phần nào quan trọng?", "options": ["CPU", "RAM", "ổ đĩa cứng.", "Bàn phím"], "answer": 0}, {"question": "Muốn máy tính để bàn nhận hình ảnh trực tiếp cần bổ sung gì?", "options": ["Máy in.", "Webcam.", "Máy quét 3D.", "Ổ quang."], "answer": 1}, {"question": "Điểm khác của máy tính xách tay so với máy để bàn là gì?", "options": ["Không có bàn phím.", "Tích hợp thân máy", "màn hình", "bàn phím"], "answer": 0}, {"question": "Bộ phận nào thường thay thế chuột trên máy tính xách tay?", "options": ["Bàn phím ảo.", "Bảng vẽ.", "Tấm chạm (touchpad).", "Bút cảm ứng."], "answer": 2}, {"question": "Thiết bị nào giúp máy tính xách tay thu và phát âm thanh?", "options": ["Ổ đĩa.", "Máy in.", "Loa và micro tích hợp.", "Chuột không dây."], "answer": 2}, {"question": "Màn hình cảm ứng trên máy tính bảng/điện thoại có vai trò gì?", "options": ["Chỉ là thiết bị ra.", "Chỉ là thiết bị vào.", "Vừa là thiết bị vào vừa là thiết bị ra.", "Không liên quan đến nhập liệu."], "answer": 2}, {"question": "Tình huống: Muốn gọi video trên máy để bàn", "options": ["em cần bổ sung tối thiểu gì?", "Máy quét và máy in.", "Webcam và micro/loa hoặc tai nghe.", "Ổ cứng mới."], "answer": 0}, {"question": "Tình huống: Màn hình không hiển thị nhưng máy vẫn chạy. Em nên kiểm tra gì trước?", "options": ["Đổi bàn phím.", "Kiểm tra cáp màn hình và nguồn màn hình.", "Thay CPU.", "Cài lại hệ điều hành ngay."], "answer": 1}, {"question": "Tình huống: Cần nhập nhanh văn bản trên máy tính bảng. Cách phù hợp là gì?", "options": ["Chỉ dùng chuột.", "Dùng bàn phím ảo trên màn hình cảm ứng.", "Cắm máy in.", "Tắt màn hình."], "answer": 1}];
     let currentQ=0,score=0,startTime=Date.now();
     function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
     function withShuffledOptions(q){const order=q.options.map((_,i)=>i);shuffle(order);return{...q,options:order.map(i=>q.options[i]),answer:order.indexOf(q.answer)}}
@@ -155,9 +142,61 @@
       }
     }
     
-    async function sendResult(name,className,quizId,score,total,duration){
-      try{
-        const url=`${ENDPOINT}?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${quizId}&score=${score}&total=${total}&duration=${duration}`;
+    async function sendResult(name, className, quizId, score, total, duration) {
+      try {
+        const response = await fetch("https://tinhoc321.com/api/save_result.php", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    }?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${encodeURIComponent(quizId)}&score=${score}&total=${total}&duration=${duration}`;
         await fetch(url,{mode:'no-cors'});
         document.getElementById('send-status').textContent='✅ Đã lưu!'
       }catch(e){
@@ -170,4 +209,3 @@
   </script>
 </body>
 </html>
-

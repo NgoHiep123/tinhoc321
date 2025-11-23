@@ -3,9 +3,16 @@ Script truy vấn Knowledge Graph bằng SPARQL
 Minh họa các truy vấn hỗ trợ giáo viên
 """
 
+import sys
+import io
 from rdflib import Graph, Namespace
 from rdflib.plugins.sparql import prepareQuery
 import pandas as pd
+
+# Fix encoding cho Windows console
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 EDU = Namespace("http://education.vn/ontology#")
 DATA = Namespace("http://education.vn/data/")
@@ -222,6 +229,82 @@ def query_class_statistics(g, class_name='7/19'):
     
     return results
 
+def query_teacher_by_class(g, class_name='7/19'):
+    """
+    Truy vấn: Giáo viên dạy một lớp
+    """
+    query = """
+    PREFIX edu: <http://education.vn/ontology#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    
+    SELECT ?teacher ?name ?teacherId ?expertise
+    WHERE {{
+        ?class edu:className "{class_name}" .
+        ?teacher edu:teaches ?class .
+        ?teacher rdfs:label ?name .
+        OPTIONAL {{ ?teacher edu:teacherId ?teacherId . }}
+        OPTIONAL {{ ?teacher edu:expertise ?expertise . }}
+    }}
+    """
+    
+    results = g.query(query.format(class_name=class_name))
+    
+    print(f"\n👨‍🏫 Giáo viên dạy lớp {class_name}:")
+    print("-" * 60)
+    
+    if len(list(results)) == 0:
+        print("⚠️  Chưa có thông tin giáo viên")
+    else:
+        for i, row in enumerate(results, 1):
+            teacher_info = f"{i}. {row.name}"
+            if row.teacherId:
+                teacher_info += f" (ID: {row.teacherId})"
+            if row.expertise:
+                teacher_info += f" - Chuyên môn: {row.expertise}"
+            print(teacher_info)
+    
+    return results
+
+def query_classes_by_teacher(g, teacher_id='tin_01'):
+    """
+    Truy vấn: Các lớp mà một giáo viên dạy
+    """
+    query = """
+    PREFIX edu: <http://education.vn/ontology#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    
+    SELECT ?teacher ?name ?class ?className
+    WHERE {{
+        ?teacher edu:teacherId "{teacher_id}" .
+        ?teacher rdfs:label ?name .
+        ?teacher edu:teaches ?class .
+        ?class edu:className ?className .
+    }}
+    ORDER BY ?className
+    """
+    
+    results = g.query(query.format(teacher_id=teacher_id))
+    
+    print(f"\n📚 Các lớp giáo viên {teacher_id} dạy:")
+    print("-" * 60)
+    
+    if len(list(results)) == 0:
+        print("⚠️  Không tìm thấy giáo viên hoặc chưa có phân công lớp")
+    else:
+        teacher_name = None
+        classes = []
+        for row in results:
+            if not teacher_name:
+                teacher_name = row.name
+            classes.append(row.className)
+        
+        print(f"Giáo viên: {teacher_name}")
+        print(f"Số lớp: {len(classes)}")
+        for i, class_name in enumerate(classes, 1):
+            print(f"  {i}. {class_name}")
+    
+    return results
+
 # ============================================
 # 3. DEMO CÁC TRUY VẤN
 # ============================================
@@ -249,6 +332,12 @@ def demo_queries(g):
     
     # 6. Thống kê lớp
     query_class_statistics(g, '7/19')
+    
+    # 7. Giáo viên dạy lớp
+    query_teacher_by_class(g, '7/19')
+    
+    # 8. Các lớp giáo viên dạy
+    query_classes_by_teacher(g, 'tin_01')
 
 # ============================================
 # 4. MAIN

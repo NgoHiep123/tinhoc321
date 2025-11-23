@@ -26,6 +26,9 @@ define('ALLOWED_ORIGINS', [
     'https://ngohiep123.github.io/tinhoc321',  // Nếu có subfolder
     'http://localhost:8000',  // Cho phép test local
     'http://127.0.0.1:8000',  // Cho phép test local
+    'http://localhost',  // Cho phép test local
+    'http://127.0.0.1',  // Cho phép test local
+    '*',  // Tạm thời cho phép tất cả (để test, nên thu hẹp lại sau)
 ]);
 
 // ============================================================
@@ -81,8 +84,16 @@ function getDBConnection() {
 function setCORSHeaders() {
     $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
     
-    if (in_array($origin, ALLOWED_ORIGINS)) {
+    // Nếu có '*' trong ALLOWED_ORIGINS, cho phép tất cả (để test)
+    if (in_array('*', ALLOWED_ORIGINS)) {
         header("Access-Control-Allow-Origin: $origin");
+    } elseif (in_array($origin, ALLOWED_ORIGINS)) {
+        header("Access-Control-Allow-Origin: $origin");
+    } elseif (!empty($origin)) {
+        // Nếu origin không trong danh sách, vẫn cho phép (tạm thời để test)
+        header("Access-Control-Allow-Origin: $origin");
+    } else {
+        // Nếu không có origin (same-origin request), không cần set header
     }
     
     header('Access-Control-Allow-Methods: GET, POST, OPTIONS');

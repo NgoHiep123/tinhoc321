@@ -1,0 +1,1395 @@
+@prefix data: <http://education.vn/data/> .
+@prefix edu: <http://education.vn/ontology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+data:lesson_7A1 a edu:Lesson ;
+    rdfs:label "Bài A1: Thiết bị vào-ra cơ bản"@vi ;
+    edu:belongsToTopic data:topic_7A .
+
+data:lesson_7A2 a edu:Lesson ;
+    rdfs:label "Bài A2: Các thiết bị vào-ra"@vi ;
+    edu:belongsToTopic data:topic_7A .
+
+data:lesson_7A4 a edu:Lesson ;
+    rdfs:label "Bài A4: Chức năng hệ điều hành"@vi ;
+    edu:belongsToTopic data:topic_7A .
+
+data:lesson_7A5 a edu:Lesson ;
+    rdfs:label "Bài A5: File Explorer"@vi ;
+    edu:belongsToTopic data:topic_7A .
+
+data:student_7_11_Bùi_Thị_Ánh_Vy a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Bùi Thị Ánh Vy" .
+
+data:student_7_11_Hà_Gia_Dĩnh a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Hà Gia Dĩnh" .
+
+data:student_7_11_Hồ_Nguyễn_Gia_Hân a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Hồ Nguyễn Gia Hân" .
+
+data:student_7_11_Lê_Minh_Hoàng a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Lê Minh Hoàng" .
+
+data:student_7_11_Lê_Nguyễn_Thanh_Trúc a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Lê Nguyễn Thanh Trúc" .
+
+data:student_7_11_Nguyễn_Anh_Khôi a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Nguyễn Anh Khôi" .
+
+data:student_7_11_Nguyễn_Hoàng_Long a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Nguyễn Hoàng Long" .
+
+data:student_7_11_Nguyễn_Hồng_An_Nhiên a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Nguyễn Hồng An Nhiên" .
+
+data:student_7_11_Nguyễn_Mỹ_An a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Nguyễn Mỹ An" .
+
+data:student_7_11_Nguyễn_Phạm_Quỳnh_Anh a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Nguyễn Phạm Quỳnh Anh" .
+
+data:student_7_11_Nguyễn_Thảo_Nguyên a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Nguyễn Thảo Nguyên" .
+
+data:student_7_11_Nguyễn_Trương_Anh_Quân a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Nguyễn Trương Anh Quân" .
+
+data:student_7_11_Nguyễn_Trần_Phúc_Đăng a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Nguyễn Trần Phúc Đăng" .
+
+data:student_7_11_Nguyễn_Tường_Yên a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Nguyễn Tường Yên" .
+
+data:student_7_11_Nguyễn_Đắc_Hồng_Quân a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Nguyễn Đắc Hồng Quân" .
+
+data:student_7_11_Trần_An_Phúc a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Trần An Phúc" .
+
+data:student_7_11_Trần_Công_Phúc_Huy a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Trần Công Phúc Huy" .
+
+data:student_7_11_Trần_Văn_Kiệt a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Trần Văn Kiệt" .
+
+data:student_7_11_Trần_Đình_Phong a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Trần Đình Phong" .
+
+data:student_7_11_Trần_Đỗ_Nhật_Quang a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Trần Đỗ Nhật Quang" .
+
+data:student_7_11_Ung_Bảo_Trân_Lê_A a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Ung Bảo Trân Lê A" .
+
+data:student_7_11_Đào_Hoàng_Cát_Tiên a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Đào Hoàng Cát Tiên" .
+
+data:student_7_11_Đặng_Bảo_Vy a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Đặng Bảo Vy" .
+
+data:student_7_11_Đồng_Nguyễn_Diệp_Anh a edu:Student ;
+    edu:belongsToClass data:class_7_11 ;
+    edu:fullName "Đồng Nguyễn Diệp Anh" .
+
+data:student_7_12_Bùi_Ngọc_Nhã_Phương a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Bùi Ngọc Nhã Phương" .
+
+data:student_7_12_Hoàng_Công_Anh a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Hoàng Công Anh" .
+
+data:student_7_12_Huỳnh_Đào_Phương_Uyên a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Huỳnh Đào Phương Uyên" .
+
+data:student_7_12_Hà_Trần_Bảo_Ngọc a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Hà Trần Bảo Ngọc" .
+
+data:student_7_12_Linh_Như_Quân a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Linh Như Quân" .
+
+data:student_7_12_Lê_Gia_Vi_Vi a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Lê Gia Vi Vi" .
+
+data:student_7_12_Lại_Khánh_Linh a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Lại Khánh Linh" .
+
+data:student_7_12_Mai_Nhật_Hạ a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Mai Nhật Hạ" .
+
+data:student_7_12_Nguyễn_Hoàng_Kim_Ngọc a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Nguyễn Hoàng Kim Ngọc" .
+
+data:student_7_12_Nguyễn_Hoàng_Quân a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Nguyễn Hoàng Quân" .
+
+data:student_7_12_Nguyễn_Hoàng_Đăng a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Nguyễn Hoàng Đăng" .
+
+data:student_7_12_Nguyễn_Hồng_Phong a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Nguyễn Hồng Phong" .
+
+data:student_7_12_Nguyễn_Linh_Kha_Thy a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Nguyễn Linh Kha Thy" .
+
+data:student_7_12_Nguyễn_Phú_Hoàng_Anh a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Nguyễn Phú Hoàng Anh" .
+
+data:student_7_12_Nguyễn_Sĩ_Tấn a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Nguyễn Sĩ Tấn" .
+
+data:student_7_12_Nguyễn_Thế_Vinh a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Nguyễn Thế Vinh" .
+
+data:student_7_12_Nguyễn_Đỗ_Ngân_Hà a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Nguyễn Đỗ Ngân Hà" .
+
+data:student_7_12_Ngô_Như_Ý a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Ngô Như Ý" .
+
+data:student_7_12_Phan_Minh_Quân a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Phan Minh Quân" .
+
+data:student_7_12_Phạm_Phú_Tường a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Phạm Phú Tường" .
+
+data:student_7_12_Trần_Hải_Đăng a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Trần Hải Đăng" .
+
+data:student_7_12_Từ_Đan_Trinh a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Từ Đan Trinh" .
+
+data:student_7_12_Đổng_Hoàng_Phát a edu:Student ;
+    edu:belongsToClass data:class_7_12 ;
+    edu:fullName "Đổng Hoàng Phát" .
+
+data:student_7_14_Dương_Đỗ_Linh_San a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Dương Đỗ Linh San" .
+
+data:student_7_14_Hoàng_Khánh_Hân a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Hoàng Khánh Hân" .
+
+data:student_7_14_Hoàng_Nguyễn_Kim_Hà a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Hoàng Nguyễn Kim Hà" .
+
+data:student_7_14_Lâm_Khả_Tú a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Lâm Khả Tú" .
+
+data:student_7_14_Lê_Nguyễn_Đan_Lê a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Lê Nguyễn Đan Lê" .
+
+data:student_7_14_Lê_Pha_Lê a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Lê Pha Lê" .
+
+data:student_7_14_Lê_Phạm_Khôi_Nguyên a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Lê Phạm Khôi Nguyên" .
+
+data:student_7_14_Lê_Quang_Huy a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Lê Quang Huy" .
+
+data:student_7_14_Lê_Thọ_Trung a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Lê Thọ Trung" .
+
+data:student_7_14_Lê_Trần_Khánh_Linh a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Lê Trần Khánh Linh" .
+
+data:student_7_14_Nguyễn_An_Minh_Nhật a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Nguyễn An Minh Nhật" .
+
+data:student_7_14_Nguyễn_Hoàng_Long a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Nguyễn Hoàng Long" .
+
+data:student_7_14_Nguyễn_Lại_Phương_Nhi a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Nguyễn Lại Phương Nhi" .
+
+data:student_7_14_Nguyễn_Phú_Việt a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Nguyễn Phú Việt" .
+
+data:student_7_14_Nguyễn_Quang_Minh a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Nguyễn Quang Minh" .
+
+data:student_7_14_Nguyễn_Xuân_Yến a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Nguyễn Xuân Yến" .
+
+data:student_7_14_Phạm_Hoàng_Quân a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Phạm Hoàng Quân" .
+
+data:student_7_14_Triệu_Gia_Bảo a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Triệu Gia Bảo" .
+
+data:student_7_14_Trương_Bình_An a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Trương Bình An" .
+
+data:student_7_14_Trương_Minh_Khôi a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Trương Minh Khôi" .
+
+data:student_7_14_Đồng_Quang_Thắng a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Đồng Quang Thắng" .
+
+data:student_7_14_Đỗ_Thế_Việt a edu:Student ;
+    edu:belongsToClass data:class_7_14 ;
+    edu:fullName "Đỗ Thế Việt" .
+
+data:student_7_16_Hàn_Yến_Nhi a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Hàn Yến Nhi" .
+
+data:student_7_16_Lee_Gwangseop a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Lee Gwangseop" .
+
+data:student_7_16_Lê_Bình_Như_Ý a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Lê Bình Như Ý" .
+
+data:student_7_16_Lê_Duy_An a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Lê Duy An" .
+
+data:student_7_16_Mai_Nguyễn_Bình_Phương a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Mai Nguyễn Bình Phương" .
+
+data:student_7_16_Mai_Nguyễn_Gia_Kiều a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Mai Nguyễn Gia Kiều" .
+
+data:student_7_16_Nguyễn_Anh_Khoa a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Nguyễn Anh Khoa" .
+
+data:student_7_16_Nguyễn_Bảo_Gia_Hân a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Nguyễn Bảo Gia Hân" .
+
+data:student_7_16_Nguyễn_Bảo_Trân a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Nguyễn Bảo Trân" .
+
+data:student_7_16_Nguyễn_Hoàng_Khiêm a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Nguyễn Hoàng Khiêm" .
+
+data:student_7_16_Nguyễn_Huyền_Hải_My a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Nguyễn Huyền Hải My" .
+
+data:student_7_16_Nguyễn_Khôi_Nguyên a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Nguyễn Khôi Nguyên" .
+
+data:student_7_16_Nguyễn_Khải_Nhật_Minh a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Nguyễn Khải Nhật Minh" .
+
+data:student_7_16_Nguyễn_Minh_Tâm a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Nguyễn Minh Tâm" .
+
+data:student_7_16_Nguyễn_Ngọc_Bảo_Trân a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Nguyễn Ngọc Bảo Trân" .
+
+data:student_7_16_Nguyễn_Ngọc_Chu_Tước a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Nguyễn Ngọc Chu Tước" .
+
+data:student_7_16_Nguyễn_Quỳnh_Hương a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Nguyễn Quỳnh Hương" .
+
+data:student_7_16_Trần_Xuân_Phúc a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Trần Xuân Phúc" .
+
+data:student_7_16_Võ_Hoàng_Phương_Linh a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Võ Hoàng Phương Linh" .
+
+data:student_7_16_Võ_Nhị_Ngọc_Trân_Alysa a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Võ Nhị Ngọc Trân Alysa" .
+
+data:student_7_16_Võ_Phạm_Mai_Thanh a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Võ Phạm Mai Thanh" .
+
+data:student_7_16_Đỗ_Minh_Quang a edu:Student ;
+    edu:belongsToClass data:class_7_16 ;
+    edu:fullName "Đỗ Minh Quang" .
+
+data:student_7_19_Bùi_Lâm_Minh_Tú a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Bùi Lâm Minh Tú" .
+
+data:student_7_19_Bùi_Nguyễn_Minh_Khuê a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Bùi Nguyễn Minh Khuê" .
+
+data:student_7_19_Bùi_Tuấn_Gia_Huy a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Bùi Tuấn Gia Huy" .
+
+data:student_7_19_Huỳnh_Thiên_Kim a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Huỳnh Thiên Kim" .
+
+data:student_7_19_Lâm_Bảo_Phương a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Lâm Bảo Phương" .
+
+data:student_7_19_Lê_Công_Nguyên_Phúc a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Lê Công Nguyên Phúc" .
+
+data:student_7_19_Lê_Gia_Huy a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Lê Gia Huy" .
+
+data:student_7_19_Lê_Thái_Lâm a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Lê Thái Lâm" .
+
+data:student_7_19_Lê_Winnie a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Lê Winnie" .
+
+data:student_7_19_Lê_Đức_Phát a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Lê Đức Phát" .
+
+data:student_7_19_Lý_Bích_Ngọc a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Lý Bích Ngọc" .
+
+data:student_7_19_Nguyễn_Hoàng_Nhã_Quỳnh a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Nguyễn Hoàng Nhã Quỳnh" .
+
+data:student_7_19_Nguyễn_Hoàng_Thủy_Tiên a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Nguyễn Hoàng Thủy Tiên" .
+
+data:student_7_19_Nguyễn_Nga_Bảo_Vân a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Nguyễn Nga Bảo Vân" .
+
+data:student_7_19_Nguyễn_Ngọc_Minh_Thư a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Nguyễn Ngọc Minh Thư" .
+
+data:student_7_19_Nguyễn_Ngọc_Thiên_Hương a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Nguyễn Ngọc Thiên Hương" .
+
+data:student_7_19_Nguyễn_Việt_Khánh_Nguyên a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Nguyễn Việt Khánh Nguyên" .
+
+data:student_7_19_Phạm_Lê_Nguyệt_Cát a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Phạm Lê Nguyệt Cát" .
+
+data:student_7_19_Quan_Hào_Nguyên a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Quan Hào Nguyên" .
+
+data:student_7_19_Trần_Minh_Tuyền a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Trần Minh Tuyền" .
+
+data:student_7_19_Trần_Quốc_Lâm a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Trần Quốc Lâm" .
+
+data:student_7_19_Trần_Thái_Bình a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Trần Thái Bình" .
+
+data:student_7_19_Đặng_Bảo_Nhi a edu:Student ;
+    edu:belongsToClass data:class_7_19 ;
+    edu:fullName "Đặng Bảo Nhi" .
+
+data:student_7_20_Hoàng_Đức_Giang_Anh a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Hoàng Đức Giang Anh" .
+
+data:student_7_20_Huỳnh_Phúc_Minh a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Huỳnh Phúc Minh" .
+
+data:student_7_20_Liên_Hòa_Phương a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Liên Hòa Phương" .
+
+data:student_7_20_Nguyễn_Chấn_Phát a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Nguyễn Chấn Phát" .
+
+data:student_7_20_Nguyễn_Hoàng_Anh a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Nguyễn Hoàng Anh" .
+
+data:student_7_20_Nguyễn_Huyền_Ny a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Nguyễn Huyền Ny" .
+
+data:student_7_20_Nguyễn_Hải_Lâm a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Nguyễn Hải Lâm" .
+
+data:student_7_20_Nguyễn_Ngọc_Thanh_Thư a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Nguyễn Ngọc Thanh Thư" .
+
+data:student_7_20_Nguyễn_Thanh_Thái a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Nguyễn Thanh Thái" .
+
+data:student_7_20_Nguyễn_Thiên_Ngân a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Nguyễn Thiên Ngân" .
+
+data:student_7_20_Phạm_Gia_Hân a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Phạm Gia Hân" .
+
+data:student_7_20_Phạm_Gia_Hưng a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Phạm Gia Hưng" .
+
+data:student_7_20_Trương_Bảo_Loan a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Trương Bảo Loan" .
+
+data:student_7_20_Trần_Gia_Khang a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Trần Gia Khang" .
+
+data:student_7_20_Trần_Hoàng a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Trần Hoàng" .
+
+data:student_7_20_Trần_Minh_Hiếu a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Trần Minh Hiếu" .
+
+data:student_7_20_Trần_Võ_Bách_Duy a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Trần Võ Bách Duy" .
+
+data:student_7_20_Uý_Lê_Bảo_Quyên a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Uý Lê Bảo Quyên" .
+
+data:student_7_20_Đặng_Ngọc_Mạnh a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Đặng Ngọc Mạnh" .
+
+data:student_7_20_Đỗ_Nguyễn_Đức_Trí a edu:Student ;
+    edu:belongsToClass data:class_7_20 ;
+    edu:fullName "Đỗ Nguyễn Đức Trí" .
+
+data:student_7_21_Dương_Ngọc_Minh_Thư a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Dương Ngọc Minh Thư" .
+
+data:student_7_21_Huỳnh_Ngọc_Như a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Huỳnh Ngọc Như" .
+
+data:student_7_21_Lê_Huỳnh_Bảo_Nam a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Lê Huỳnh Bảo Nam" .
+
+data:student_7_21_Lạc_Cạnh_Khánh a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Lạc Cạnh Khánh" .
+
+data:student_7_21_Mai_Phúc_Nguyên a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Mai Phúc Nguyên" .
+
+data:student_7_21_Nguyễn_Anh_Khôi a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Nguyễn Anh Khôi" .
+
+data:student_7_21_Nguyễn_Hoàng_Ngọc_Tâm a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Nguyễn Hoàng Ngọc Tâm" .
+
+data:student_7_21_Nguyễn_Phương_Như a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Nguyễn Phương Như" .
+
+data:student_7_21_Nguyễn_Thảo_Ngọc a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Nguyễn Thảo Ngọc" .
+
+data:student_7_21_Nguyễn_Tuệ_Lâm a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Nguyễn Tuệ Lâm" .
+
+data:student_7_21_Nguyễn_Vũ_Khánh_Vân a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Nguyễn Vũ Khánh Vân" .
+
+data:student_7_21_Nguyễn_Xuân_Phúc a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Nguyễn Xuân Phúc" .
+
+data:student_7_21_Nguyễn_Đàm_Anh_Đức a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Nguyễn Đàm Anh Đức" .
+
+data:student_7_21_Ngô_Khải_Duy a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Ngô Khải Duy" .
+
+data:student_7_21_Ngô_Minh_Đức a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Ngô Minh Đức" .
+
+data:student_7_21_Thái_Ngọc_Tâm_Như a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Thái Ngọc Tâm Như" .
+
+data:student_7_21_Trương_Tuấn_Khải a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Trương Tuấn Khải" .
+
+data:student_7_21_Tôn_Đình_Minh_Khang a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Tôn Đình Minh Khang" .
+
+data:student_7_21_Võ_Ngọc_Minh_Khang a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Võ Ngọc Minh Khang" .
+
+data:student_7_21_Võ_Thái_Hồng_Yến a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Võ Thái Hồng Yến" .
+
+data:student_7_21_Zhou_Thiên a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Zhou Thiên" .
+
+data:student_7_21_Đoàn_Phương_Linh a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Đoàn Phương Linh" .
+
+data:student_7_21_Đỗ_Mai_Bảo_Uyên a edu:Student ;
+    edu:belongsToClass data:class_7_21 ;
+    edu:fullName "Đỗ Mai Bảo Uyên" .
+
+data:student_7_22_Bùi_Bảo_An a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Bùi Bảo An" .
+
+data:student_7_22_Cam_Nguyễn_Khánh_Uyên a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Cam Nguyễn Khánh Uyên" .
+
+data:student_7_22_Khưu_Trần_Anh_Khôi a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Khưu Trần Anh Khôi" .
+
+data:student_7_22_Kirkpatrick_Hồ_Hoài_Nam a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Kirkpatrick Hồ Hoài Nam" .
+
+data:student_7_22_Lê_Hoàng_Ngọc_Bích a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Lê Hoàng Ngọc Bích" .
+
+data:student_7_22_Lý_Thành_An a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Lý Thành An" .
+
+data:student_7_22_Nguyễn_Hoàng_Cát_Dung a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Nguyễn Hoàng Cát Dung" .
+
+data:student_7_22_Nguyễn_Hoàng_Khánh_Thy a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Nguyễn Hoàng Khánh Thy" .
+
+data:student_7_22_Nguyễn_Hữu_Tuấn_Danh a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Nguyễn Hữu Tuấn Danh" .
+
+data:student_7_22_Nguyễn_Lim_Kim_Minh_Quân a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Nguyễn Lim Kim Minh Quân" .
+
+data:student_7_22_Nguyễn_Đức_Dũng a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Nguyễn Đức Dũng" .
+
+data:student_7_22_Phạm_Minh_Quỳnh_Hương a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Phạm Minh Quỳnh Hương" .
+
+data:student_7_22_Phạm_Võ_Tường_Nghi a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Phạm Võ Tường Nghi" .
+
+data:student_7_22_Trần_Hữu_Minh_Trí a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Trần Hữu Minh Trí" .
+
+data:student_7_22_Trần_Nhã_Kỳ a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Trần Nhã Kỳ" .
+
+data:student_7_22_Trịnh_Trí_Nguyên a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Trịnh Trí Nguyên" .
+
+data:student_7_22_Tạ_Minh_Dũng a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Tạ Minh Dũng" .
+
+data:student_7_22_Tống_Vịnh_Y a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Tống Vịnh Y" .
+
+data:student_7_22_Vũ_Phạm_Thiên_Phước a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Vũ Phạm Thiên Phước" .
+
+data:student_7_22_Đào_Hân_Di a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Đào Hân Di" .
+
+data:student_7_22_Đặng_Minh_Phúc a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Đặng Minh Phúc" .
+
+data:student_7_22_Đặng_Vĩnh_Hy a edu:Student ;
+    edu:belongsToClass data:class_7_22 ;
+    edu:fullName "Đặng Vĩnh Hy" .
+
+data:student_7_23_Chiêm_Nhựt_Minh a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Chiêm Nhựt Minh" .
+
+data:student_7_23_Chung_Gia_Khang a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Chung Gia Khang" .
+
+<http://education.vn/data/student_7_23_Jenny,_Vy_Nguon_Nguon> a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Jenny, Vy Nguon Nguon" .
+
+data:student_7_23_Lê_Hồng_Lâm a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Lê Hồng Lâm" .
+
+data:student_7_23_Nguyễn_An a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Nguyễn An" .
+
+data:student_7_23_Nguyễn_Anh_Tuấn a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Nguyễn Anh Tuấn" .
+
+data:student_7_23_Nguyễn_Châu_Bích_Ngọc a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Nguyễn Châu Bích Ngọc" .
+
+data:student_7_23_Nguyễn_Gia_Tuấn a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Nguyễn Gia Tuấn" .
+
+data:student_7_23_Nguyễn_Lê_Phan_Anh a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Nguyễn Lê Phan Anh" .
+
+data:student_7_23_Nguyễn_Thanh_Trúc_Hân a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Nguyễn Thanh Trúc Hân" .
+
+data:student_7_23_Nguyễn_Thái_Thăng_Long a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Nguyễn Thái Thăng Long" .
+
+data:student_7_23_Nguyễn_Từ_Nhật_Vy a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Nguyễn Từ Nhật Vy" .
+
+data:student_7_23_Nguyễn_Đức_Minh_Đăng a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Nguyễn Đức Minh Đăng" .
+
+data:student_7_23_Phạm_Nguyễn_Thiện_Minh a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Phạm Nguyễn Thiện Minh" .
+
+data:student_7_23_Trương_Quốc_Hải a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Trương Quốc Hải" .
+
+data:student_7_23_Trần_Chính_Khải a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Trần Chính Khải" .
+
+data:student_7_23_Trần_Khôi_Nguyên a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Trần Khôi Nguyên" .
+
+data:student_7_23_Trần_Ngọc_Tâm a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Trần Ngọc Tâm" .
+
+data:student_7_23_Trần_Thái_Đăng_Khôi a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Trần Thái Đăng Khôi" .
+
+data:student_7_23_Võ_Minh_Hải_Yến a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Võ Minh Hải Yến" .
+
+data:student_7_23_Đoàn_Nhật_Minh_Khôi a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Đoàn Nhật Minh Khôi" .
+
+data:student_7_23_Đặng_Hoàng_Quân a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Đặng Hoàng Quân" .
+
+data:student_7_23_Đặng_Đức_Anh a edu:Student ;
+    edu:belongsToClass data:class_7_23 ;
+    edu:fullName "Đặng Đức Anh" .
+
+data:student_7_3_Bella_Lee a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Bella Lee" .
+
+data:student_7_3_Bùi_Duy_An_Nguyên a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Bùi Duy An Nguyên" .
+
+data:student_7_3_Bùi_Duy_Bình_Nguyên a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Bùi Duy Bình Nguyên" .
+
+data:student_7_3_Cao_Ý_Lâm_Khuê a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Cao Ý Lâm Khuê" .
+
+data:student_7_3_Dũ_Phi_Lan_Tường a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Dũ Phi Lan Tường" .
+
+data:student_7_3_Hồ_Minh_Duy_Văn a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Hồ Minh Duy Văn" .
+
+data:student_7_3_Hồ_Nguyễn_Thành_Phát a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Hồ Nguyễn Thành Phát" .
+
+data:student_7_3_Kaida_Hana_Linh a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Kaida Hana Linh" .
+
+data:student_7_3_Nguyễn_Bảo_Lâm a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Nguyễn Bảo Lâm" .
+
+data:student_7_3_Nguyễn_Duy_Khang a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Nguyễn Duy Khang" .
+
+data:student_7_3_Nguyễn_Hoàng_Anh a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Nguyễn Hoàng Anh" .
+
+data:student_7_3_Nguyễn_Lê_Hồng_Phúc a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Nguyễn Lê Hồng Phúc" .
+
+data:student_7_3_Nguyễn_Trung_Nghĩa a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Nguyễn Trung Nghĩa" .
+
+data:student_7_3_Nguyễn_Trần_Tường_Lam a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Nguyễn Trần Tường Lam" .
+
+data:student_7_3_Ngô_Anh_Phương a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Ngô Anh Phương" .
+
+data:student_7_3_Phan_Phụng_Khôi a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Phan Phụng Khôi" .
+
+data:student_7_3_Phạm_Nguyễn_Hoàng_Phú a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Phạm Nguyễn Hoàng Phú" .
+
+data:student_7_3_Phạm_Tố_Quyên a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Phạm Tố Quyên" .
+
+data:student_7_3_Vũ_Nguyễn_Như_Quỳnh a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Vũ Nguyễn Như Quỳnh" .
+
+data:student_7_3_Đinh_Phạm_Gia_Khang a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Đinh Phạm Gia Khang" .
+
+data:student_7_3_Đặng_Gia_Phát a edu:Student ;
+    edu:belongsToClass data:class_7_3 ;
+    edu:fullName "Đặng Gia Phát" .
+
+data:student_7_4_Hoàng_Thị_Minh_Thư a edu:Student ;
+    edu:belongsToClass data:class_7_4 ;
+    edu:fullName "Hoàng Thị Minh Thư" .
+
+data:student_7_4_Mai_Nguyễn_Khánh_Hà a edu:Student ;
+    edu:belongsToClass data:class_7_4 ;
+    edu:fullName "Mai Nguyễn Khánh Hà" .
+
+data:student_7_4_Nguyễn_Bảo_Khanh a edu:Student ;
+    edu:belongsToClass data:class_7_4 ;
+    edu:fullName "Nguyễn Bảo Khanh" .
+
+data:student_7_4_Nguyễn_Hoàng_Khang a edu:Student ;
+    edu:belongsToClass data:class_7_4 ;
+    edu:fullName "Nguyễn Hoàng Khang" .
+
+data:student_7_4_Nguyễn_Hoàng_Minh_Thảo a edu:Student ;
+    edu:belongsToClass data:class_7_4 ;
+    edu:fullName "Nguyễn Hoàng Minh Thảo" .
+
+data:student_7_4_Nguyễn_Phạm_Duy_Bảo a edu:Student ;
+    edu:belongsToClass data:class_7_4 ;
+    edu:fullName "Nguyễn Phạm Duy Bảo" .
+
+data:student_7_4_Nguyễn_Quang_Gia_Phú a edu:Student ;
+    edu:belongsToClass data:class_7_4 ;
+    edu:fullName "Nguyễn Quang Gia Phú" .
+
+data:student_7_4_Nguyễn_Trương_Ngọc_Hà a edu:Student ;
+    edu:belongsToClass data:class_7_4 ;
+    edu:fullName "Nguyễn Trương Ngọc Hà" .
+
+data:student_7_4_Phan_Minh_Anh a edu:Student ;
+    edu:belongsToClass data:class_7_4 ;
+    edu:fullName "Phan Minh Anh" .
+
+data:student_7_4_Phạm_Minh_Ngọc a edu:Student ;
+    edu:belongsToClass data:class_7_4 ;
+    edu:fullName "Phạm Minh Ngọc" .
+
+data:student_7_4_Trần_Cát_Tiên a edu:Student ;
+    edu:belongsToClass data:class_7_4 ;
+    edu:fullName "Trần Cát Tiên" .
+
+data:student_7_4_Trịnh_Thùy_Dương a edu:Student ;
+    edu:belongsToClass data:class_7_4 ;
+    edu:fullName "Trịnh Thùy Dương" .
+
+data:student_7_4_Tôn_Đức_Phúc a edu:Student ;
+    edu:belongsToClass data:class_7_4 ;
+    edu:fullName "Tôn Đức Phúc" .
+
+data:student_7_4_Tăng_Tấn_Quân a edu:Student ;
+    edu:belongsToClass data:class_7_4 ;
+    edu:fullName "Tăng Tấn Quân" .
+
+data:student_7_4_Đỗ_Minh_Long a edu:Student ;
+    edu:belongsToClass data:class_7_4 ;
+    edu:fullName "Đỗ Minh Long" .
+
+data:student_7_8_Bùi_Quốc_Gia a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Bùi Quốc Gia" .
+
+data:student_7_8_Hung_Gia_Nghi a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Hung Gia Nghi" .
+
+data:student_7_8_Huỳnh_Gia_Khang a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Huỳnh Gia Khang" .
+
+data:student_7_8_Lê_Huy_Vũ a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Lê Huy Vũ" .
+
+data:student_7_8_Lê_Ngọc_Ấn a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Lê Ngọc Ấn" .
+
+data:student_7_8_Nguyễn_Anh_Khoa a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Nguyễn Anh Khoa" .
+
+data:student_7_8_Nguyễn_Minh_Hoàng a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Nguyễn Minh Hoàng" .
+
+data:student_7_8_Nguyễn_Minh_Toàn a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Nguyễn Minh Toàn" .
+
+data:student_7_8_Nguyễn_Minh_Triết a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Nguyễn Minh Triết" .
+
+data:student_7_8_Nguyễn_Ngọc_Tố_Quyên a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Nguyễn Ngọc Tố Quyên" .
+
+data:student_7_8_Nguyễn_Phước_Nguyên_Kha a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Nguyễn Phước Nguyên Kha" .
+
+data:student_7_8_Nguyễn_Quỳnh_Tú_Anh a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Nguyễn Quỳnh Tú Anh" .
+
+data:student_7_8_Nguyễn_Thượng_Minh_Nhật a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Nguyễn Thượng Minh Nhật" .
+
+data:student_7_8_Nguyễn_Thụy_Khai_Tâm a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Nguyễn Thụy Khai Tâm" .
+
+data:student_7_8_Nguyễn_Trần_An_Phúc a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Nguyễn Trần An Phúc" .
+
+data:student_7_8_Nguyễn_Đình_Linh_Thư a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Nguyễn Đình Linh Thư" .
+
+data:student_7_8_Phan_Cảnh_Gia_Long a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Phan Cảnh Gia Long" .
+
+data:student_7_8_Phạm_Lâm_Gia_Phúc a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Phạm Lâm Gia Phúc" .
+
+data:student_7_8_Phạm_Tuyết_Lam_Anh a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Phạm Tuyết Lam Anh" .
+
+data:student_7_8_Trương_Mỹ_Ân a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Trương Mỹ Ân" .
+
+data:student_7_8_Trương_Đức_Quốc_Toàn a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Trương Đức Quốc Toàn" .
+
+data:student_7_8_Trịnh_Thanh_Lam a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Trịnh Thanh Lam" .
+
+data:student_7_8_Đoàn_Việt_Dũng a edu:Student ;
+    edu:belongsToClass data:class_7_8 ;
+    edu:fullName "Đoàn Việt Dũng" .
+
+data:teacher_tin_01 a edu:Teacher ;
+    rdfs:label "Ngô Tiến Hiệp"@vi ;
+    edu:expertise "Tin học"@vi ;
+    edu:teacherId "tin_01" ;
+    edu:teaches data:class_6_14,
+        data:class_6_15,
+        data:class_6_16,
+        data:class_6_17,
+        data:class_6_18,
+        data:class_7_19,
+        data:class_7_20,
+        data:class_7_21,
+        data:class_7_22,
+        data:class_7_23,
+        data:class_7_24 .
+
+data:teacher_tin_02 a edu:Teacher ;
+    rdfs:label "Cô Hà"@vi ;
+    edu:expertise "Tin học"@vi ;
+    edu:teacherId "tin_02" ;
+    edu:teaches data:class_6_5,
+        data:class_7_3,
+        data:class_7_4,
+        data:class_8_5,
+        data:class_8_6,
+        data:class_9_4,
+        data:class_9_5 .
+
+data:teacher_tin_03 a edu:Teacher ;
+    rdfs:label "Trần Gia Huy"@vi ;
+    edu:expertise "Tin học"@vi ;
+    edu:teacherId "tin_03" ;
+    edu:teaches data:class_8_21,
+        data:class_8_22,
+        data:class_8_23,
+        data:class_8_24,
+        data:class_8_25,
+        data:class_8_26,
+        data:class_8_27,
+        data:class_8_28,
+        data:class_9_19,
+        data:class_9_20,
+        data:class_9_21,
+        data:class_9_22,
+        data:class_9_23 .
+
+data:teacher_tin_04 a edu:Teacher ;
+    rdfs:label "Tuấn Anh"@vi ;
+    edu:expertise "Tin học"@vi ;
+    edu:teacherId "tin_04" ;
+    edu:teaches data:class_8_1,
+        data:class_8_2,
+        data:class_8_3,
+        data:class_8_4,
+        data:class_9_1,
+        data:class_9_2,
+        data:class_9_3 .
+
+data:teacher_tin_05 a edu:Teacher ;
+    rdfs:label "Trần Thị Kim Thảo"@vi ;
+    edu:expertise "Tin học"@vi ;
+    edu:teacherId "tin_05" ;
+    edu:teaches data:class_7_11,
+        data:class_7_12,
+        data:class_7_13,
+        data:class_7_14,
+        data:class_7_16,
+        data:class_7_8 .
+
+data:teacher_tin_06 a edu:Teacher ;
+    rdfs:label "Nguyễn Đình Nhân"@vi ;
+    edu:expertise "Tin học"@vi ;
+    edu:teacherId "tin_06" ;
+    edu:teaches data:class_9_6,
+        data:class_9_7,
+        data:class_9_8 .
+
+data:teacher_tin_07 a edu:Teacher ;
+    rdfs:label "Nguyễn Xuân Sơn"@vi ;
+    edu:expertise "Tin học"@vi ;
+    edu:teacherId "tin_07" ;
+    edu:teaches data:class_9_11,
+        data:class_9_12,
+        data:class_9_13,
+        data:class_9_14,
+        data:class_9_9 .
+
+data:topic_7B a edu:Topic ;
+    rdfs:label "Chủ đề B: Soạn thảo văn bản"@vi ;
+    edu:forGrade data:grade_7 .
+
+data:topic_7C a edu:Topic ;
+    rdfs:label "Chủ đề C: Mạng máy tính và Internet"@vi ;
+    edu:forGrade data:grade_7 .
+
+data:topic_7D a edu:Topic ;
+    rdfs:label "Chủ đề D: Trình chiếu"@vi ;
+    edu:forGrade data:grade_7 .
+
+data:topic_7E a edu:Topic ;
+    rdfs:label "Chủ đề E: Thuật toán và lập trình"@vi ;
+    edu:forGrade data:grade_7 .
+
+data:topic_7F a edu:Topic ;
+    rdfs:label "Chủ đề F: Dự án"@vi ;
+    edu:forGrade data:grade_7 .
+
+data:class_6_14 a edu:Class ;
+    edu:belongsToGrade data:grade_6 ;
+    edu:className "6/14" .
+
+data:class_6_15 a edu:Class ;
+    edu:belongsToGrade data:grade_6 ;
+    edu:className "6/15" .
+
+data:class_6_16 a edu:Class ;
+    edu:belongsToGrade data:grade_6 ;
+    edu:className "6/16" .
+
+data:class_6_17 a edu:Class ;
+    edu:belongsToGrade data:grade_6 ;
+    edu:className "6/17" .
+
+data:class_6_18 a edu:Class ;
+    edu:belongsToGrade data:grade_6 ;
+    edu:className "6/18" .
+
+data:class_6_5 a edu:Class ;
+    edu:belongsToGrade data:grade_6 ;
+    edu:className "6/5" .
+
+data:class_7_13 a edu:Class ;
+    edu:belongsToGrade data:grade_7 ;
+    edu:className "7/13" .
+
+data:class_7_24 a edu:Class ;
+    edu:belongsToGrade data:grade_7 ;
+    edu:className "7/24" .
+
+data:class_8_1 a edu:Class ;
+    edu:belongsToGrade data:grade_8 ;
+    edu:className "8/1" .
+
+data:class_8_2 a edu:Class ;
+    edu:belongsToGrade data:grade_8 ;
+    edu:className "8/2" .
+
+data:class_8_21 a edu:Class ;
+    edu:belongsToGrade data:grade_8 ;
+    edu:className "8/21" .
+
+data:class_8_22 a edu:Class ;
+    edu:belongsToGrade data:grade_8 ;
+    edu:className "8/22" .
+
+data:class_8_23 a edu:Class ;
+    edu:belongsToGrade data:grade_8 ;
+    edu:className "8/23" .
+
+data:class_8_24 a edu:Class ;
+    edu:belongsToGrade data:grade_8 ;
+    edu:className "8/24" .
+
+data:class_8_25 a edu:Class ;
+    edu:belongsToGrade data:grade_8 ;
+    edu:className "8/25" .
+
+data:class_8_26 a edu:Class ;
+    edu:belongsToGrade data:grade_8 ;
+    edu:className "8/26" .
+
+data:class_8_27 a edu:Class ;
+    edu:belongsToGrade data:grade_8 ;
+    edu:className "8/27" .
+
+data:class_8_28 a edu:Class ;
+    edu:belongsToGrade data:grade_8 ;
+    edu:className "8/28" .
+
+data:class_8_3 a edu:Class ;
+    edu:belongsToGrade data:grade_8 ;
+    edu:className "8/3" .
+
+data:class_8_4 a edu:Class ;
+    edu:belongsToGrade data:grade_8 ;
+    edu:className "8/4" .
+
+data:class_8_5 a edu:Class ;
+    edu:belongsToGrade data:grade_8 ;
+    edu:className "8/5" .
+
+data:class_8_6 a edu:Class ;
+    edu:belongsToGrade data:grade_8 ;
+    edu:className "8/6" .
+
+data:class_9_1 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/1" .
+
+data:class_9_11 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/11" .
+
+data:class_9_12 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/12" .
+
+data:class_9_13 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/13" .
+
+data:class_9_14 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/14" .
+
+data:class_9_19 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/19" .
+
+data:class_9_2 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/2" .
+
+data:class_9_20 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/20" .
+
+data:class_9_21 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/21" .
+
+data:class_9_22 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/22" .
+
+data:class_9_23 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/23" .
+
+data:class_9_3 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/3" .
+
+data:class_9_4 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/4" .
+
+data:class_9_5 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/5" .
+
+data:class_9_6 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/6" .
+
+data:class_9_7 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/7" .
+
+data:class_9_8 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/8" .
+
+data:class_9_9 a edu:Class ;
+    edu:belongsToGrade data:grade_9 ;
+    edu:className "9/9" .
+
+data:topic_7A a edu:Topic ;
+    rdfs:label "Chủ đề A: Máy tính và hệ điều hành"@vi ;
+    edu:forGrade data:grade_7 .
+
+data:grade_6 a edu:Grade ;
+    rdfs:label "Khối 6"@vi .
+
+data:grade_8 a edu:Grade ;
+    rdfs:label "Khối 8"@vi .
+
+data:class_7_4 a edu:Class ;
+    edu:belongsToGrade data:grade_7 ;
+    edu:className "7/4" .
+
+data:grade_9 a edu:Grade ;
+    rdfs:label "Khối 9"@vi .
+
+data:grade_7 a edu:Grade ;
+    rdfs:label "Khối 7"@vi .
+
+data:class_7_20 a edu:Class ;
+    edu:belongsToGrade data:grade_7 ;
+    edu:className "7/20" .
+
+data:class_7_3 a edu:Class ;
+    edu:belongsToGrade data:grade_7 ;
+    edu:className "7/3" .
+
+data:class_7_14 a edu:Class ;
+    edu:belongsToGrade data:grade_7 ;
+    edu:className "7/14" .
+
+data:class_7_16 a edu:Class ;
+    edu:belongsToGrade data:grade_7 ;
+    edu:className "7/16" .
+
+data:class_7_22 a edu:Class ;
+    edu:belongsToGrade data:grade_7 ;
+    edu:className "7/22" .
+
+data:class_7_12 a edu:Class ;
+    edu:belongsToGrade data:grade_7 ;
+    edu:className "7/12" .
+
+data:class_7_19 a edu:Class ;
+    edu:belongsToGrade data:grade_7 ;
+    edu:className "7/19" .
+
+data:class_7_21 a edu:Class ;
+    edu:belongsToGrade data:grade_7 ;
+    edu:className "7/21" .
+
+data:class_7_23 a edu:Class ;
+    edu:belongsToGrade data:grade_7 ;
+    edu:className "7/23" .
+
+data:class_7_8 a edu:Class ;
+    edu:belongsToGrade data:grade_7 ;
+    edu:className "7/8" .
+
+data:class_7_11 a edu:Class ;
+    edu:belongsToGrade data:grade_7 ;
+    edu:className "7/11" .
+

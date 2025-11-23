@@ -5,9 +5,16 @@ Sử dụng: Python 3.8+, RDFLib
 
 import json
 import csv
+import sys
+import io
 from datetime import datetime
 from rdflib import Graph, Namespace, Literal, URIRef
 from rdflib.namespace import RDF, RDFS, XSD
+
+# Fix encoding cho Windows console
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 # ============================================
 # 1. ĐỊNH NGHĨA NAMESPACE
@@ -255,7 +262,84 @@ def add_test_results_to_kg(g, results_file='../test_results.csv'):
     return g
 
 # ============================================
-# 7. LƯU KNOWLEDGE GRAPH
+# 7. THÊM DỮ LIỆU GIÁO VIÊN
+# ============================================
+
+def add_teachers_to_kg(g, teachers_file='../teachers_assign.csv'):
+    """
+    Thêm thông tin giáo viên và phân công lớp từ CSV vào KG
+    
+    Cấu trúc:
+    - Teacher -> teaches -> Class
+    - Teacher có: Id_teacher, name, expertise
+    """
+    print("👨‍🏫 Đang thêm dữ liệu giáo viên...")
+    
+    try:
+        teacher_set = set()  # Để tránh tạo trùng teacher
+        assignment_count = 0
+        
+        with open(teachers_file, 'r', encoding='utf-8-sig') as f:  # utf-8-sig để xử lý BOM
+            reader = csv.DictReader(f)
+            
+            for row in reader:
+                teacher_id = row['Id_teacher'].strip()
+                teacher_name = row['name'].strip()
+                expertise = row['expertise'].strip() if 'expertise' in row else 'Tin học'
+                class_name = row['class'].strip()
+                
+                # Tạo Teacher node (chỉ tạo 1 lần cho mỗi teacher_id)
+                if teacher_id not in teacher_set:
+                    teacher_uri = DATA[f'teacher_{teacher_id}']
+                    g.add((teacher_uri, RDF.type, EDU.Teacher))
+                    g.add((teacher_uri, RDFS.label, Literal(teacher_name, lang='vi')))
+                    g.add((teacher_uri, EDU.teacherId, Literal(teacher_id)))
+                    if expertise:
+                        g.add((teacher_uri, EDU.expertise, Literal(expertise, lang='vi')))
+                    teacher_set.add(teacher_id)
+                
+                # Tạo Class node nếu chưa có (có thể đã được tạo trong add_students_to_kg)
+                class_id = class_name.replace('/', '_')
+                class_uri = DATA[f'class_{class_id}']
+                
+                # Kiểm tra xem class đã tồn tại chưa bằng cách tìm triple (class_uri, RDF.type, EDU.Class)
+                class_exists = (class_uri, RDF.type, EDU.Class) in g
+                
+                if not class_exists:
+                    # Xác định grade từ class_name
+                    if '/' in class_name:
+                        grade_num = class_name.split('/')[0]
+                    else:
+                        grade_num = '7'  # Default
+                    
+                    grade_uri = DATA[f'grade_{grade_num}']
+                    
+                    # Tạo Grade nếu chưa có
+                    if (grade_uri, RDF.type, EDU.Grade) not in g:
+                        g.add((grade_uri, RDF.type, EDU.Grade))
+                        g.add((grade_uri, RDFS.label, Literal(f"Khối {grade_num}", lang='vi')))
+                    
+                    # Tạo Class
+                    g.add((class_uri, RDF.type, EDU.Class))
+                    g.add((class_uri, EDU.className, Literal(class_name)))
+                    g.add((class_uri, EDU.belongsToGrade, grade_uri))
+                
+                # Tạo relationship: Teacher teaches Class
+                teacher_uri = DATA[f'teacher_{teacher_id}']
+                g.add((teacher_uri, EDU.teaches, class_uri))
+                assignment_count += 1
+        
+        print(f"✅ Đã thêm {len(teacher_set)} giáo viên, {assignment_count} phân công lớp")
+        
+    except FileNotFoundError:
+        print(f"⚠️  Không tìm thấy file {teachers_file}. Bỏ qua bước này.")
+    except Exception as e:
+        print(f"⚠️  Lỗi khi đọc file giáo viên: {e}")
+    
+    return g
+
+# ============================================
+# 8. LƯU KNOWLEDGE GRAPH
 # ============================================
 
 def save_kg(g, output_file='kg_grade7.ttl'):
@@ -282,9 +366,10 @@ def main():
     
     # Thêm dữ liệu
     g = add_students_to_kg(g)
+    g = add_teachers_to_kg(g)  # Thêm giáo viên và phân công lớp
     g = add_lessons_to_kg(g)
-    g = add_questions_to_kg(g)
-    g = add_test_results_to_kg(g)
+    # g = add_questions_to_kg(g)  # Tạm thời bỏ qua vì thiếu file
+    # g = add_test_results_to_kg(g)  # Tạm thời bỏ qua vì thiếu file
     
     # Lưu KG
     save_kg(g, 'kg_grade7.ttl')

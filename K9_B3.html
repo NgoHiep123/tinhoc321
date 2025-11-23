@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <title>⚡ K9_B3: 📱 Phần mềm máy tính</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);background-attachment:fixed}
+    .quiz-container{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px)}
+    .option-btn{transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+    .option-btn:hover{transform:translateX(4px);box-shadow:0 10px 25px rgba(99,102,241,0.3)}
+    .correct{background:linear-gradient(135deg,#10b981 0%,#059669 100%)!important;color:#fff!important;animation:correctPulse 0.6s ease;box-shadow:0 0 30px rgba(16,185,129,0.6)!important}
+    .incorrect{background:linear-gradient(135deg,#ef4444 0%,#dc2626 100%)!important;color:#fff!important;animation:shake 0.5s ease}
+    @keyframes correctPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+    @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+  </style>
+</head>
+<body class="min-h-screen">
+  <header class="sticky top-0 z-20 backdrop-blur-lg bg-white/80 border-b border-white/20 shadow-lg">
+    <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="inline-flex items-center gap-2 text-purple-700 hover:text-purple-900">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        <span class="font-bold">🏠 Trang chủ</span>
+      </a>
+      <span id="userPill" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg"></span>
+    </div>
+  </header>
+  <main class="px-4 py-6 flex justify-center">
+    <div class="quiz-container w-full max-w-3xl rounded-3xl shadow-2xl p-6 md:p-10">
+      <div class="text-center mb-6">
+        <div class="inline-block mb-3 px-4 py-2 bg-gradient-to-r from-purple-100 to-indigo-100 rounded-full">
+          <span class="text-sm font-bold text-purple-700">🎓 KHỐI 9 - BÀI B3</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">📱 Phần mềm máy tính</h1>
+        <p class="text-gray-600 text-lg">🎯 12 câu hỏi - Thời gian: ~12 phút</p>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 p-4 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl">
+        <div class="flex items-center gap-3">
+          <div class="text-3xl">📝</div>
+          <div><div id="progress" class="text-gray-900 font-bold text-lg">Câu 1/12</div><div class="text-sm text-gray-500">Chúc bạn làm bài tốt!</div></div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="flex-1 w-48 h-3 rounded-full bg-gray-200 overflow-hidden"><div id="bar" class="h-full rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 transition-all" style="width:8%"></div></div>
+          <div id="score" class="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl font-black text-lg shadow-lg">🏆 0</div>
+        </div>
+      </div>
+      <div id="question-card" class="bg-gradient-to-br from-purple-500 to-indigo-600 p-6 rounded-2xl mb-6 min-h-[120px] flex items-center justify-center shadow-xl">
+        <p id="question-text" class="text-center text-xl md:text-2xl font-bold text-white leading-relaxed"></p>
+      </div>
+      <div id="options-container" class="grid grid-cols-1 gap-4 mb-6"></div>
+      <div id="feedback-container" class="text-center min-h-[60px] flex items-center justify-center"><p id="feedback-text" class="text-2xl font-bold"></p></div>
+      <div class="mt-4 flex justify-end">
+        <button id="next-btn" class="hidden w-full md:w-auto bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-black text-lg py-4 px-8 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition-all shadow-lg">➡️ Câu tiếp theo</button>
+      </div>
+      <div id="results-container" class="hidden text-center">
+        <div class="mb-4 text-6xl" id="result-emoji">🎉</div>
+        <h2 class="text-4xl font-black text-gray-900 mb-3">Hoàn thành!</h2>
+        <div class="my-8">
+          <p class="text-7xl font-black bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent" id="final-score"></p>
+          <p class="text-2xl text-gray-700 mt-4 font-bold" id="score-comment"></p>
+          <p class="text-sm text-gray-500 mt-3" id="send-status">Đang gửi kết quả…</p>
+        </div>
+        <div class="flex gap-4 justify-center flex-wrap">
+          <a href="index.html" class="px-6 py-3 rounded-xl bg-gray-200 text-gray-800 font-bold hover:bg-gray-300">🏠 Trang chủ</a>
+          <button id="restart-btn" class="px-8 py-3 rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 text-white font-black hover:from-green-600 hover:to-emerald-600 shadow-lg">🔄 Làm lại</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script>
+    const QUIZ_ID="K9_B3";
+    const ENDPOINT="https://tinhoc321.com/api/save_result.php";
+    function getStudent(){try{return JSON.parse(localStorage.getItem('student')||'null')}catch(e){return null}}
+    const student=getStudent();
+    (function(){const pill=document.getElementById('userPill');if(student&&pill){pill.classList.remove('hidden');pill.innerHTML=`👤 ${student.name} · Lớp ${student.className}`}})();
+    
+    const allQuestions=[{"question": "Đâu là một trong những mặt trái tiêu cực của việc sử dụng thiết bị số và Internet?", "options": ["Giúp tăng năng suất lao động", "Dễ dàng chia sẻ thông tin", "Có nguy cơ bị nghiện Internet và trò chơi trực tuyến", "Hỗ trợ học tập từ xa"], "answer": 2}, {"question": "Khái niệm \\\"Rác thải điện tử\\\" (E-waste) đề cập đến điều gì?", "options": ["Các email rác trong hộp thư", "Các thiết bị số cũ hỏng hoặc lỗi thời bị vứt bỏ", "Các phần mềm độc hại", "Các tin nhắn quảng cáo trên điện thoại"], "answer": 1}, {"question": "Hành vi nào sau đây được coi là thiếu văn hóa khi hoạt động trong môi trường số?", "options": ["Gửi email có chủ đề rõ ràng", "Sử dụng từ ngữ phản cảm khi bình luận trên mạng xã hội", "Trích dẫn nguồn khi sử dụng thông tin", "Chia sẻ bài viết bổ ích từ báo chính thống"], "answer": 1}, {"question": "Luật Công nghệ thông tin ở Việt Nam ra đời nhằm mục đích chính là gì?", "options": ["Cấm người dân sử dụng Internet", "Điều chỉnh các hoạt động ứng dụng và phát triển CNTT đảm bảo quyền và lợi ích hợp pháp của tổ chức cá nhân", "Bắt buộc mọi người phải mua máy tính", "Khuyến khích chơi game"], "answer": 1}, {"question": "Nghị định về quản lý", "options": ["cung cấp", "sử dụng dịch vụ Internet nghiêm cấm hành vi nào?", "Tìm kiếm tài liệu học tập", "Lợi dụng Internet để chống lại Nhà nước gây rối loạn an ninh trật tự"], "answer": 0}, {"question": "Thói quen chạy đua mua sắm thiết bị số đời mới liên tục khi thiết bị cũ vẫn dùng tốt gây ra hậu quả gì?", "options": ["Giúp bảo vệ môi trường", "Gây lãng phí tiền bạc và gia tăng lượng rác thải điện tử độc hại", "Giúp người dùng tiết kiệm tiền", "Không gây ảnh hưởng gì"], "answer": 1}, {"question": "Tại sao khi sử dụng tài khoản ảo (ẩn danh) trên mạng xã hội", "options": ["một số người lại có xu hướng phát ngôn thiếu văn hóa hoặc hung hăng hơn?", "Vì họ nghĩ rằng không ai biết mình là ai nên không phải chịu trách nhiệm", "Vì mạng xã hội yêu cầu như vậy", "Vì họ muốn nổi tiếng"], "answer": 0}, {"question": "Việc dành quá nhiều thời gian cho thế giới ảo (nghiện Internet) ảnh hưởng thế nào đến sức khỏe tâm thần?", "options": ["Giúp tinh thần sảng khoái hơn", "Gây căng thẳng lo âu trầm cảm và giảm khả năng giao tiếp thực tế", "Giúp ngủ ngon hơn", "Tăng cường trí nhớ"], "answer": 1}, {"question": "Tác động của công nghệ số đến vấn đề việc làm là gì?", "options": ["Đảm bảo ai cũng có việc làm trọn đời", "Tạo ra nhiều việc làm mới nhưng cũng khiến nhiều nghề truyền thống bị thay thế (nguy cơ thất nghiệp nếu không cập nhật kĩ năng)", "Không có tác động gì", "Chỉ làm giảm việc làm chân tay"], "answer": 1}, {"question": "Em vô tình thấy một bài đăng trên Facebook bôi nhọ danh dự của một bạn cùng lớp. Em nên làm gì?", "options": ["Tham gia bình luận chê bai cho vui", "Chia sẻ bài viết đó để nhiều người biết", "Báo cáo (Report) bài viết vi phạm và động viên bạn bị bắt nạt", "Im lặng coi như không biết"], "answer": 2}, {"question": "Khi nhận được một tin tức \\\"giật gân\\\" trên mạng xã hội nhưng chưa được kiểm chứng (ví dụ: tin về dịch bệnh lạ)", "options": ["hành động có trách nhiệm nhất là gì?", "Chia sẻ ngay lập tức cho mọi người cảnh giác", "Kiểm tra lại thông tin trên các trang báo chính thống trước khi tin hoặc chia sẻ", "Sao chép và đăng lại trên tường nhà mình"], "answer": 0}, {"question": "Nhóm của em đang làm video dự thi cho trường. Một bạn đề xuất lấy một bài nhạc hot trên mạng để lồng vào video mà không cần xin phép tác giả. Em sẽ xử lí thế nào?", "options": ["Đồng ý ngay vì nhạc hay video mới hấp dẫn", "Khuyên bạn không nên dùng hoặc phải tìm nhạc miễn phí bản quyền/xin phép tác giả để tránh vi phạm Luật sở hữu trí tuệ", "Cứ dùng đại nếu bị phát hiện thì gỡ sau", "Dùng phần mềm chỉnh sửa để lách luật"], "answer": 1}];
+    let currentQ=0,score=0,startTime=Date.now();
+    function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
+    function withShuffledOptions(q){const order=q.options.map((_,i)=>i);shuffle(order);return{...q,options:order.map(i=>q.options[i]),answer:order.indexOf(q.answer)}}
+    const selectedQuestions = shuffle([...allQuestions]).slice(0, Math.min(10, allQuestions.length));
+    const quiz=selectedQuestions.map(withShuffledOptions);
+    
+    function showQuestion(){const q=quiz[currentQ];document.getElementById('question-text').textContent=q.question;document.getElementById('progress').innerHTML=`Câu ${currentQ+1}/${quiz.length}`;document.getElementById('bar').style.width=((currentQ+1)/quiz.length*100)+'%';const container=document.getElementById('options-container');container.innerHTML='';const letters=['A','B','C','D'];q.options.forEach((opt,i)=>{const btn=document.createElement('button');btn.className='option-btn w-full text-left px-6 py-4 rounded-xl border-2 border-gray-200 hover:border-purple-400 bg-white font-semibold text-gray-800 text-lg';btn.innerHTML=`<span class="inline-block w-8 h-8 rounded-full bg-purple-100 text-purple-700 font-bold mr-3 text-center leading-8">${letters[i]}</span>${opt}`;btn.onclick=()=>checkAnswer(i,btn);container.appendChild(btn)});document.getElementById('next-btn').classList.add('hidden');document.getElementById('feedback-text').textContent=''}
+    
+    function checkAnswer(chosen,btn){
+      const q=quiz[currentQ];
+      const allBtns=document.querySelectorAll('.option-btn');
+      allBtns.forEach(b=>b.disabled=true);
+      if(chosen===q.answer){
+        btn.classList.add('correct');
+        score++;
+        document.getElementById('score').innerHTML=`🏆 ${score}`;
+        document.getElementById('feedback-text').innerHTML='✅ <span style="color:#10b981">Chính xác!</span>';
+        confetti({particleCount:50,spread:60,origin:{y:0.6}})
+      }else{
+        btn.classList.add('incorrect');
+        allBtns[q.answer].classList.add('correct');
+        document.getElementById('feedback-text').innerHTML='❌ <span style="color:#ef4444">Chưa đúng!</span>'
+      }
+      if(currentQ<quiz.length-1){
+        document.getElementById('next-btn').classList.remove('hidden')
+      }else{
+        setTimeout(showResults,2000)
+      }
+    }
+    
+    document.getElementById('next-btn').onclick=()=>{currentQ++;if(currentQ<quiz.length)showQuestion();else showResults()};
+    
+    function showResults(){
+      document.querySelector('.quiz-container>div:first-child').classList.add('hidden');
+      document.getElementById('question-card').classList.add('hidden');
+      document.getElementById('options-container').classList.add('hidden');
+      document.getElementById('next-btn').classList.add('hidden');
+      document.getElementById('feedback-container').classList.add('hidden');
+      document.getElementById('results-container').classList.remove('hidden');
+      const pct=(score/quiz.length*100).toFixed(0);
+      document.getElementById('final-score').textContent=`${score}/${quiz.length} (${pct}%)`;
+      let comment,emoji;
+      if(pct>=90){comment="🌟 Xuất sắc!";emoji="🎉"}
+      else if(pct>=70){comment="👍 Rất tốt!";emoji="😊"}
+      else if(pct>=50){comment="💪 Khá tốt!";emoji="😃"}
+      else{comment="📖 Cố gắng hơn nhé!";emoji="😅"}
+      document.getElementById('score-comment').textContent=comment;
+      document.getElementById('result-emoji').textContent=emoji;
+      if(pct>=70){
+        const duration=3000,end=Date.now()+duration;
+        (function frame(){
+          confetti({particleCount:3,angle:60,spread:55,origin:{x:0}});
+          confetti({particleCount:3,angle:120,spread:55,origin:{x:1}});
+          if(Date.now()<end)requestAnimationFrame(frame)
+        })()
+      }
+      const duration=Math.floor((Date.now()-startTime)/1000);
+      if(student){
+        sendResult(student.name,student.className,QUIZ_ID,score,quiz.length,duration)
+      }else{
+        document.getElementById('send-status').textContent='Chưa đăng nhập'
+      }
+    }
+    
+    async function sendResult(name, className, quizId, score, total, duration) {
+      try {
+        const response = await fetch("https://tinhoc321.com/api/save_result.php", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    }?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${encodeURIComponent(quizId)}&score=${score}&total=${total}&duration=${duration}`;
+        await fetch(url,{mode:'no-cors'});
+        document.getElementById('send-status').textContent='✅ Đã lưu!'
+      }catch(e){
+        document.getElementById('send-status').textContent='⚠️ Không lưu được'
+      }
+    }
+    
+    document.getElementById('restart-btn').onclick=()=>location.reload();
+    showQuestion()
+  </script>
+</body>
+</html>

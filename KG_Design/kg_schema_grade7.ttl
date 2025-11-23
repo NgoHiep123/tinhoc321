@@ -179,3 +179,15 @@ edu:className a rdf:Property ;
     rdfs:domain edu:Class ;
     rdfs:range xsd:string .
 
+# Mã giáo viên
+edu:teacherId a rdf:Property ;
+    rdfs:label "mã giáo viên"@vi ;
+    rdfs:domain edu:Teacher ;
+    rdfs:range xsd:string .
+
+# Chuyên môn
+edu:expertise a rdf:Property ;
+    rdfs:label "chuyên môn"@vi ;
+    rdfs:domain edu:Teacher ;
+    rdfs:range xsd:string .
+

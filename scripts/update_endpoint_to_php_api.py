@@ -8,10 +8,20 @@ File: scripts/update_endpoint_to_php_api.py
 import os
 import re
 import sys
+import io
 import glob
 
+# Fix encoding cho Windows console
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+
 # Đường dẫn API mới (sửa theo domain hosting của bạn)
-NEW_API_ENDPOINT = "https://tinhoc321.com/api/save_result.php"
+# Có thể dùng relative path nếu cùng domain, hoặc absolute URL
+# NEW_API_ENDPOINT = "/api/save_result.php"  # Relative path - sẽ hoạt động nếu cùng domain
+NEW_API_ENDPOINT = "https://tinhoc321.com/api/save_result.php"  # Absolute URL - cho GitHub Pages
+# Hoặc localhost: "http://localhost/api/save_result.php"
+# Nếu dùng GitHub Pages + backend riêng, dùng absolute URL
 
 # Endpoint cũ (Google Sheets)
 OLD_ENDPOINT_PATTERN = r'https://script\.google\.com/macros/s/[^/]+/exec'
@@ -34,8 +44,8 @@ def update_html_file(filepath):
             content = re.sub(OLD_ENDPOINT_PATTERN, NEW_API_ENDPOINT, content)
         
         # Cập nhật function sendResult để dùng POST thay vì GET
-        # Tìm function sendResult
-        send_result_pattern = r'(async\s+function\s+sendResult\([^)]+\)\s*\{[^}]*\})'
+        # Pattern để tìm function sendResult (có thể là multi-line)
+        # Tìm function từ "async function sendResult" đến closing brace tương ứng
         
         new_send_result = f'''async function sendResult(name, className, quizId, score, total, duration) {{
       try {{
@@ -69,23 +79,67 @@ def update_html_file(filepath):
       }}
     }}'''
         
-        # Thay thế function sendResult nếu tìm thấy
-        if re.search(r'async\s+function\s+sendResult', content):
-            # Tìm toàn bộ function (có thể multi-line)
-            old_pattern = r'async\s+function\s+sendResult\([^)]+\)\s*\{[^}]*(?:\{[^}]*\}[^}]*)*\}'
-            if re.search(old_pattern, content, re.DOTALL):
-                content = re.sub(old_pattern, new_send_result, content, flags=re.DOTALL)
-            else:
-                # Fallback: thay thế đơn giản hơn
-                old_simple = r"const url=`[^`]+`;"
-                if re.search(old_simple, content):
-                    # Thay thế phần URL fetch
-                    content = re.sub(
-                        r"(async function sendResult\([^)]+\)\{[^}]*)(const url=`[^`]+`;)",
-                        f"\\g<1>{new_send_result}",
-                        content,
-                        flags=re.DOTALL
-                    )
+        # Tìm và thay thế function sendResult
+        # Pattern: async function sendResult(...) { ... }
+        send_result_pattern = r'async\s+function\s+sendResult\([^)]*\)\s*\{[^}]*(?:\{[^}]*\}[^}]*)*\}'
+        
+        if re.search(send_result_pattern, content, re.DOTALL):
+            # Tìm function và thay thế
+            content = re.sub(send_result_pattern, new_send_result, content, flags=re.DOTALL)
+        elif re.search(r'async\s+function\s+sendResult', content):
+            # Fallback: Tìm từ "async function sendResult" đến hết function
+            # Sử dụng approach khác: tìm phần trong {} tương ứng
+            lines = content.split('\n')
+            new_lines = []
+            i = 0
+            in_function = False
+            brace_count = 0
+            start_idx = -1
+            
+            while i < len(lines):
+                line = lines[i]
+                
+                if 'async function sendResult' in line and not in_function:
+                    # Bắt đầu function
+                    in_function = True
+                    brace_count = line.count('{') - line.count('}')
+                    start_idx = i
+                    
+                    if brace_count == 0:
+                        # Function trên 1 dòng hoặc chưa có {
+                            i += 1
+                            if i < len(lines):
+                                brace_count += lines[i].count('{') - lines[i].count('}')
+                                if brace_count > 0:
+                                    # Bắt đầu function block
+                                    new_lines.append(new_send_result)
+                                    i += 1
+                                    continue
+                    else:
+                        # Function có { trong cùng dòng
+                        new_lines.append(new_send_result)
+                        i += 1
+                        continue
+                
+                if in_function:
+                    brace_count += line.count('{') - line.count('}')
+                    if brace_count <= 0 and '}' in line:
+                        # Kết thúc function
+                        in_function = False
+                        i += 1
+                        continue
+                    # Bỏ qua dòng trong function cũ
+                    i += 1
+                    continue
+                
+                new_lines.append(line)
+                i += 1
+            
+            if in_function:
+                # Nếu vẫn trong function, thêm new function
+                new_lines.append(new_send_result)
+            
+            content = '\n'.join(new_lines)
         
         # Nếu có thay đổi, lưu file
         if content != original_content:
@@ -114,10 +168,11 @@ def main():
     
     # Tìm file trong thư mục gốc
     patterns = [
-        '*.html',
         'K6_*.html',
         'K7_*.html',
-        'K6_KIEM_TRA_*.html',
+        'K8_*.html',
+        'K9_*.html',
+        '*_KIEM_TRA_*.html',
     ]
     
     for pattern in patterns:

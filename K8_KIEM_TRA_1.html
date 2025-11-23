@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <title>⚡ K8_KIEM_TRA_1: Kiểm tra 1 - Học kì 2 (A1, A2, C1)</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);background-attachment:fixed}
+    .quiz-container{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px)}
+    .option-btn{transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
+    .option-btn:hover{transform:translateX(4px);box-shadow:0 10px 25px rgba(99,102,241,0.3)}
+    .correct{background:linear-gradient(135deg,#10b981 0%,#059669 100%)!important;color:#fff!important;animation:correctPulse 0.6s ease;box-shadow:0 0 30px rgba(16,185,129,0.6)!important}
+    .incorrect{background:linear-gradient(135deg,#ef4444 0%,#dc2626 100%)!important;color:#fff!important;animation:shake 0.5s ease}
+    @keyframes correctPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+    @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+  </style>
+</head>
+<body class="min-h-screen">
+  <header class="sticky top-0 z-20 backdrop-blur-lg bg-white/80 border-b border-white/20 shadow-lg">
+    <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="inline-flex items-center gap-2 text-purple-700 hover:text-purple-900">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        <span class="font-bold">🏠 Trang chủ</span>
+      </a>
+      <span id="userPill" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg"></span>
+    </div>
+  </header>
+  <main class="px-4 py-6 flex justify-center">
+    <div class="quiz-container w-full max-w-3xl rounded-3xl shadow-2xl p-6 md:p-10">
+      <div class="text-center mb-6">
+        <div class="inline-block mb-3 px-4 py-2 bg-gradient-to-r from-purple-100 to-indigo-100 rounded-full">
+          <span class="text-sm font-bold text-purple-700">🎓 K8 - HỌC KÌ 2</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">📝 Kiểm tra 1 - Học kì 2 (A1, A2, C1)</h1>
+        <p class="text-gray-600 text-lg">🎯 20 câu hỏi - Thời gian: ~20 phút</p>
+        <p class="text-gray-500 text-sm mt-1">20 câu từ A1, A2, C1</p>
+      </div>
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 p-4 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl">
+        <div class="flex items-center gap-3">
+          <div class="text-3xl">📝</div>
+          <div><div id="progress" class="text-gray-900 font-bold text-lg">Câu 1/20</div><div class="text-sm text-gray-500">Chúc bạn làm bài tốt!</div></div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="flex-1 w-48 h-3 rounded-full bg-gray-200 overflow-hidden"><div id="bar" class="h-full rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 transition-all" style="width:2%"></div></div>
+          <div id="score" class="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl font-black text-lg shadow-lg">🏆 0</div>
+        </div>
+      </div>
+      <div id="question-card" class="bg-gradient-to-br from-purple-500 to-indigo-600 p-6 rounded-2xl mb-6 min-h-[120px] flex items-center justify-center shadow-xl">
+        <p id="question-text" class="text-center text-xl md:text-2xl font-bold text-white leading-relaxed"></p>
+      </div>
+      <div id="options-container" class="grid grid-cols-1 gap-4 mb-6"></div>
+      <div id="feedback-container" class="text-center min-h-[60px] flex items-center justify-center"><p id="feedback-text" class="text-2xl font-bold"></p></div>
+      <div class="mt-4 flex justify-end">
+        <button id="next-btn" class="hidden w-full md:w-auto bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-black text-lg py-4 px-8 rounded-xl hover:from-purple-700 hover:to-indigo-700 transition-all shadow-lg">➡️ Câu tiếp theo</button>
+      </div>
+      <div id="results-container" class="hidden text-center">
+        <div class="mb-4 text-6xl" id="result-emoji">🎉</div>
+        <h2 class="text-4xl font-black text-gray-900 mb-3">Hoàn thành!</h2>
+        <div class="my-8">
+          <p class="text-7xl font-black bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent" id="final-score"></p>
+          <p class="text-2xl text-gray-700 mt-4 font-bold" id="score-comment"></p>
+          <p class="text-sm text-gray-500 mt-3" id="send-status">Đang gửi kết quả…</p>
+        </div>
+        <div class="flex gap-4 justify-center flex-wrap">
+          <a href="index.html" class="px-6 py-3 rounded-xl bg-gray-200 text-gray-800 font-bold hover:bg-gray-300">🏠 Trang chủ</a>
+          <button id="restart-btn" class="px-8 py-3 rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 text-white font-black hover:from-green-600 hover:to-emerald-600 shadow-lg">🔄 Làm lại</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script>
+    const QUIZ_ID="K8_KIEM_TRA_1";
+    const ENDPOINT="https://tinhoc321.com/api/save_result.php";
+    function getStudent(){try{return JSON.parse(localStorage.getItem('student')||'null')}catch(e){return null}}
+    const student=getStudent();
+    (function(){const pill=document.getElementById('userPill');if(student&&pill){pill.classList.remove('hidden');pill.innerHTML=`👤 ${student.name} · Lớp ${student.className}`}})();
+    
+    const allQuestions=[
+      {question: "Máy tính giúp con người \"học mọi lúc mọi nơi\" thông qua tiện ích nào?", options: ["Kết nối mạng và học trực tuyến (E-learning)", "Chơi game offline", "Soạn thảo văn bản", "Lưu trữ dữ liệu trên đĩa mềm"], answer: 0},
+      {question: "Trong tương lai giao tiếp người - máy có thể phát triển đến mức độ nào (theo dự đoán)?", options: ["Dùng lại thẻ đục lỗ để bảo mật", "Điều khiển máy tính bằng suy nghĩ (sóng não) hoặc cử chỉ tự nhiên", "Loại bỏ hoàn toàn màn hình hiển thị", "Con người không cần giao tiếp với máy tính nữa"], answer: 1},
+      {question: "Vì sao máy tính Osborne 1 (1981) được coi là một bước ngoặt trong thế hệ thứ tư?", options: ["Vì nó là siêu máy tính mạnh nhất", "Vì nó là chiếc máy tính xách tay thương mại đầu tiên", "Vì nó sử dụng trí tuệ nhân tạo", "Vì nó sử dụng đèn điện tử chân không"], answer: 1},
+      {question: "Em cần làm một bài thuyết trình có chèn nhạc và video minh họa. Phần mềm nào là phù hợp nhất?", options: ["Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint", "Unikey"], answer: 2},
+      {question: "Máy tính đã thay đổi cách thức liên lạc của con người như thế nào so với phương thức truyền thống (thư tay)?", options: ["Chậm hơn nhưng an toàn hơn", "Nhanh chóng tức thời và đa dạng (gọi video chat email)", "Chỉ gửi được văn bản không gửi được hình ảnh", "Tốn kém chi phí hơn nhiều lần"], answer: 1},
+      {question: "Thông tin số có tính bản quyền nghĩa là gì?", options: ["Ai cũng được dùng miễn phí", "Thông tin thuộc về tác giả và được pháp luật bảo vệ", "Thông tin không có chủ sở hữu", "Thông tin chỉ được dùng ở trường học"], answer: 1},
+      {question: "Máy tính điện tử thế hệ thứ nhất (1945-1955) sử dụng công nghệ nào?", options: ["Bóng bán dẫn", "Mạch tích hợp (IC)", "Đèn điện tử chân không", "Vi xử lý mật độ cao"], answer: 2},
+      {question: "Tuy máy tính bảng/điện thoại rất tiện lợi nhưng nhược điểm của thiết bị quá nhỏ gọn là gì?", options: ["Khó kết nối mạng Internet", "Tiêu thụ điện năng nhiều hơn máy tính bàn", "Dễ bị rơi vỡ thất lạc hoặc mất trộm", "Tốc độ xử lý chậm hơn máy tính thế hệ 1"], answer: 2},
+      {question: "Để mô phỏng khoa học phức tạp (như dự báo thời tiết toàn cầu) ta nên dùng loại máy tính nào?", options: ["Máy tính bảng thế hệ mới", "Siêu máy tính (Supercomputer) với khả năng xử lý song song", "Điện thoại thông minh cao cấp", "Máy tính xách tay văn phòng"], answer: 1},
+      {question: "Phương thức \"Giao tiếp dòng lệnh\" xuất hiện sau giai đoạn nào?", options: ["Sau giao tiếp bằng đồ họa", "Sau giao tiếp bằng giọng nói", "Sau giai đoạn dùng băng đục lỗ", "Sau giai đoạn dùng màn hình cảm ứng"], answer: 2},
+      {question: "Công nghệ mới nào giúp chuyển đổi văn bản in hoặc tiếng nói thành dữ liệu số?", options: ["Màn hình đen trắng", "Công nghệ nhận dạng (OCR/Voice recognition)", "Công nghệ in ấn", "Công nghệ đèn chân không"], answer: 1},
+      {question: "Sự phát triển của giao tiếp người - máy tính diễn ra theo xu hướng nào?", options: ["Ngày càng phức tạp và khó sử dụng hơn", "Ngày càng tiện lợi và thân thiện với con người hơn", "Không thay đổi qua các thời kỳ", "Quay lại sử dụng các công cụ thô sơ"], answer: 1},
+      {question: "Xu hướng phát triển chung của máy tính điện tử qua các thế hệ là gì?", options: ["Kích thước lớn dần tiêu thụ nhiều điện năng hơn", "Kích thước nhỏ dần tốc độ xử lý chậm đi", "Kích thước nhỏ dần tốc độ nhanh hơn độ tin cậy cao hơn", "Kích thước không đổi giá thành tăng lên"], answer: 2},
+      {question: "Khi nhận được một email lạ thông báo trúng thưởng lớn yêu cầu click vào link lạ. Em nên làm gì?", options: ["Click ngay để nhận thưởng", "Chuyển tiếp cho bạn bè cùng xem", "Xóa email và không click vào link vì đó có thể là lừa đảo (tin cậy thấp)", "Trả lời lại email để hỏi cho rõ"], answer: 2},
+      {question: "Chiếc máy tính cơ học Pascaline thực hiện được các phép tính nào?", options: ["Cộng trừ nhân chia", "Chỉ phép cộng và trừ", "Cộng trừ và lũy thừa", "Chỉ phép nhân và chia"], answer: 1},
+      {question: "Đâu là đặc điểm nổi bật của thông tin số?", options: ["Luôn luôn đúng sự thật", "Dễ dàng sao chép sửa đổi và chia sẻ", "Rất khó tạo ra và tốn kém", "Chỉ có thể xem được trên máy tính để bàn"], answer: 1},
+      {question: "Google Drive và OneDrive là ví dụ về loại công cụ nào?", options: ["Công cụ tìm kiếm", "Công cụ soạn thảo văn bản", "Công cụ lưu trữ đám mây", "Công cụ chỉnh sửa ảnh"], answer: 2},
+      {question: "Đặc điểm nổi bật của máy tính thế hệ thứ năm là gì?", options: ["Sử dụng bóng bán dẫn", "Kích thước rất lớn", "Có khả năng xử lí song song và trí tuệ nhân tạo (AI)", "Chỉ dùng thẻ đục lỗ"], answer: 2},
+      {question: "Tại sao chúng ta cần sử dụng đúng công cụ để xử lý dữ liệu (ví dụ dùng Word để soạn văn bản)?", options: ["Vì Word là phần mềm duy nhất trên máy tính", "Vì mỗi phần mềm được thiết kế chuyên biệt cho một loại dữ liệu nhất định", "Vì dùng sai phần mềm sẽ làm hỏng máy", "Vì giáo viên yêu cầu như vậy"], answer: 1},
+      {question: "Thiết bị nào đánh dấu bước ngoặt chuyển sang giao tiếp đồ họa (GUI) thân thiện hơn?", options: ["Băng đục lỗ", "Chuột máy tính", "Bàn phím cơ", "Loa máy tính"], answer: 1}
+    ];
+    let currentQ=0,score=0,startTime=Date.now();
+    function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
+    function withShuffledOptions(q){const order=q.options.map((_,i)=>i);shuffle(order);return{...q,options:order.map(i=>q.options[i]),answer:order.indexOf(q.answer)}}
+    const quiz=allQuestions.map(withShuffledOptions);
+    
+    function showQuestion(){const q=quiz[currentQ];document.getElementById('question-text').textContent=q.question;document.getElementById('progress').innerHTML=`Câu ${currentQ+1}/${quiz.length}`;document.getElementById('bar').style.width=((currentQ+1)/quiz.length*100)+'%';const container=document.getElementById('options-container');container.innerHTML='';const letters=['A','B','C','D'];q.options.forEach((opt,i)=>{const btn=document.createElement('button');btn.className='option-btn w-full text-left px-6 py-4 rounded-xl border-2 border-gray-200 hover:border-purple-400 bg-white font-semibold text-gray-800 text-lg';btn.innerHTML=`<span class="inline-block w-8 h-8 rounded-full bg-purple-100 text-purple-700 font-bold mr-3 text-center leading-8">${letters[i]}</span>${opt}`;btn.onclick=()=>checkAnswer(i,btn);container.appendChild(btn)});document.getElementById('next-btn').classList.add('hidden');document.getElementById('feedback-text').textContent=''}
+    
+    function checkAnswer(chosen,btn){
+      const q=quiz[currentQ];
+      const allBtns=document.querySelectorAll('.option-btn');
+      allBtns.forEach(b=>b.disabled=true);
+      if(chosen===q.answer){
+        btn.classList.add('correct');
+        score++;
+        document.getElementById('score').innerHTML=`🏆 ${score}`;
+        document.getElementById('feedback-text').innerHTML='✅ <span style="color:#10b981">Chính xác!</span>';
+        confetti({particleCount:50,spread:60,origin:{y:0.6}})
+      }else{
+        btn.classList.add('incorrect');
+        allBtns[q.answer].classList.add('correct');
+        document.getElementById('feedback-text').innerHTML='❌ <span style="color:#ef4444">Chưa đúng!</span>'
+      }
+      if(currentQ<quiz.length-1){
+        document.getElementById('next-btn').classList.remove('hidden')
+      }else{
+        setTimeout(showResults,2000)
+      }
+    }
+    
+    document.getElementById('next-btn').onclick=()=>{currentQ++;if(currentQ<quiz.length)showQuestion();else showResults()};
+    
+    function showResults(){
+      document.querySelector('.quiz-container>div:first-child').classList.add('hidden');
+      document.getElementById('question-card').classList.add('hidden');
+      document.getElementById('options-container').classList.add('hidden');
+      document.getElementById('next-btn').classList.add('hidden');
+      document.getElementById('feedback-container').classList.add('hidden');
+      document.getElementById('results-container').classList.remove('hidden');
+      const pct=(score/quiz.length*100).toFixed(0);
+      document.getElementById('final-score').textContent=`${score}/${quiz.length} (${pct}%)`;
+      let comment,emoji;
+      if(pct>=90){comment="🌟 Xuất sắc!";emoji="🎉"}
+      else if(pct>=70){comment="👍 Rất tốt!";emoji="😊"}
+      else if(pct>=50){comment="💪 Khá tốt!";emoji="😃"}
+      else{comment="📖 Cố gắng hơn nhé!";emoji="😅"}
+      document.getElementById('score-comment').textContent=comment;
+      document.getElementById('result-emoji').textContent=emoji;
+      if(pct>=70){
+        const duration=3000,end=Date.now()+duration;
+        (function frame(){
+          confetti({particleCount:3,angle:60,spread:55,origin:{x:0}});
+          confetti({particleCount:3,angle:120,spread:55,origin:{x:1}});
+          if(Date.now()<end)requestAnimationFrame(frame)
+        })()
+      }
+      const duration=Math.floor((Date.now()-startTime)/1000);
+      if(student){
+        sendResult(student.name,student.className,QUIZ_ID,score,quiz.length,duration)
+      }else{
+        document.getElementById('send-status').textContent='Chưa đăng nhập'
+      }
+    }
+    
+    async function sendResult(name, className, quizId, score, total, duration) {
+      try {
+        const response = await fetch("https://tinhoc321.com/api/save_result.php", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    },
+          body: JSON.stringify({
+            student_name: name,
+            class_name: className,
+            quiz_id: quizId,
+            score: score,
+            total: total,
+            duration: duration
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          document.getElementById('send-status').textContent = '✅ Đã lưu!';
+          console.log('Saved:', result.data);
+        } else {
+          throw new Error(result.message);
+        }
+        
+      } catch (e) {
+        console.error('Save error:', e);
+        document.getElementById('send-status').textContent = '⚠️ Không lưu được';
+      }
+    }?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${encodeURIComponent(quizId)}&score=${score}&total=${total}&duration=${duration}`;
+        await fetch(url,{mode:'no-cors'});
+        document.getElementById('send-status').textContent='✅ Đã lưu!'
+      }catch(e){
+        document.getElementById('send-status').textContent='⚠️ Không lưu được'
+      }
+    }
+    
+    document.getElementById('restart-btn').onclick=()=>location.reload();
+    showQuestion()
+  </script>
+</body>
+</html>
